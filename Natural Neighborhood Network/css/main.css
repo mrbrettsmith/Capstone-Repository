@@ -7,29 +7,35 @@ body {
     margin: 2em;
 }
 
-/* NAVBAR DROPDOWN */
+/* DROPDOWN */
 
 .dropdown {
     position: relative;
     display: inline-block;
 }
 
-.dropdown-content {
+/* DROPDOWN */
+.dropdown-projects {
     display: none;
     position: absolute;
-    background-color: red;
+    background-color: white;
     width: 100%;
     z-index: 1;
   }
 
-.dropdown-content a {
+  .dropdown-projects a {
     text-decoration: none;
     display: block;
 }
 
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-projects {display: block;} 
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
 
+/* HAMBURGER DROPDOWN */
+
+
+/* FAKE ON-CLICK DROPDOWN 
+.dropdown:active .dropdown-content {display: block;} */
 
 /* STYLE */
 
@@ -78,25 +84,38 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    
+    @media screen and (max-width: 800px) {
+        flex-direction: column;
+      }
+
 }
 
+/* NAV ITEMS MUS BECOME BURGER */
 .nav-items {
     color: black;
     text-decoration: none;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 1em;
+    
+    @media screen and (max-width: 800px) {
+        flex-direction: column;
+      }
 
 }
 
 
-/* FLEXBOX */
+/* FLEXBOX
 .navigation {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
+    gap: 10em;
 }
+*/
+
 
 /* CLASSES WIP */
 
