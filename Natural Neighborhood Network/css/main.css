@@ -114,7 +114,7 @@ nav {
 
 .hidden-dropdown {
     position: relative;
-    display: inline-block;
+    display: none;
 }
 
 @media screen and (max-width: 600px) {
@@ -132,7 +132,7 @@ nav {
     z-index: 1;
   }
 
-  .dropdown-burger a {
+.dropdown-burger a {
     text-decoration: none;
     display: block;
 }
@@ -141,7 +141,11 @@ nav {
 /* BURGER DISAPPEAR NAV-ITEMS APPEAR*/
 @media screen and (max-width: 600px) {
     .nav-items {
-    display: contents;}
+        display: contents;}
+
+    .hidden-dropdown {
+        display: none;
+    }
     .dropdown-burger {
         display: none;
     }
@@ -150,7 +154,12 @@ nav {
 /* BURGER APPEAR NAV-ITEMS DISAPPEAR*/
 @media screen and (min-width: 600px) {
     .nav-items {
-    display: contents;}
+        display: contents;}
+    
+    .hidden-dropdown {
+        display: inline block;
+    }
+   
     .dropdown-burger {
         display: none;
     }
