@@ -15,7 +15,7 @@ body {
 }
 
 /* DROPDOWN */
-.dropdown-projects {
+.dropdown-projects, .dropdown-burger {
     display: none;
     position: absolute;
     background-color: white;
@@ -23,7 +23,7 @@ body {
     z-index: 1;
   }
 
-  .dropdown-projects a {
+  .dropdown-projects a, .dropdown-burger a {
     text-decoration: none;
     display: block;
 }
@@ -41,6 +41,7 @@ body {
 
 .logo {
     color: #ED1C24;
+    margin: 1em;
     &:hover {
         color: black;
     }
@@ -67,7 +68,6 @@ h1 {
 h2 {
     font-family: 'proxima-soft';
     font-weight: 600;
-
 }
 
 h3 {
@@ -79,17 +79,20 @@ h3 {
 
 
 
+
 /* NAVIGATION */
 nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 1em;
     
     @media screen and (max-width: 800px) {
         flex-direction: column;
       }
-
 }
+
+
 
 .nav-items {
     color: black;
@@ -110,6 +113,8 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 1em
+;
 }
 
 .hidden-dropdown {
@@ -117,7 +122,7 @@ nav {
     display: none;
 }
 
-/* DROPDOWN BURGER - DONT TOUCH!*/
+/* DROPDOWN BURGER - DONT TOUCH!
 
 .dropdown-burger {
     display: none;
@@ -131,7 +136,7 @@ nav {
     text-decoration: none;
     display: block;
 }
-
+*/
 .hidden-dropdown:hover .dropdown-burger {display: block;} 
 
 
