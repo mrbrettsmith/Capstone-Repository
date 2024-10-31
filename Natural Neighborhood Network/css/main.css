@@ -134,34 +134,17 @@ nav {
 
 .dropdown-burger a {
     text-decoration: none;
-    display: block;
+    display: none;
 }
 
-
-/* BURGER DISAPPEAR NAV-ITEMS APPEAR*/
-@media screen and (max-width: 600px) {
-    .nav-items {
-        display: contents;}
-
-    .hidden-dropdown {
-        display: none;
-    }
-    .dropdown-burger {
-        display: none;
-    }
-}
 
 /* BURGER APPEAR NAV-ITEMS DISAPPEAR*/
-@media screen and (min-width: 600px) {
+@media screen and (max-width: 600px) {
     .nav-items {
-        display: contents;}
+        display: none;}
     
     .hidden-dropdown {
         display: inline block;
-    }
-   
-    .dropdown-burger {
-        display: none;
     }
 }
 
