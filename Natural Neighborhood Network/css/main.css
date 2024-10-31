@@ -29,7 +29,7 @@ body {
 }
 
 .dropdown:hover .dropdown-projects {display: block;} 
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
 
 /* HAMBURGER DROPDOWN */
 
@@ -91,7 +91,6 @@ nav {
 
 }
 
-/* NAV ITEMS MUS BECOME BURGER */
 .nav-items {
     color: black;
     text-decoration: none;
@@ -103,9 +102,61 @@ nav {
     @media screen and (max-width: 800px) {
         flex-direction: column;
       }
-
 }
 
+/* DROPDOWN BURGER */
+
+.primary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hidden-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+@media screen and (max-width: 600px) {
+    .hidden-dropdown {
+        display: inline-block;
+    }
+}
+
+
+.dropdown-burger {
+    display: none;
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .dropdown-burger a {
+    text-decoration: none;
+    display: block;
+}
+
+
+/* BURGER DISAPPEAR NAV-ITEMS APPEAR*/
+@media screen and (max-width: 600px) {
+    .nav-items {
+    display: contents;}
+    .dropdown-burger {
+        display: none;
+    }
+}
+
+/* BURGER APPEAR NAV-ITEMS DISAPPEAR*/
+@media screen and (min-width: 600px) {
+    .nav-items {
+    display: contents;}
+    .dropdown-burger {
+        display: none;
+    }
+}
+
+.hidden-dropdown:hover .dropdown-burger {display: block;} 
 
 /* FLEXBOX
 .navigation {
