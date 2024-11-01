@@ -14,7 +14,6 @@ body {
     display: inline-block;
 }
 
-/* DROPDOWN */
 .dropdown-projects, .dropdown-burger {
     display: none;
     position: absolute;
@@ -30,12 +29,6 @@ body {
 
 .dropdown:hover .dropdown-projects {display: block;} 
 
-
-/* HAMBURGER DROPDOWN */
-
-
-/* FAKE ON-CLICK DROPDOWN 
-.dropdown:active .dropdown-content {display: block;} */
 
 /* STYLE */
 
@@ -63,6 +56,7 @@ h1 {
     font-weight: 800;
     font-size: 3.75rem;
     line-height: 3.125rem;
+    margin: 1rem;
 }
 
 h2 {
@@ -75,6 +69,7 @@ h3 {
     font-weight: 600;
     font-size: 1.5rem;
     line-height: 1.3rem;
+    margin: .5rem;
 }
 
 
@@ -85,10 +80,11 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1em;
+    
     
     @media screen and (max-width: 800px) {
         flex-direction: column;
+        align-items: flex-start;
       }
 }
 
@@ -101,12 +97,19 @@ nav {
     align-items: center;
     justify-content: space-between;
     gap: 1em;
-    
+    background-color: aqua;
+
     @media screen and (max-width: 800px) {
         flex-direction: column;
+        align-items: flex-start;
+        margin: 1em;
       }
+    
 }
 
+.nav-text {
+    text-align: left;
+}
 /* HIDDEN DROPDOWN */
 
 .primary {
@@ -122,21 +125,6 @@ nav {
     display: none;
 }
 
-/* DROPDOWN BURGER - DONT TOUCH!
-
-.dropdown-burger {
-    display: none;
-    position: absolute;
-    background-color: white;
-    width: 100%;
-    z-index: 1;
-  }
-
-  .dropdown-burger a {
-    text-decoration: none;
-    display: block;
-}
-*/
 .hidden-dropdown:hover .dropdown-burger {display: block;} 
 
 
@@ -181,3 +169,10 @@ nav {
     }
 }
    
+
+.flex-test {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: greenyellow;
+}
