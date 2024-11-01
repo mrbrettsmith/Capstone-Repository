@@ -34,7 +34,6 @@ body {
 
 .logo {
     color: #ED1C24;
-    margin: 1em;
     &:hover {
         color: black;
     }
@@ -128,7 +127,7 @@ Do I need the Collapse into column? or can I just use Burgertime? Probably Not, 
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1em;
+    gap: 1rem;
     flex-grow: 2;
 }
 
