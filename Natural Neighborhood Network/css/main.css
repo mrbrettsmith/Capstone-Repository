@@ -51,44 +51,58 @@ a {
 
 
 /* TYPE */
+
+/* H1 for title */
 h1 {
     font-family: 'proxima-soft';
     font-weight: 800;
     font-size: 3.75rem;
     line-height: 3.125rem;
-    margin: 1rem;
+    width: min-content;
+    margin: .5rem;
 }
 
+/* H2 for article headers */
 h2 {
     font-family: 'proxima-soft';
     font-weight: 600;
 }
 
+/* H3 for buttons, nav, etc. */
 h3 {
     font-family: 'proxima-soft';
     font-weight: 600;
     font-size: 1.5rem;
     line-height: 1.3rem;
+    width: min-content;
     margin: .5rem;
 }
 
-
-
-
+/* Text Wrapper 
+.text-wrap {
+    margin: .5rem;
+    padding: .5rem;
+}
+*/
 /* NAVIGATION */
 nav {
     display: flex;
     align-items: center;
+    flex-flow: wrap;
+
+    /* Following not necisarry with nav 'flex-flow: wrap'
     justify-content: space-between;
-    
-    
     @media screen and (max-width: 800px) {
         flex-direction: column;
         align-items: flex-start;
       }
+    */
 }
 
-
+/* Questions?
+does nav items need to be a container with flex flow wrap and primary with flex grow? YES! 
+Do I need the Collapse into column? or can I just use Burgertime? Probably Not, unless it is for phone!
+*/
 
 .nav-items {
     color: black;
@@ -96,28 +110,26 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1em;
-    background-color: aqua;
+    flex:auto;
 
+    /*
     @media screen and (max-width: 800px) {
         flex-direction: column;
         align-items: flex-start;
         margin: 1em;
       }
-    
+ */   
+
 }
 
-.nav-text {
-    text-align: left;
-}
 /* HIDDEN DROPDOWN */
 
 .primary {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1em
-;
+    gap: 1em;
+    flex-grow: 2;
 }
 
 .hidden-dropdown {
@@ -130,17 +142,22 @@ nav {
 
 
 /* BURGER APPEAR NAV-ITEMS DISAPPEAR*/
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
     .nav-items {
         display: none;}
     
     .hidden-dropdown {
         display: inline-block;
     }
+
 }
 
 
 /* FLEXBOX
+do I need a nave specific wrap?
+
+Then I could weight primary and nav elements, or is my NAV definition doing that?
+
 .navigation {
     display: flex;
     align-items: center;
@@ -151,7 +168,7 @@ nav {
 
 
 /* CLASSES WIP */
-
+.bodycontainer {}
 .article {}
 .footer {}
 .PuzzlePiece {}
