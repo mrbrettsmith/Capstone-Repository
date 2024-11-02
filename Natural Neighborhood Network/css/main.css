@@ -151,7 +151,7 @@ Do I need the Collapse into column? or can I just use Burgertime? Probably Not, 
     .hidden-dropdown {
         display: inline-block;
     }
-
+ 
 }
 
 
@@ -181,17 +181,32 @@ something sticky or 'ghost' pzzle piece
 /* Body */
 
 .body-container {
- max-width: 70%;
- display: inline-block;
+    display: flex;
+    
+}
+
+.puzzle-container {
+    margin: 2em;
+    background-color: peachpuff; 
 
 }
 
 .article {
+    background-color: lightgoldenrodyellow;
+    margin: 2em;
     display: flex;
-    flex-wrap: wrap;
     flex-direction: row;
     text-align: left; 
 
+    /* OK ! here is the plan - 3 or 4 universal media screen calls that define
+    all response based on pixel count. article collapse, SVG collapse into column,
+    burger appearence!
+    container-name: sidebar;
+
+    @container sidebar (width < 50%) {
+        flex-direction: column;
+      }
+    */
 }
 
 .article-head {
@@ -199,14 +214,13 @@ something sticky or 'ghost' pzzle piece
     font-size: x-large;
     background-color: aquamarine;
     max-width: min-content;
-    flex: 2 1 20%;
+    
 }
 
 .article-body {
     background-color: lightgray;
     display: flex;
     flex-direction: column;
-    flex: 1 1 80%;
 }
 
 .article-p {
