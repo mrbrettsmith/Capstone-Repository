@@ -70,7 +70,9 @@ a {
 .rain {
     color: var(--rain);
     fill: var(--rain);
-    stroke:var(--rain)
+    path {
+        transform: rotate(var(--armangle));
+      }
 }
 
 .pollen {
