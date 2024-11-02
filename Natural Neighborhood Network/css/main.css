@@ -91,6 +91,7 @@ nav {
     position: sticky;
     top: 0;
     overflow: hidden;
+    background-color: white;
 
     /* Following not necisarry with nav 'flex-flow: wrap'
     justify-content: space-between;
