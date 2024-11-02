@@ -182,25 +182,43 @@ something sticky or 'ghost' pzzle piece
 
 .body-container {
  max-width: 70%;
- 
+ display: inline-block;
+
 }
 
 .article {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    
+    text-align: left; 
 
-    h2 {color: #3471b8;
-        font-size: x-large;
-        background-color: aquamarine;
-        max-width: min-content;
-    }
-    p { font-family: 'apparat';
-        font-size: medium;
-        flex: 1 0 80%
-    }
 }
+
+.article-head {
+    color: #3471b8;
+    font-size: x-large;
+    background-color: aquamarine;
+    max-width: min-content;
+    flex: 2 1 20%;
+}
+
+.article-body {
+    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 80%;
+}
+
+.article-p {
+    font-family: 'apparat';
+    font-size: medium;
+    
+}
+
+.article-img {
+ 
+}
+
 /* STICKY PUZZLE PEICE */
 /* Probably need to make one for 
 each puzzle, or can I defien with a style? 
