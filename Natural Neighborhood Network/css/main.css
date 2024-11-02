@@ -181,20 +181,24 @@ something sticky or 'ghost' pzzle piece
 /* Body */
 
 .body-container {
-display: flex;
-flex-flow: row wrap;
-justify-content: right;
-z-index: 2;
+ max-width: 70%;
+ 
 }
 
-
 .article {
-    flex-basis: 65%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    
+
     h2 {color: #3471b8;
         font-size: x-large;
+        background-color: aquamarine;
+        max-width: min-content;
     }
     p { font-family: 'apparat';
         font-size: medium;
+        flex: 1 0 80%
     }
 }
 /* STICKY PUZZLE PEICE */
@@ -209,18 +213,12 @@ that would be so cool
 .sticky-img {
     position: sticky;
     top: 25%;
-    overflow: hidden;
+    
     justify-self: left;
-    flex-basis: 35%;
+    
     background-color: pink;
 }
 
 
 /* MEDIA */
 
-.flex-test {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: greenyellow;
-}
