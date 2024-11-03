@@ -177,7 +177,7 @@ svg {
 
 .hidden-dropdown {
     background-color: #A35FA6;
-    display: flex;
+    display: none;
     flex: auto;
     height: 2.5em;
     width: 2.5em;
@@ -194,19 +194,7 @@ svg {
 
 .hidden-dropdown:hover .dropdown-burger {display: block;} 
 
-.testfloat {
-    margin: auto;
-    width: 100px;
-    height: 100px;
-    border: #ED1C24;
 
-img {
-    max-width: 100%;
-    max-height: 100%;
-    display: block;
-}
-
-}
 
 /* FLEXBOX
 do I need a nave specific wrap?
@@ -238,14 +226,14 @@ something sticky or 'ghost' pzzle piece
 }
 
 .puzzle-container {
-    margin: 2em;
+  
     background-color: peachpuff; 
     
 }
 
 .article {
     background-color: lightgoldenrodyellow;
-    margin: 2em;
+    margin: auto;
     display: inline-flex;
     flex-direction: row;
     text-align: left; 
@@ -310,12 +298,9 @@ and (min-width : 1200) {
 
 }
 
-/* tablet portrait !!!!! Remember to remove hidden burger */
+/* tablet portrait */
 @media screen and (min-width: 768px) and (max-width: 1023px)  {
 
-    .hidden-dropdown {
-        display: inline-block;
-    }
 }
 
 /* smartphone landscape */
@@ -325,7 +310,7 @@ and (min-width : 1200) {
         display: none;}
     
     .hidden-dropdown {
-        display: flex;
+        display: inline-block;
     }
 
     .article {
