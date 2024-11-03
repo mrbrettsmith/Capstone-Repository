@@ -25,7 +25,7 @@ body {
     display: inline-block;
 }
 
-.dropdown-projects s {
+.dropdown-projects {
     display: none;
     position: absolute;
     background-color: white;
