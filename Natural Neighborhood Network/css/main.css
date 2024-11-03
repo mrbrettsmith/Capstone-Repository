@@ -175,12 +175,14 @@ svg {
   }
 
 .hidden-dropdown {
+    position: relative;
     background-color: #A35FA6;
     display: none;
     flex: auto;
     height: 2.5em;
     width: 2.5em;
     margin: auto;
+    min-width: 2.5em;
     
     img {
         float: right;
