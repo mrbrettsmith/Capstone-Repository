@@ -124,8 +124,7 @@ h3 {
 /* NAVIGATION */
 nav {
     display: flex;
-    align-items: center;
-    flex-flow: wrap;
+    flex-flow:wrap;
     position: sticky;
     top: 0;
     
@@ -149,7 +148,7 @@ Do I need the Collapse into column? or can I just use Burgertime? Probably Not, 
     display: flex;
     gap: 1rem;
     width: 100%;
-
+    flex: 2 1;
 }
 
 .logo {
@@ -166,7 +165,7 @@ Do I need the Collapse into column? or can I just use Burgertime? Probably Not, 
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex: auto;
+    flex: 1 1;
 }
 
 /* HIDDEN DROPDOWN */
