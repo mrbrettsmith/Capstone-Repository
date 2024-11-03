@@ -30,7 +30,7 @@ body {
     position: absolute;
     background-color: white;
     width: 100%;
-    z-index: 1;
+    z-index: 5;
   }
 
   .dropdown-projects a, .dropdown-burger a {
@@ -127,7 +127,7 @@ nav {
     flex-flow:wrap;
     position: sticky;
     top: 0;
-    
+    z-index: 10;
     background-color: var(--white);
 
     /* Following not necisarry with nav 'flex-flow: wrap'
@@ -241,7 +241,6 @@ something sticky or 'ghost' pzzle piece
 .body-container {
     display: grid;
     grid-template-columns: 35% 65%;
-
 }
 
 .puzzle-container {
@@ -253,8 +252,8 @@ something sticky or 'ghost' pzzle piece
 .puzzle-piece {
     border: 1px solid rgb(154, 5, 160);
     width: 9em;
-    height: 9em;
-    
+    margin: 1em;
+    z-index: 1;
 }
 
 .article {
@@ -266,7 +265,6 @@ something sticky or 'ghost' pzzle piece
 }
 
 .article-head-container {
-   
    min-width: 11em;
     margin: 1em;
 }
