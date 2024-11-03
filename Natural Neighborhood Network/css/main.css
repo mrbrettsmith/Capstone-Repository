@@ -351,6 +351,10 @@ and (min-width : 1200) {
     .article {
         display: inline-block;
     }
+
+    .article-head {
+        margin: 0;
+    }
 }
 
 
