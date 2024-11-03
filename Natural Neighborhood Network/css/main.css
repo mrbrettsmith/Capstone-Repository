@@ -244,8 +244,15 @@ something sticky or 'ghost' pzzle piece
 }
 
 .puzzle-container {
-    width: 9em;
+    display: flex;
     background-color: peachpuff; 
+    justify-content: center;
+}
+
+.puzzle-piece {
+    border: 1px solid rgb(154, 5, 160);
+    width: 9em;
+    height: 9em;
     
 }
 
@@ -294,11 +301,11 @@ that would be so cool
 
 .sticky-img {
     position: sticky;
-    top: 40%;
+    top: 10em;
+    width: 9em;
+
     
-    justify-self: left;
-    
-    background-color: pink;
+    background-color: rgb(32, 11, 15);
 }
 
 
