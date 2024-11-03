@@ -263,12 +263,12 @@ something sticky or 'ghost' pzzle piece
     display: inline-flex;
     flex-direction: row;
     text-align: left; 
-    
 }
 
 .article-head-container {
-    display: flex;
-    flex: auto;
+   
+   min-width: 11em;
+    margin: 1em;
 }
 
 .article-head {
