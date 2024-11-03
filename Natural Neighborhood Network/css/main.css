@@ -43,13 +43,6 @@ body {
 
 /* STYLE */
 
-.logo {
-    color: var(--natural);
-    &:hover {
-        color: var(--black);
-    }
-}
-
 a {
     color: var(--black);
     text-decoration: none;
@@ -70,9 +63,6 @@ a {
 .rain {
     color: var(--rain);
     fill: var(--rain);
-    path {
-        transform: rotate(var(--armangle));
-      }
 }
 
 .pollen {
@@ -155,56 +145,68 @@ does nav items need to be a container with flex flow wrap and primary with flex 
 Do I need the Collapse into column? or can I just use Burgertime? Probably Not, unless it is for phone!
 */
 
+.primary {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+
+}
+
+.logo {
+    color: var(--natural);
+    &:hover {
+        color: var(--black);
+    }
+    flex: auto;
+}
+
 .nav-items {
     color: black;
     text-decoration: none;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex:auto;
-
-    /*
-    @media screen and (max-width: 800px) {
-        flex-direction: column;
-        align-items: flex-start;
-        margin: 1em;
-      }
- */   
-
+    flex: auto;
 }
 
 /* HIDDEN DROPDOWN */
 
-.primary {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    flex-grow: 2;
-}
+svg {
+    border: 1px solid blue;
+  }
 
 .hidden-dropdown {
-    position: relative;
-    display: none;
+    background-color: #A35FA6;
+    display: flex;
+    flex: auto;
+    height: 2.5em;
+    width: 2.5em;
+    margin: auto;
+    
+    img {
+        float: right;
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+    }
 }
+
 
 .hidden-dropdown:hover .dropdown-burger {display: block;} 
 
+.testfloat {
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    border: #ED1C24;
 
-
-/* BURGER APPEAR NAV-ITEMS DISAPPEAR 
-NOW In smartphone landscape as test
-
-@media screen and (max-width: 800px) {
-    .nav-items {
-        display: none;}
-    
-    .hidden-dropdown {
-        display: inline-block;
-    }
- 
+img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
 }
-*/
+
+}
 
 /* FLEXBOX
 do I need a nave specific wrap?
@@ -221,8 +223,6 @@ Then I could weight primary and nav elements, or is my NAV definition doing that
 
 
 /* CLASSES WIP
-.body-container {}
-.article {}
 .footer {}
 .PuzzlePiece {}
 .article-container {}
@@ -246,21 +246,10 @@ something sticky or 'ghost' pzzle piece
 .article {
     background-color: lightgoldenrodyellow;
     margin: 2em;
-    min-width: 400px;
     display: inline-flex;
     flex-direction: row;
     text-align: left; 
     
-
-    /* OK ! here is the plan - 3 or 4 universal media screen calls that define
-    all response based on pixel count. article collapse, SVG collapse into column,
-    burger appearence!
-    container-name: sidebar;
-
-    @container sidebar (width < 50%) {
-        flex-direction: column;
-      }
-    */
 }
 
 .article-head {
@@ -321,9 +310,12 @@ and (min-width : 1200) {
 
 }
 
-/* tablet portrait */
+/* tablet portrait !!!!! Remember to remove hidden burger */
 @media screen and (min-width: 768px) and (max-width: 1023px)  {
 
+    .hidden-dropdown {
+        display: inline-block;
+    }
 }
 
 /* smartphone landscape */
@@ -333,7 +325,7 @@ and (min-width : 1200) {
         display: none;}
     
     .hidden-dropdown {
-        display: inline-block;
+        display: flex;
     }
 
     .article {
@@ -345,6 +337,9 @@ and (min-width : 1200) {
 
 /* smartphone portrait */
 @media screen and (max-width: 479px) {
+
+    .nav-items {
+        display: none;}
 
     .body-container {
         display: block;
