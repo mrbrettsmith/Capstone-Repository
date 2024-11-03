@@ -262,19 +262,22 @@ something sticky or 'ghost' pzzle piece
     display: inline-flex;
     flex-direction: row;
     text-align: left; 
-    
+
 }
 
 .article-head {
+    /* This is breaxing fitting margin: 0 0 100% 0; */
     background-color: aquamarine;
     max-width: min-content;
-    
+    margin: 0 0 0 auto;
 }
 
 .article-body {
     background-color: lightgray;
     display: flex;
     flex-direction: column;
+
+    
 }
 
 .article-p {
@@ -283,7 +286,7 @@ something sticky or 'ghost' pzzle piece
 }
 
 .article-img {
-
+    min-height: min-content;
 }
 
 .title-img {
@@ -303,8 +306,6 @@ that would be so cool
     position: sticky;
     top: 10em;
     width: 9em;
-
-    
     background-color: rgb(32, 11, 15);
 }
 
