@@ -29,7 +29,7 @@ body {
     display: none;
     position: absolute;
     background-color: white;
-    width: 100%;
+    min-width: 100%;
     z-index: 5;
   }
 
@@ -112,7 +112,7 @@ h3 {
     font-size: 1.25rem;
     line-height: 1.1rem;
     width: min-content;
-    margin: .5rem;
+    margin: 1rem;
 }
 
 /* Text Wrapper 
@@ -168,7 +168,7 @@ Do I need the Collapse into column? or can I just use Burgertime? Probably Not, 
     align-items: center;
     justify-content: space-between;
     flex: 1 1 65%;
-    max-width: 40em;
+    /* max-width: 40em; */
     
     /* 52 em to match prarie */ 
 }
