@@ -175,13 +175,10 @@ Do I need the Collapse into column? or can I just use Burgertime? Probably Not, 
 
 /* HIDDEN DROPDOWN */
 
-svg {
-    border: 1px solid blue;
-  }
+
 
 .hidden {
     position: relative;
-    background-color: #A35FA6;
     display: none;
     flex: auto;
     height: 2.5em;
@@ -250,19 +247,19 @@ something sticky or 'ghost' pzzle piece
 
 .puzzle-container {
     display: flex;
-    background-color: peachpuff; 
+
     justify-content: center;
 }
 
 .puzzle-piece {
-    border: 1px solid rgb(154, 5, 160);
+
     width: 9em;
     margin: 1em;
     z-index: 1;
 }
 
 .article {
-    background-color: lightgoldenrodyellow;
+
     margin-left: auto;
     display: inline-flex;
     flex-direction: row;
@@ -276,13 +273,13 @@ something sticky or 'ghost' pzzle piece
 
 .article-head {
     /* This is breaxing fitting margin: 0 0 100% 0; */
-    background-color: aquamarine;
+
     max-width: min-content;
     margin: 0 0 0 auto; 
 }
 
 .article-body {
-    background-color: lightgray;
+
     display: flex;
     flex-direction: column;
     max-width: 40em;
@@ -322,7 +319,6 @@ that would be so cool
     position: sticky;
     top: 40%;
     width: 9em;
-    background-color: rgb(32, 11, 15);
 }
 
 
