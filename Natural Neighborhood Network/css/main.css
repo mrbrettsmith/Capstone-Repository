@@ -15,7 +15,7 @@ body {
     margin: 0em;
 }
 .wrap {
-    margin: 2em;
+    margin: 4em;
 }
 
 /* DROPDOWN */
@@ -268,7 +268,7 @@ something sticky or 'ghost' pzzle piece
 
 .article-head-container {
    min-width: 11em;
-    margin: 1em;
+    margin: 1em 3em;
 }
 
 .article-head {
@@ -283,6 +283,8 @@ something sticky or 'ghost' pzzle piece
     display: flex;
     flex-direction: column;
     max-width: 40em;
+    /* This margin sets distance between articles */
+    margin-bottom: 20em;
 }
 
 .article-body img {
