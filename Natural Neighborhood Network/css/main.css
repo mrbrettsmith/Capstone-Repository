@@ -91,8 +91,8 @@ a {
 h1 {
     font-family: 'proxima-soft';
     font-weight: 800;
-    font-size: 3.5rem;
-    line-height: 3rem;
+    font-size: 3rem;
+    line-height: 2.5rem;
     width: min-content;
     margin: .5rem;
 }
@@ -100,8 +100,8 @@ h1 {
 /* H2 for article headers */
 h2 {
     font-family: 'proxima-soft';
-    font-weight: 600;
-    font-size: 2.25rem;
+    font-weight: 800;
+    font-size: 2rem;
     line-height: 1.8rem;
 }
 
@@ -244,7 +244,7 @@ something sticky or 'ghost' pzzle piece
 }
 
 .puzzle-container {
-  
+    width: 9em;
     background-color: peachpuff; 
     
 }
