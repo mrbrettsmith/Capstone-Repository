@@ -282,9 +282,13 @@ something sticky or 'ghost' pzzle piece
     background-color: lightgray;
     display: flex;
     flex-direction: column;
-    max-width: 600px;
-   
-    
+    max-width: 40em;
+}
+
+.article-body img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
 }
 
 .article-p {
