@@ -259,7 +259,6 @@ something sticky or 'ghost' pzzle piece
 }
 
 .article {
-
     margin-left: auto;
     display: inline-flex;
     flex-direction: row;
@@ -295,7 +294,6 @@ something sticky or 'ghost' pzzle piece
 
 .article-p {
     font-family: 'apparat';
-    
 }
 
 .article-img {
@@ -306,6 +304,23 @@ something sticky or 'ghost' pzzle piece
 
 .title-img {
     display: none;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: flex-end;
+
+   p {
+        font-family: 'apparat';
+        padding-left: 1em;
+        margin: 0;
+    }
+}
+
+.footer-combo {
+display: flex;
+flex-direction: column;
+margin-left: 100%;
 }
 
 /* STICKY PUZZLE PEICE */
@@ -319,7 +334,7 @@ that would be so cool
 
 .sticky-img {
     position: sticky;
-    top: 40%;
+    top: 50%;
     width: 9em;
 }
 
@@ -374,15 +389,26 @@ and (min-width : 1200) {
         display: block;
     }
         
-    /* sText will be in puzzle Image */
-    .article-head {
-        display: none;}
+    .article {
+        margin-left: auto;
+        display: inline-flex;
+        flex-direction: column;
+        text-align: left; 
+    }
+
+    /*  TO DO:Text will be in puzzle Image, but until then..*/
+    .article-head-container {
+    display: inline-flex;
+    justify-content: space-around;
+    flex: auto;
+    }
 
     .puzzle-container {
         display: none;}
 
     .title-img {
         display: flex;
+        width: 5em;
     }
 }
 
