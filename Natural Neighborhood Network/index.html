@@ -20,6 +20,21 @@
     <div class="wrap">
 
 <!-- Navigation -->
+    <script>
+        const nav = document.querySelector('#main');
+        const topOfNav = nav.offsetTop;
+
+        function fixnav() {
+            console.log(topOfNav, window.scrollY)
+        }
+
+        window.addEventListener('scroll', fixnav)
+
+
+    </script>
+
+
+<!-- Navigation -->
 
         <nav>
             <div class="primary">
