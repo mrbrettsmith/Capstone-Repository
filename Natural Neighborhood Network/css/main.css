@@ -58,6 +58,7 @@ a {
     color: var(--natural);
     fill: var(--natural);
     stroke: var(--natural);
+    top: 10rem;
 }
 
 .rain {
@@ -156,7 +157,7 @@ nav {
 
 .puzzleFixed {
     position: fixed;
-    top: 5em;
+    
 }
 
 
@@ -281,7 +282,7 @@ something sticky or 'ghost' pzzle piece
 }
 
 .puzzle-piece {
-    width: 9em;
+    width: 7em;
     margin: 1em;
     z-index: 1;
 }
