@@ -125,8 +125,6 @@ h3 {
 nav {
     display: flex;
     flex-flow:wrap;
-    position: sticky;
-    top: 0;
     z-index: 10;
     background-color: var(--white);
     margin-top: 13em;
@@ -139,6 +137,18 @@ nav {
         align-items: flex-start;
       }
     */
+}
+
+/* UNUVERSAL STICKY */
+
+#stickyNavBar:not(.sticky) {
+    position: relative;
+}
+
+.sticky {
+    background-color: #3572B9;
+    position: sticky;
+    top: 0;
 }
 
 /* Questions?
