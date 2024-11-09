@@ -140,7 +140,7 @@ nav {
     */
 }
 
-/* UNUVERSAL STICKY */
+/* UNIVERSAL STICKY */
 
 #stickyNavBar:not(.sticky) {
     position: relative;
@@ -151,14 +151,19 @@ nav {
     top: 0;
 }
 
+/* PUZZLE ClASS & ID*/
 #stickyPuzzlePiece:not(.puzzleFixed) {
+    position: relative;
+}
+
+#allStickyPuzzle:not(.puzzleFixed) {
     position: relative;
 }
 
 .puzzleFixed {
     position: fixed;
-    
 }
+
 
 
 /* Questions?
@@ -283,9 +288,12 @@ something sticky or 'ghost' pzzle piece
 
 .puzzle-piece {
     width: 7em;
+    height: fit-content;
     margin: 1em;
     z-index: 1;
 }
+
+
 
 .article {
     margin-left: auto;

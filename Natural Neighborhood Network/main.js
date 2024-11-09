@@ -8,6 +8,16 @@ let stickyPosition = stickyItem.offsetTop;
 let fixItem = document.getElementById('stickyPuzzlePiece');
 let fixPosition = fixItem.offsetTop;
 
+let allFix = document.getElementsByClassName('allStickyPuzzle')
+
+
+// Make Square
+
+
+    
+
+
+
 function getCumulativePosition(element) {
     let x = 0;
     let y = 0;
@@ -21,7 +31,6 @@ function getCumulativePosition(element) {
   
     return { x, y };
   }
-  
   const element = document.getElementById('stickyPuzzlePiece');
   const position = getCumulativePosition(element);
   
@@ -86,13 +95,14 @@ function addOrRemoveFix() {
         fixedTotalHeight =  puzzleElement.offsetHeight + "px";
         //{fixedTotalHeight + (element);}
        // addToTotalHeight(puzzleElement.offsetHeight + "px");
-       console.log("Total Puzzle Height:",fixedTotalHeight);
     }
+    console.log("Total Puzzle Height:",fixedTotalHeight);
 }
 
 window.onscroll = () => {
     addOrRemoveSticky();
     addOrRemoveFix();
+
 }
 
 //resize update
