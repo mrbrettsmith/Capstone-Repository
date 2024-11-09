@@ -8,6 +8,30 @@ let stickyPosition = stickyItem.offsetTop;
 let fixItem = document.getElementById('stickyPuzzlePiece');
 let fixPosition = fixItem.offsetTop;
 
+function getCumulativePosition(element) {
+    let x = 0;
+    let y = 0;
+    let currentElement = element;
+  
+    while (currentElement) {
+      x += currentElement.offsetLeft;
+      y += currentElement.offsetTop;
+      currentElement = currentElement.offsetParent;
+    }
+  
+    return { x, y };
+  }
+  
+  const element = document.getElementById('stickyPuzzlePiece');
+  const position = getCumulativePosition(element);
+  
+  console.log("Cumulative position:", position);
+
+// Display 
+//console.log(isFixed);
+//console.log(fixedCount);
+//console.log("Total Puzzle Height:",fixedTotalHeight);
+
 // Element positioning
 
 let navElement = document.getElementById("stickyNavBar");
@@ -18,11 +42,24 @@ let puzzleElement = document.getElementById("stickyPuzzlePiece");
 console.log("Puzzle Width: " + puzzleElement.offsetWidth + "px");
 console.log("Puzzle Height: " + puzzleElement.offsetHeight + "px");
 
+// Adding Sticky Heights
+
+// function addToTotalHeight() {fixedTotalHeight + (element);}
+var fixedTotalHeight = 0;
 
 
-var count = 0;
-console.log(count); 
+// var count = 0;
+// let fixedCount = [0]
 
+
+let isFixed = false;
+
+
+function addToArray(array, element) {
+    array.push(element);
+  }
+
+  //console.log(fixedCount);
 
 function addOrRemoveSticky() {
     if (window.scrollY >= stickyPosition) {
@@ -35,17 +72,22 @@ function addOrRemoveSticky() {
 //stickyPuzzlePiece
 function addOrRemoveFix() {
     if (window.scrollY >= fixPosition) {
-
         fixItem.classList.add('puzzleFixed');
         //fixItem.style.top.add(navElement.offsetHeight);
         fixItem.style.top = navElement.offsetHeight + "px"; 
-
+        isFixed = true;
     } else {
         fixItem.classList.remove('puzzleFixed');
+        isFixed = false;
     }
-
-    
-
+   
+    //if (isFixed = true) {addToArray(fixedCount, + puzzleElement.offsetHeight + "px");}
+    if (isFixed = true) {
+        fixedTotalHeight =  puzzleElement.offsetHeight + "px";
+        //{fixedTotalHeight + (element);}
+       // addToTotalHeight(puzzleElement.offsetHeight + "px");
+       console.log("Total Puzzle Height:",fixedTotalHeight);
+    }
 }
 
 window.onscroll = () => {
@@ -66,7 +108,5 @@ window.onresize = function(){
 
     fixItem.style.top = navElement.offsetHeight + "px"; 
 }
-
-
 
 });
