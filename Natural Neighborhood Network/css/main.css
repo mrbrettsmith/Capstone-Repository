@@ -146,10 +146,19 @@ nav {
 }
 
 .sticky {
-    background-color: #3572B9;
     position: sticky;
     top: 0;
 }
+
+#stickyPuzzlePiece:not(.puzzleFixed) {
+    position: relative;
+}
+
+.puzzleFixed {
+    position: fixed;
+    top: 5em;
+}
+
 
 /* Questions?
 does nav items need to be a container with flex flow wrap and primary with flex grow? YES! 
@@ -268,12 +277,10 @@ something sticky or 'ghost' pzzle piece
 
 .puzzle-container {
     display: flex;
-
     justify-content: center;
 }
 
 .puzzle-piece {
-
     width: 9em;
     margin: 1em;
     z-index: 1;
@@ -299,7 +306,6 @@ something sticky or 'ghost' pzzle piece
 }
 
 .article-body {
-
     display: flex;
     flex-direction: column;
     max-width: 40em;
@@ -351,14 +357,14 @@ Along with color and rotation?
 and flex order?
 
 that would be so cool
-*/
+
 
 .sticky-img {
     position: sticky;
     top: 50%;
     width: 9em;
 }
-
+*/
 
 /* MEDIA */
 
