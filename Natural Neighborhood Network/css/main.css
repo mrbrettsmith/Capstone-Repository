@@ -162,6 +162,7 @@ nav {
 
 .puzzleFixed {
     position: fixed;
+    top: 0;
 }
 
 
@@ -282,13 +283,13 @@ something sticky or 'ghost' pzzle piece
 }
 
 .puzzle-container {
-    display: flex;
-    justify-content: center;
+    
+    
 }
 
 .puzzle-piece {
     width: 7em;
-    height: fit-content;
+    
     margin: 1em;
     z-index: 1;
 }

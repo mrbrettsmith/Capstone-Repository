@@ -8,34 +8,107 @@ let stickyPosition = stickyItem.offsetTop;
 let fixItem = document.getElementById('stickyPuzzlePiece');
 let fixPosition = fixItem.offsetTop;
 
-let allFix = document.getElementsByClassName('allStickyPuzzle')
 
 
-// Make Square
 
+
+// Try something new - draw html class into array of objects. define hight and offset, (and name?) Then mod offset based on height
+
+
+// const elements = document.querySelectorAll(".puzzle-piece");
+// const classArray = Array.from(elements).map(element => element.className);
+// console.log(classArray);
+
+// pulling Each puzzle height & name
+
+
+
+function getElementsData() {
+    const elements = document.querySelectorAll('.puzzle-piece'); 
+    const dataArray = [];
+    
+
+    elements.forEach(element => {
+      dataArray.push({
+
+        name: element.className,
+        height: element.offsetHeight, 
+        width: element.offsetWidth,
+        FromTop: element.offsetTop,
+        test: 'please work'
+        
+      });
+    });
+
+    return dataArray;
+  }
+  
+
+  
+  const elementData = getElementsData();
+  console.log(elementData);
+
+
+  
+// count Each Puzzle class 
+// THIS IS WORKING!
+
+
+// function puzzleTag() {
+//     var puzzleList = document.getElementsByClassName("puzzle-piece");
+//     for(var i=0; i < puzzleList.length; i++){
+//         //puzzleList[i].setAttribute("id", "field"+i);
+//         puzzleList[i].value = "Johnny Bravo "+i;
+//         puzzleList[i].classList.add("mystyle" + i);
+//     }
+//     console.log("puzzle amount:",puzzleList.length);
+//    }
+//    window.onload = puzzleTag();
+
+// var elements = document.getElementsByClassName('input');
+
+// var index = 1;
+// for(var e of elements){
+//     e.setAttribute("id", "fieldid"+index);
+//     index++;
+// }
+
+
+// Make string, then setAttribute() of increasing offset top - or multiply x index #
 
     
 
 
+    // this almost works, but boolian is broken, always adding padding
 
-function getCumulativePosition(element) {
-    let x = 0;
-    let y = 0;
-    let currentElement = element;
-  
-    while (currentElement) {
-      x += currentElement.offsetLeft;
-      y += currentElement.offsetTop;
-      currentElement = currentElement.offsetParent;
-    }
-  
-    return { x, y };
-  }
-  const element = document.getElementById('stickyPuzzlePiece');
-  const position = getCumulativePosition(element);
-  
-  console.log("Cumulative position:", position);
+   // if (isFixed = true) {addToArray(fixedCount, + puzzleElement.offsetHeight + "px");}
+    //if (isFixed = true) {
+        //fixedTotalHeight =  puzzleElement.offsetHeight + "px";
+        //{fixedTotalHeight + (element);}
+       // addToTotalHeight(puzzleElement.offsetHeight + "px");
+    //}
 
+    //console.log("Total Puzzle Height:",fixedTotalHeight);
+    //console.log("Total Puzzle Height:",fixedCount);
+
+
+
+
+
+//to do:
+// make the svg square
+// count puzzle pieces
+// add # id to each peice
+// sum of puzzle offsetheight x puzzle #
+
+
+
+
+
+
+
+
+//
 // Display 
 //console.log(isFixed);
 //console.log(fixedCount);
@@ -51,24 +124,10 @@ let puzzleElement = document.getElementById("stickyPuzzlePiece");
 console.log("Puzzle Width: " + puzzleElement.offsetWidth + "px");
 console.log("Puzzle Height: " + puzzleElement.offsetHeight + "px");
 
-// Adding Sticky Heights
-
-// function addToTotalHeight() {fixedTotalHeight + (element);}
-var fixedTotalHeight = 0;
 
 
-// var count = 0;
-// let fixedCount = [0]
 
-
-let isFixed = false;
-
-
-function addToArray(array, element) {
-    array.push(element);
-  }
-
-  //console.log(fixedCount);
+// Sticky add function
 
 function addOrRemoveSticky() {
     if (window.scrollY >= stickyPosition) {
@@ -79,44 +138,44 @@ function addOrRemoveSticky() {
 }
 
 //stickyPuzzlePiece
+
 function addOrRemoveFix() {
+    
     if (window.scrollY >= fixPosition) {
         fixItem.classList.add('puzzleFixed');
-        //fixItem.style.top.add(navElement.offsetHeight);
+        
         fixItem.style.top = navElement.offsetHeight + "px"; 
+
+        // ACTUNG! This adds to top in the container too! no good, gotta add to offset?
+
+        //fixItem.style.top.add(navElement.offsetHeight);
+        //fixItem.style.top = navElement.offsetHeight + "px"; 
         isFixed = true;
     } else {
         fixItem.classList.remove('puzzleFixed');
         isFixed = false;
     }
-   
-    //if (isFixed = true) {addToArray(fixedCount, + puzzleElement.offsetHeight + "px");}
-    if (isFixed = true) {
-        fixedTotalHeight =  puzzleElement.offsetHeight + "px";
-        //{fixedTotalHeight + (element);}
-       // addToTotalHeight(puzzleElement.offsetHeight + "px");
-    }
-    console.log("Total Puzzle Height:",fixedTotalHeight);
+
 }
 
 window.onscroll = () => {
     addOrRemoveSticky();
     addOrRemoveFix();
-
 }
 
 //resize update
 
 window.onresize = function(){ 
-    navElement = document.getElementById("stickyNavBar");
-    console.log("NavBar Width: " + navElement.offsetWidth + "px");
-    console.log("Navbar Height: " + navElement.offsetHeight + "px");
+    // navElement = document.getElementById("stickyNavBar");
+    // console.log("NavBar Width: " + navElement.offsetWidth + "px");
+    // console.log("Navbar Height: " + navElement.offsetHeight + "px");
 
-    puzzleElement = document.getElementById("stickyPuzzlePiece");
-    console.log("Puzzle Width: " + puzzleElement.offsetWidth + "px");
-    console.log("Puzzle Height: " + puzzleElement.offsetHeight + "px");
+    // puzzleElement = document.getElementById("stickyPuzzlePiece");
+    // console.log("Puzzle Width: " + puzzleElement.offsetWidth + "px");
+    // console.log("Puzzle Height: " + puzzleElement.offsetHeight + "px");
 
-    fixItem.style.top = navElement.offsetHeight + "px"; 
+    // ACTUNG! This adds to top in the container too! no good, gotta add to offset?
+    //fixItem.style.top = navElement.offsetHeight + "px"; 
 }
 
 });
