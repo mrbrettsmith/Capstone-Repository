@@ -2,98 +2,87 @@ document.addEventListener("DOMContentLoaded", function(event) {
     
 
 let stickyItem = document.getElementById('stickyNavBar');
-
 let stickyPosition = stickyItem.offsetTop;
+
+// must fix by class .puzzle-piece - see new function
+//must fix position based on nav height and Array ID
+// array is const elementData
 
 let fixItem = document.getElementById('stickyPuzzlePiece');
 let fixPosition = fixItem.offsetTop;
 
 
 
+// // make array node?
 
 
-// Try something new - draw html class into array of objects. define hight and offset, (and name?) Then mod offset based on height
+// var nodelistToArray;
+// function puzzleNodeArray() {
+//     Array.from(document.querySelectorAll('.puzzle-piece'))
+// }
+// // nodelistToArray.map(el => console.log(el))
+// //   nodelistToArray.map(el => el.getBoundingClientRect());
 
+// // nodelistToArray
 
-// const elements = document.querySelectorAll(".puzzle-piece");
-// const classArray = Array.from(elements).map(element => element.className);
-// console.log(classArray);
-
-// pulling Each puzzle height & name
-
-
-
+// Puzzle Class Array Generation
 function getElementsData() {
     const elements = document.querySelectorAll('.puzzle-piece'); 
     const dataArray = [];
-    
-
     elements.forEach(element => {
       dataArray.push({
-
         name: element.className,
-        height: element.offsetHeight, 
-        width: element.offsetWidth,
-        FromTop: element.offsetTop,
-        ContainerHeight: element.getBoundingClientRect(),
-        
+        // height: element.offsetHeight, 
+        // width: element.offsetWidth,
+        // FromTop: element.offsetTop,
+        containerHeight: element.getBoundingClientRect(),
       });
     });
-
     return dataArray;
   }
-  
 
-  
   const elementData = getElementsData();
   console.log(elementData);
 
 
+// function getPuzzBox() {
+//     const elements = document.querySelectorAll('.puzzle-piece');
+//     const puzzBox = Array.from(elements.getBoundingClientRect(elements))
+//     return puzzBox;
+// }
+// const puzzData = getPuzzBox();
+//   console.log(puzzData);
   
-// count Each Puzzle class 
-// THIS IS WORKING!
+// // New function to make new fix height 
+// (fix is relative to screen)
+// trigger fix at height relative to curent:
+// NavHeight
+// Puzzle piece height
+// number of puzzle peices (array ID!)
+// array is const elementData
 
+function changeFixHeight(elementData,newFixHeight) {
+    for (let i = 0; i < array.length; i++) {
+        if (array[i].hasOwnProperty('height')) {
+          array[i].height = newHeight;
+        }
+      } 
+}
 
-// function puzzleTag() {
-//     var puzzleList = document.getElementsByClassName("puzzle-piece");
-//     for(var i=0; i < puzzleList.length; i++){
-//         //puzzleList[i].setAttribute("id", "field"+i);
-//         puzzleList[i].value = "Johnny Bravo "+i;
-//         puzzleList[i].classList.add("mystyle" + i);
+// function changeHeight(array, newFixHeight) {
+//     for (let i = 0; i < array.length; i++) {
+//       if (array[i].hasOwnProperty('height')) {
+//         array[i].height = newHeight;
+//       }
 //     }
-//     console.log("puzzle amount:",puzzleList.length);
-//    }
-//    window.onload = puzzleTag();
+//   }
 
-// var elements = document.getElementsByClassName('input');
-
-// var index = 1;
-// for(var e of elements){
-//     e.setAttribute("id", "fieldid"+index);
-//     index++;
+// Set the fix hight setAttribute
+// function getFixHeight(params) {
+    
 // }
 
-
 // Make string, then setAttribute() of increasing offset top - or multiply x index #
-
-    
-
-
-    // this almost works, but boolian is broken, always adding padding
-
-   // if (isFixed = true) {addToArray(fixedCount, + puzzleElement.offsetHeight + "px");}
-    //if (isFixed = true) {
-        //fixedTotalHeight =  puzzleElement.offsetHeight + "px";
-        //{fixedTotalHeight + (element);}
-       // addToTotalHeight(puzzleElement.offsetHeight + "px");
-    //}
-
-    //console.log("Total Puzzle Height:",fixedTotalHeight);
-    //console.log("Total Puzzle Height:",fixedCount);
-
-
-
-
 
 //to do:
 // make the svg square
@@ -103,18 +92,7 @@ function getElementsData() {
 
 
 
-
-
-
-
-
-//
-// Display 
-//console.log(isFixed);
-//console.log(fixedCount);
-//console.log("Total Puzzle Height:",fixedTotalHeight);
-
-// Element positioning
+// Display Element Positioning
 
 let navElement = document.getElementById("stickyNavBar");
 console.log("NavBar Width: " + navElement.offsetWidth + "px");
@@ -144,7 +122,8 @@ function addOrRemoveFix() {
     if (window.scrollY >= fixPosition) {
         fixItem.classList.add('puzzleFixed');
         
-        fixItem.style.top = navElement.offsetHeight + "px"; 
+        // This adds the nav height, but it relates to container, and offests in container
+        // fixItem.style.top = navElement.offsetHeight + "px"; 
 
         // ACTUNG! This adds to top in the container too! no good, gotta add to offset?
 

@@ -1,58 +1,476 @@
+:root{
+    --natural: #ED1C24;
+    --rain: #3572B9;
+    --pollen: #DCCC3C;
+    --prairie: #F47534;
+    --seed: #A35FA6;
+    --forest: #6BA95C;
+    --black: #000000;
+    --white: #ffffff;
+}
+
+/* UNIVERSAL */
+
 body {
     margin: 0em;
 }
 .wrap {
-    margin: 2em;
+    margin: 4em;
 }
 
+/* DROPDOWN */
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-projects {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 100%;
+    z-index: 5;
+  }
+
+  .dropdown-projects a, .dropdown-burger a {
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown:hover .dropdown-projects {display: block;} 
+
+
+/* STYLE */
+
+a {
+    color: var(--black);
+    text-decoration: none;
+    
+    &:hover {
+        color: var(--natural);
+    }
+}  
+
+/* PUZZLE STYLE CLASSES */
+
+.natural {
+    color: var(--natural);
+    fill: var(--natural);
+    stroke: var(--natural);
+    
+}
+
+.rain {
+    color: var(--rain);
+    fill: var(--rain);
+}
+
+.pollen {
+    color: var(--pollen);
+    fill: var(--pollen);
+}
+
+.prairie {
+    color: var(--prairie);
+    fill: var(--prairie);
+}
+
+.forest {
+    color: var(--forest);
+    fill: var(--forest);
+}
+
+.seed {
+    color: var(--seed);
+    fill: var(--seed);
+}
+
+/* TYPE */
+
+/* H1 for title */
+h1 {
+    font-family: 'proxima-soft';
+    font-weight: 800;
+    font-size: 3rem;
+    line-height: 2.5rem;
+    width: min-content;
+    margin: .5rem;
+}
+
+/* H4 for Name and Program UPDATE IT! */
+h4 {
+    font-family: 'proxima-soft';
+    font-weight: 800;
+    font-size: 2rem;
+    line-height: 1.8rem;
+    width: min-content;
+    margin: .5rem;
+}
+
+
+/* H2 for article headers */
+h2 {
+    font-family: 'proxima-soft';
+    font-weight: 800;
+    font-size: 2rem;
+    line-height: 1.8rem;
+}
+
+/* H3 for buttons, nav, etc. */
+h3 {
+    font-family: 'proxima-soft';
+    font-weight: 600;
+    font-size: 1.25rem;
+    line-height: 1.1rem;
+    width: min-content;
+    margin: 1rem;
+}
+
+/* Text Wrapper 
+.text-wrap {
+    margin: .5rem;
+    padding: .5rem;
+}
+*/
+/* NAVIGATION */
 nav {
     display: flex;
-    justify-content: space-between;
+    flex-flow: wrap;
+    z-index: 10;
+    background-color: var(--white);
+    padding: 1em 0 1em 0;
 
-    a {
-        color: black;
-        text-decoration: none;
-        
-        &:hover {
-            color: #ED1C24;
-        }
+    /* Following not necisarry with nav 'flex-flow: wrap'
+    justify-content: space-between;
+    @media screen and (max-width: 800px) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    */
+}
+
+/* UNIVERSAL STICKY */
+
+#stickyNavBar:not(.sticky) {
+    position: relative;
+}
+
+.sticky {
+    position: sticky;
+    top: 0;
+}
+
+/* PUZZLE ClASS & ID*/
+#stickyPuzzlePiece:not(.puzzleFixed) {
+    position: relative;
+}
+
+#allStickyPuzzle:not(.puzzleFixed) {
+    position: relative;
+}
+
+.puzzleFixed {
+    position: fixed;
+    top: 0;
+}
+
+
+
+/* Questions?
+does nav items need to be a container with flex flow wrap and primary with flex grow? YES! 
+Do I need the Collapse into column? or can I just use Burgertime? Probably Not, unless it is for phone!
+*/
+
+.primary {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    flex: 1 1 35%;
+}
+
+.logo {
+    color: var(--natural);
+    &:hover {
+        color: var(--black);
     }
+    flex: auto;
+}
+
+.headline {
+    display: inline-flex;
+    flex: auto;
+    justify-content: flex-end;
 }
 
 .nav-items {
     color: black;
     text-decoration: none;
-}
-
-ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1 1 65%;
     list-style-type: none;
 }
 
-h1 {
-    font-family: 'proxima-soft';
-    font-weight: 800;
-    font-size: 3em;
-    line-height: 2.5rem;
+
+
+/* HIDDEN DROPDOWN */
+
+
+
+.hidden {
+    position: relative;
+    display: none;
+    flex: auto;
+    height: 2.5em;
+    width: 2.5em;
+    margin: auto;
+    min-width: 2.5em; 
 }
 
-h2 {
-    font-family: 'proxima-soft';
-    font-weight: 600;
-    line-height: 1.5rem;
+.hidden-dropdown {
+    position: relative;
+    flex: auto;
+    height: 2.5em;
+    width: 2.5em;
+    margin: auto 0px auto auto;
+    min-width: 2.5em;
+    
+    img {
+        float: right;
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+    }
 }
 
-h3 {
-    font-family: 'proxima-soft';
-    font-weight: 600;
+.dropdown-burger {
+    display: none;
+    position: absolute;
+    background-color: white;
+    width: min-content;
+    z-index: 1;
+    right: 0;
+  }
+
+.hidden-dropdown:hover .dropdown-burger {display: block;} 
+
+
+
+/* FLEXBOX
+do I need a nave specific wrap?
+
+Then I could weight primary and nav elements, or is my NAV definition doing that?
+
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10em;
+}
+*/
+
+
+/* CLASSES WIP
+.footer {}
+.PuzzlePiece {}
+.article-container {}
+something sticky or 'ghost' pzzle piece
+ */
+
+/* Body */
+
+.impact-quote {
+    width: 75%;
+    margin: 10% 2em 30% auto;
+   
+    p {
+        font-family: 'proxima-soft';
+        font-weight: 500;
+        font-size: 1.8rem;
+        line-height: 1.8rem;
+    }
+}
+
+.body-container {
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+
+.puzzle-container {
+    
     
 }
 
+.puzzle-piece {
+    width: 7em;
+    margin: 1em;
+    z-index: 1;
+}
+
+
+
 .article {
-    h2 {color: #3471b8;
-        font-size: x-large;
-    }
-    p { font-family: 'apparat';
-        font-size: medium;
+    margin-left: auto;
+    display: inline-flex;
+    flex-direction: row;
+    text-align: left; 
+}
+
+.article-head-container {
+   min-width: 11em;
+    margin: 1em 3em;
+}
+
+.article-head {
+    /* This is breaxing fitting margin: 0 0 100% 0; */
+
+    max-width: min-content;
+    margin: 0 0 0 auto; 
+}
+
+.article-body {
+    display: flex;
+    flex-direction: column;
+    max-width: 40em;
+    /* This margin sets distance between articles */
+    margin-bottom: 20em;
+}
+
+.article-body img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+}
+
+.article-p {
+    font-family: 'apparat';
+}
+
+.article-img {
+    background-color: green;
+   max-width: 600px;
+   height: 600px;
+}
+
+.title-img {
+    display: none;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: flex-end;
+
+   p {
+        font-family: 'apparat';
+        padding-left: 1em;
+        margin: 0;
     }
 }
-   
+
+.footer-combo {
+display: flex;
+flex-direction: column;
+margin-left: 100%;
+}
+
+/* STICKY PUZZLE PEICE */
+/* Probably need to make one for 
+each puzzle, or can I defien with a style? 
+Along with color and rotation? 
+and flex order?
+
+that would be so cool
+
+
+.sticky-img {
+    position: sticky;
+    top: 50%;
+    width: 9em;
+}
+*/
+
+/* MEDIA */
+
+/* desktop */
+@media only screen
+and (min-width : 1200) {
+
+
+}
+
+/* tablet landscape */
+@media screen and (min-width: 1024px) and (max-width: 1600px)  {
+
+}
+
+/* tablet portrait */
+@media screen and (min-width: 768px) and (max-width: 1023px)  {
+
+}
+
+/* smartphone landscape */
+@media screen and (min-width: 480px) and (max-width: 767px)  {
+
+    .nav-items {
+        display: none;}
+    
+    .hidden {
+        display: inline-block;
+    }
+
+    .article {
+        display: inline-block;
+    }
+
+    .article-head {
+        margin: 0;
+    }
+}
+
+
+
+/* smartphone portrait */
+@media screen and (max-width: 479px) {
+
+    .nav-items {
+        display: none;}
+
+    .body-container {
+        display: block;
+    }
+        
+    .impact-quote {
+        p {
+            font-family: 'proxima-soft';
+            font-weight: 500;
+            font-size: 1.5rem;
+            line-height: 1.5rem;
+        }
+    }
+
+    .article {
+        margin-left: auto;
+        display: inline-flex;
+        flex-direction: column;
+        text-align: left; 
+    }
+
+    /*  TO DO:Text will be in puzzle Image, but until then..*/
+    .article-head-container {
+    display: inline-flex;
+    justify-content: space-around;
+    flex: auto;
+    }
+
+    .puzzle-container {
+        display: none;}
+
+    .title-img {
+        display: flex;
+        width: 5em;
+    }
+}
+
+

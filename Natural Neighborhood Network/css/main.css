@@ -289,7 +289,6 @@ something sticky or 'ghost' pzzle piece
 
 .puzzle-piece {
     width: 7em;
-    
     margin: 1em;
     z-index: 1;
 }
