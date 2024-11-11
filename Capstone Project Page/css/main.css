@@ -127,6 +127,14 @@ h3 {
     margin: 1rem;
 }
 
+/* H5 for Citation titles*/
+h5 {
+    font-family: 'apparat';
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin: .5rem;
+}
+
 /* Text Wrapper 
 .text-wrap {
     margin: .5rem;
@@ -187,6 +195,7 @@ Do I need the Collapse into column? or can I just use Burgertime? Probably Not, 
     gap: 1rem;
     width: 100%;
     flex: 1 1 35%;
+    padding-bottom: 1rem;
 }
 
 .logo {
@@ -280,6 +289,35 @@ something sticky or 'ghost' pzzle piece
  */
 
 /* Body */
+
+.citation-list {
+margin: 0 4em;
+flex: auto;
+}
+
+.citation-item {
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.citation-item p {
+    font-family: 'apparat';
+    font-weight: 400;
+    font-size: 1.25rem;
+    padding: 0;
+    margin: .5rem;
+}
+/* This is breaking on wrap! */
+.citation-item a {
+    font-size: 1rem;
+    font-style: italic;
+    margin: 0 .5rem;
+}
+
+.citation-text {
+    display: inline;
+}
 
 .impact-quote {
     width: 75%;
