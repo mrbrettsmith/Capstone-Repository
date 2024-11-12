@@ -11,7 +11,10 @@ let stickyPosition = stickyItem.offsetTop;
 let fixItem = document.getElementById('stickyPuzzlePiece');
 let fixPosition = fixItem.offsetTop;
 
+// let nHieght = ;
+// let pHeight = ;
 
+// let fixStop = nHieght + pHeight;
 
 // // make array node?
 
@@ -45,6 +48,7 @@ function getElementsData() {
   console.log(elementData);
 
 
+
 // function getPuzzBox() {
 //     const elements = document.querySelectorAll('.puzzle-piece');
 //     const puzzBox = Array.from(elements.getBoundingClientRect(elements))
@@ -61,13 +65,13 @@ function getElementsData() {
 // number of puzzle peices (array ID!)
 // array is const elementData
 
-function changeFixHeight(elementData,newFixHeight) {
-    for (let i = 0; i < array.length; i++) {
-        if (array[i].hasOwnProperty('height')) {
-          array[i].height = newHeight;
-        }
-      } 
-}
+// function changeFixHeight(elementData,newFixHeight) {
+//     for (let i = 0; i < array.length; i++) {
+//         if (array[i].hasOwnProperty('height')) {
+//           array[i].height = newHeight;
+//         }
+//       } 
+// }
 
 // function changeHeight(array, newFixHeight) {
 //     for (let i = 0; i < array.length; i++) {
@@ -92,7 +96,8 @@ function changeFixHeight(elementData,newFixHeight) {
 
 
 
-// Display Element Positioning
+
+// Call and Display Element Dimensions
 
 let navElement = document.getElementById("stickyNavBar");
 console.log("NavBar Width: " + navElement.offsetWidth + "px");
@@ -102,6 +107,31 @@ let puzzleElement = document.getElementById("stickyPuzzlePiece");
 console.log("Puzzle Width: " + puzzleElement.offsetWidth + "px");
 console.log("Puzzle Height: " + puzzleElement.offsetHeight + "px");
 
+// Create new hieght
+
+let nHieght = navElement.offsetHeight;
+let pHeight = puzzleElement.offsetHeight;
+let fixStop = nHieght + pHeight;
+console.log('nav plus puzzle height: ' + fixStop + "px")
+
+// Push new Height also works, but still offsests in parent
+
+function topDistancePush (newStop) {
+    puzzleElement.style.margin = newStop + "px";
+    //puzzleElement.setAttribute(top + newStop);
+}
+
+
+//topDistancePush(fixStop);
+
+// // test function
+
+// function changeHeight(elementId, newHeight) {
+//     document.getElementById(elementId).style.height = newHeight;
+//   }
+
+// // Change the height of an element with the id "myDiv" to 200px
+// changeHeight("myDiv", "200px"); 
 
 
 
@@ -121,7 +151,8 @@ function addOrRemoveFix() {
     
     if (window.scrollY >= fixPosition) {
         fixItem.classList.add('puzzleFixed');
-        
+        isFixed = true;
+
         // This adds the nav height, but it relates to container, and offests in container
         // fixItem.style.top = navElement.offsetHeight + "px"; 
 
@@ -129,7 +160,7 @@ function addOrRemoveFix() {
 
         //fixItem.style.top.add(navElement.offsetHeight);
         //fixItem.style.top = navElement.offsetHeight + "px"; 
-        isFixed = true;
+        
     } else {
         fixItem.classList.remove('puzzleFixed');
         isFixed = false;
@@ -138,6 +169,7 @@ function addOrRemoveFix() {
 }
 
 window.onscroll = () => {
+//    topDistancePush(fixStop);
     addOrRemoveSticky();
     addOrRemoveFix();
 }

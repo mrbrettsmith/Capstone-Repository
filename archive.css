@@ -278,18 +278,13 @@ something sticky or 'ghost' pzzle piece
 }
 
 .body-container {
-    display: flex;
+    display: grid;
     grid-template-columns: 30% 70%;
 }
 
-.puzzle-column {
-    width: 30%;
-}
-.article-column {
-    width: 70%;
-}
-
-.puzzle-container { 
+.puzzle-container {
+    
+    
 }
 
 .puzzle-piece {
