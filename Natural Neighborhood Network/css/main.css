@@ -325,6 +325,8 @@ something sticky or 'ghost' pzzle piece
     max-width: 40em;
     /* This margin sets distance between articles */
     margin-bottom: 20em;
+
+    p {color: #000000;}
 }
 
 .article-body img {
@@ -335,6 +337,7 @@ something sticky or 'ghost' pzzle piece
 
 .article-p {
     font-family: 'apparat';
+    
 }
 
 .article-img {

@@ -11,6 +11,44 @@ let stickyPosition = stickyItem.offsetTop;
 let fixItem = document.getElementById('stickyPuzzlePiece');
 let fixPosition = fixItem.offsetTop;
 
+
+// make puzzle and article class stay in same height Test (new function below)
+
+let basisHeight = document.getElementById('rain');
+let synchHieght = basisHeight.offsetTop;
+
+let subjectPuzzle = document.getElementById('rainpuz');
+
+console.log('Article offset: ' + synchHieght + "px");
+
+function topDistancePush (puzzleElement,newStop) {
+    puzzleElement.style.offsetTop = newStop + "px";
+}
+
+topDistancePush(subjectPuzzle,synchHieght);
+
+function getArticleOffset() {
+    const elements = document.querySelectorAll('.article'); 
+    const dataArray = [];
+    elements.forEach(element => {
+      dataArray.push({
+        name: element.className,
+        id: element.id,
+        height: element.offsetHeight, 
+        // width: element.offsetWidth,
+        FromTop: element.offsetTop,
+        //containerHeight: element.getBoundingClientRect(),
+      });
+    });
+    return dataArray;
+}
+const articleData = getArticleOffset();
+console.log(articleData);
+
+// so, i can call an id or class, can i call both?
+// can i apply data from article offset to puzz offset of same class?
+
+
 // let nHieght = ;
 // let pHeight = ;
 
@@ -28,24 +66,24 @@ let fixPosition = fixItem.offsetTop;
 
 // // nodelistToArray
 
-// Puzzle Class Array Generation
-function getElementsData() {
-    const elements = document.querySelectorAll('.puzzle-piece'); 
-    const dataArray = [];
-    elements.forEach(element => {
-      dataArray.push({
-        name: element.className,
-        // height: element.offsetHeight, 
-        // width: element.offsetWidth,
-        // FromTop: element.offsetTop,
-        containerHeight: element.getBoundingClientRect(),
-      });
-    });
-    return dataArray;
-  }
+// // Puzzle Class Array Generation
+// function getElementsData() {
+//     const elements = document.querySelectorAll('.puzzle-piece'); 
+//     const dataArray = [];
+//     elements.forEach(element => {
+//       dataArray.push({
+//         name: element.className,
+//         // height: element.offsetHeight, 
+//         // width: element.offsetWidth,
+//         // FromTop: element.offsetTop,
+//         containerHeight: element.getBoundingClientRect(),
+//       });
+//     });
+//     return dataArray;
+//   }
 
-  const elementData = getElementsData();
-  console.log(elementData);
+//   const elementData = getElementsData();
+//   console.log(elementData);
 
 
 
@@ -115,11 +153,6 @@ let fixStop = nHieght + pHeight;
 console.log('nav plus puzzle height: ' + fixStop + "px")
 
 // Push new Height also works, but still offsests in parent
-
-function topDistancePush (newStop) {
-    puzzleElement.style.margin = newStop + "px";
-    //puzzleElement.setAttribute(top + newStop);
-}
 
 
 //topDistancePush(fixStop);
