@@ -4,14 +4,54 @@ document.addEventListener("DOMContentLoaded", function(event) {
 let stickyItem = document.getElementById('stickyNavBar');
 let stickyPosition = stickyItem.offsetTop;
 
+let fixItem = document.getElementById('stickyPuzzlePiece');
+let fixOffset = fixItem.offsetTop;
+
+
+
 // must fix by class .puzzle-piece - see new function
 //must fix position based on nav height and Array ID
 // array is const elementData
 
-let fixItem = document.getElementById('stickyPuzzlePiece');
-let fixPosition = fixItem.offsetTop;
+// Call and Display Element Dimensions
+
+let navElement = document.getElementById("stickyNavBar");
+// console.log("NavBar Width: " + navElement.offsetWidth + "px");
+console.log("Navbar Height: " + navElement.offsetHeight + "px");
+
+let puzzleElement = document.getElementById("stickyPuzzlePiece");
+// console.log("Puzzle Width: " + puzzleElement.offsetWidth + "px");
+// console.log("Puzzle Height: " + puzzleElement.offsetHeight + "px");
+
+// Get NavBar Margin (to remove from offset trigger)
+const style = getComputedStyle(navElement);
+let nMargin = parseInt(style.marginTop);
+// Create new hieght
+let nHieght = navElement.offsetHeight ;
+let pHeight = puzzleElement.offsetHeight;
+
+// THIS IS ALMOST WORKING! JUST NEED TO FIX PADDING
+// work from initial puzzle offset hieght, then remove nav
+// and remove puzze height x number of puzzle!!
+
+let fixStop = fixOffset - nMargin;
+
+console.log('nav margin: ' + nMargin + "px")
+console.log('nav plus puzzle height: ' + fixStop + "px")
 
 
+let fixPosition = fixStop;
+
+
+// let puzContainerUnfix = document.getElementsByClassName('puzzle-container');
+// let puzContainerUnfixWidth = puzContainerUnfix.offsetWidth;
+
+// let puzContainerFix = document.getElementsByClassName('fixed-puzzle-container');
+// let puzContainerFixWidth = puzContainerFix.offsetWidth;
+
+
+// console.log('Puzzle container width Unfixed ' + puzContainerUnfixWidth + "px");
+// console.log('Puzzle container width Fixed ' + puzContainerFixWidth + "px");
 // new stratagy:
 // get article offset top = (A)
 // pair puzzle offset top with (A)
@@ -24,18 +64,18 @@ let fixPosition = fixItem.offsetTop;
 
 // step 3 add freeze data
 
-let basisHeight = document.getElementById('rain');
-let synchHieght = basisHeight.offsetTop;
+// let basisHeight = document.getElementById('rain');
+// let synchHieght = basisHeight.offsetTop;
 
-let subjectPuzzle = document.getElementById('rainpuz');
+// let subjectPuzzle = document.getElementById('rainpuz');
 
-console.log('Article offset: ' + synchHieght + "px");
+// console.log('Article offset: ' + synchHieght + "px");
 
-function topDistancePush (puzzleElement,newStop) {
-    puzzleElement.style.offsetTop = newStop + "px";
-}
+// function topDistancePush (puzzleElement,newStop) {
+//     puzzleElement.style.offsetTop = newStop + "px";
+// }
 
-topDistancePush(subjectPuzzle,synchHieght);
+// topDistancePush(subjectPuzzle,synchHieght);
 
 function getArticleOffset() {
     const elements = document.querySelectorAll('.article'); 
@@ -145,22 +185,7 @@ console.log(articleData);
 
 
 
-// Call and Display Element Dimensions
 
-let navElement = document.getElementById("stickyNavBar");
-console.log("NavBar Width: " + navElement.offsetWidth + "px");
-console.log("Navbar Height: " + navElement.offsetHeight + "px");
-
-let puzzleElement = document.getElementById("stickyPuzzlePiece");
-console.log("Puzzle Width: " + puzzleElement.offsetWidth + "px");
-console.log("Puzzle Height: " + puzzleElement.offsetHeight + "px");
-
-// Create new hieght
-
-let nHieght = navElement.offsetHeight;
-let pHeight = puzzleElement.offsetHeight;
-let fixStop = nHieght + pHeight;
-console.log('nav plus puzzle height: ' + fixStop + "px")
 
 // Push new Height also works, but still offsests in parent
 
@@ -201,8 +226,8 @@ function addOrRemoveFix() {
 
         // ACTUNG! This adds to top in the container too! no good, gotta add to offset?
 
-        //fixItem.style.top.add(navElement.offsetHeight);
-        //fixItem.style.top = navElement.offsetHeight + "px"; 
+        // fixItem.style.top.add(navElement.offsetHeight);
+        fixItem.style.top = navElement.offsetHeight + "px"; 
         
     } else {
         fixItem.classList.remove('puzzleFixed');
@@ -210,6 +235,8 @@ function addOrRemoveFix() {
     }
 
 }
+
+// SCROLL LISTENER 
 
 window.onscroll = () => {
 //    topDistancePush(fixStop);

@@ -151,19 +151,24 @@ nav {
     top: 0;
 }
 
-/* PUZZLE ClASS & ID*/
+
+.puzzleFixed {
+    position: fixed;
+    top: 0;
+    width: 30%;
+}
+
+/* PUZZLE ClASS & ID
 #stickyPuzzlePiece:not(.puzzleFixed) {
     position: relative;
 }
 
 #allStickyPuzzle:not(.puzzleFixed) {
     position: relative;
-}
-
-.puzzleFixed {
-    position: fixed;
-    top: 0;
-}
+} */
+/* #stickyPuzzlePiece:not(.fixed-puzzle-container) {
+    display: none;
+} */
 
 
 
@@ -291,6 +296,15 @@ something sticky or 'ghost' pzzle piece
 .puzzle-container { 
     width: 30%;
 }
+
+/* Make Active when Fixed - has wront width*/
+.fixed-puzzle-container { 
+
+}
+
+/* Hide and unhide fix container with this */
+
+
 
 .puzzle-piece {
     /* width: 7em; */
