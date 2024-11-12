@@ -279,44 +279,46 @@ something sticky or 'ghost' pzzle piece
 
 .body-container {
     display: flex;
-    grid-template-columns: 30% 70%;
+    flex-direction: column;
 }
 
-.puzzle-column {
-    width: 30%;
-}
-.article-column {
-    width: 70%;
+
+.gardenCard {
+    display: flex;
+    gap: 1rem;
 }
 
 .puzzle-container { 
+    width: 30%;
 }
 
 .puzzle-piece {
-    width: 7em;
-    margin: 1em;
+    /* width: 7em; */
+    max-width: 7em;
+    min-width: 4em; 
+    margin: 1em auto 1em auto;
     z-index: 1;
 }
 
 
-
-.article {
-    margin-left: auto;
+.article-container {
+    margin-left: 3em;
     display: inline-flex;
     flex-direction: row;
     text-align: left; 
+    flex: 1 1 70%;
 }
 
 .article-head-container {
    min-width: 11em;
-    margin: 1em 3em;
+   
 }
 
 .article-head {
     /* This is breaxing fitting margin: 0 0 100% 0; */
 
     max-width: min-content;
-    margin: 0 0 0 auto; 
+    margin: 0 3em 0 auto; 
 }
 
 .article-body {
@@ -367,6 +369,13 @@ flex-direction: column;
 margin-left: 100%;
 }
 
+/* .puzzle-column {
+    width: 30%;
+}
+.article-column {
+    width: 70%;
+} */
+
 /* STICKY PUZZLE PEICE */
 /* Probably need to make one for 
 each puzzle, or can I defien with a style? 
@@ -412,16 +421,18 @@ and (min-width : 1200) {
         display: inline-block;
     }
 
-    .article {
+    .article-container {
         display: inline-block;
     }
 
     .article-head {
         margin: 0;
     }
+
+    .article-head-container {
+    margin: auto;
+        }
 }
-
-
 
 /* smartphone portrait */
 @media screen and (max-width: 479px) {
@@ -442,7 +453,7 @@ and (min-width : 1200) {
         }
     }
 
-    .article {
+    .article-container {
         margin-left: auto;
         display: inline-flex;
         flex-direction: column;

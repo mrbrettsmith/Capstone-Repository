@@ -12,7 +12,17 @@ let fixItem = document.getElementById('stickyPuzzlePiece');
 let fixPosition = fixItem.offsetTop;
 
 
-// make puzzle and article class stay in same height Test (new function below)
+// new stratagy:
+// get article offset top = (A)
+// pair puzzle offset top with (A)
+// get cumulative freeze point (F) adds nav & previous puzzles
+// freeze at freeze point (F)
+
+// step 1 get data
+
+// step 2 make puzzle and article class stay in same height Test (new function below)
+
+// step 3 add freeze data
 
 let basisHeight = document.getElementById('rain');
 let synchHieght = basisHeight.offsetTop;
@@ -203,6 +213,7 @@ function addOrRemoveFix() {
 
 window.onscroll = () => {
 //    topDistancePush(fixStop);
+
     addOrRemoveSticky();
     addOrRemoveFix();
 }
