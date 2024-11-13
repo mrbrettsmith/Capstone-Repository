@@ -10,6 +10,19 @@ let fixOffsetAbout = fixAbout.offsetTop;
 let fixRain = document.getElementById('rain');
 let fixOffsetRain = fixRain.offsetTop;
 
+let fixPrarie = document.getElementById('prairie');
+let fixOffsetPrarie = fixPrarie.offsetTop;
+
+let fixPollen = document.getElementById('pollen');
+let fixOffsetPollen= fixPollen.offsetTop;
+
+let fixForest = document.getElementById('rain');
+let fixOffsetForest = fixForest.offsetTop;
+
+let fixSeed = document.getElementById('prairie');
+let fixOffsetSeed = fixSeed.offsetTop;
+
+
 // must fix by class .puzzle-piece - see new function
 //must fix position based on nav height and Array ID
 // array is const elementData
@@ -23,7 +36,7 @@ console.log("Navbar Height: " + navElement.offsetHeight + "px");
 let puzzleElement = document.getElementById("about");
 // console.log("Puzzle Width: " + puzzleElement.offsetWidth + "px");
 // console.log("Puzzle Height: " + puzzleElement.offsetHeight + "px");
-let puzzleElementTwo = document.getElementById("rain");
+// let puzzleElementTwo = document.getElementById("rain");
 
 
 // Get NavBar Margin (to remove from offset trigger)
@@ -41,6 +54,10 @@ let pHeight = puzzleElement.offsetHeight;
 
 let fixStopAbout = fixOffsetAbout - nHieght;
 let fixStopRain = fixOffsetRain - nHieght + pHeight;
+let fixStopPrarie = fixOffsetPrarie - nHieght + (pHeight * 2);
+let fixStopPollen = fixOffsetPollen - nHieght + (pHeight * 3);
+let fixStopForest = fixOffsetForest - nHieght + (pHeight * 4);
+let fixStopSeed = fixOffsetSeed - nHieght + (pHeight * 5);
 
 console.log('nav margin: ' + nMargin + "px")
 console.log('nav plus puzzle height: ' + fixStopAbout + "px")
@@ -115,15 +132,13 @@ function addOrRemoveSticky() {
 }
 
 
+// Fix Puzzle Peices
 
-
-function addOrRemoveFix() {
-
+function addOrRemoveFixAbout() {
     if (window.scrollY >= fixStopAbout) {
         fixAbout.classList.add('puzzleFixed');
         isFixed = true;
         fixAbout.style.top = navElement.offsetHeight + "px"; 
-        
     } else {
         fixAbout.classList.remove('puzzleFixed');
         isFixed = false;
@@ -131,17 +146,59 @@ function addOrRemoveFix() {
 }
 
 function addOrRemoveFixRain() {
-
     if (window.scrollY >= fixStopRain) {
         fixRain.classList.add('puzzleFixed');
         isFixed = true;
         fixRain.style.top = navElement.offsetHeight + fixAbout.offsetHeight +  "px"; 
-        
     } else {
         fixRain.classList.remove('puzzleFixed');
         isFixed = false;
     }
 }
+
+function addOrRemoveFixPrairie() {
+    if (window.scrollY >= fixStopPrarie) {
+        fixPrarie.classList.add('puzzleFixed');
+        isFixed = true;
+        fixPrarie.style.top = navElement.offsetHeight + (fixAbout.offsetHeight * 2) +  "px"; 
+    } else {
+        fixPrarie.classList.remove('puzzleFixed');
+        isFixed = false;
+    }
+}
+
+function addOrRemoveFixPollen() {
+    if (window.scrollY >= fixStopPollen) {
+        fixPollen.classList.add('puzzleFixed');
+        isFixed = true;
+        fixPollen.style.top = navElement.offsetHeight + (fixAbout.offsetHeight * 3) +  "px"; 
+    } else {
+        fixPollen.classList.remove('puzzleFixed');
+        isFixed = false;
+    }
+}
+
+function addOrRemoveFixForest() {
+    if (window.scrollY >= fixStopForest) {
+        fixForest.classList.add('puzzleFixed');
+        isFixed = true;
+        fixForest.style.top = navElement.offsetHeight + (fixAbout.offsetHeight * 4) +  "px"; 
+    } else {
+        fixForest.classList.remove('puzzleFixed');
+        isFixed = false;
+    }
+}
+
+// function addOrRemoveFixSeed() {
+//     if (window.scrollY >= fixStopSeed) {
+//         fixSeed.classList.add('puzzleFixed');
+//         isFixed = true;
+//         fixSeed.style.top = navElement.offsetHeight + (fixAbout.offsetHeight * 5) +  "px"; 
+//     } else {
+//         fixSeed.classList.remove('puzzleFixed');
+//         isFixed = false;
+//     }
+// }
 // Generic Function not working
 
 // function addOrRemoveFix(placeToFix, itemToFix) {
@@ -167,8 +224,13 @@ function addOrRemoveFixRain() {
 
 window.onscroll = () => {
     addOrRemoveSticky();
-    addOrRemoveFix();
+    // addOrRemoveFix();
+    addOrRemoveFixAbout();
     addOrRemoveFixRain();
+    addOrRemoveFixPrairie();
+    addOrRemoveFixPollen();
+    // addOrRemoveFixForest();
+    // addOrRemoveFixSeed();
 }
 
 //resize update
