@@ -4,11 +4,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
 let stickyItem = document.getElementById('stickyNavBar');
 let stickyPosition = stickyItem.offsetTop;
 
-let fixItem = document.getElementById('about');
-let fixOffset = fixItem.offsetTop;
+let fixAbout = document.getElementById('about');
+let fixOffsetAbout = fixAbout.offsetTop;
 
-let fixItemTwo = document.getElementById('rain');
-let fixOffsetTwo = fixItemTwo.offsetTop;
+let fixRain = document.getElementById('rain');
+let fixOffsetRain = fixRain.offsetTop;
 
 // must fix by class .puzzle-piece - see new function
 //must fix position based on nav height and Array ID
@@ -37,15 +37,17 @@ let pHeight = puzzleElement.offsetHeight;
 // work from initial puzzle offset hieght, then remove nav
 // and remove puzze height x number of puzzle!!
 
-let fixStop = fixOffset - nHieght;
-let fixStopTwo = fixOffsetTwo - nHieght + pHeight;
+// Use fixStop?
+
+let fixStopAbout = fixOffsetAbout - nHieght;
+let fixStopRain = fixOffsetRain - nHieght + pHeight;
 
 console.log('nav margin: ' + nMargin + "px")
-console.log('nav plus puzzle height: ' + fixStop + "px")
+console.log('nav plus puzzle height: ' + fixStopAbout + "px")
 
 
-let fixPosition = fixStop;
-let fixPositionTwo = fixStopTwo;
+// let fixPosition = fixStop;
+// let fixPositionTwo = fixStopRain;
 
 // let puzContainerUnfix = document.getElementsByClassName('puzzle-container');
 // let puzContainerUnfixWidth = puzContainerUnfix.offsetWidth;
@@ -112,36 +114,61 @@ function addOrRemoveSticky() {
     }    
 }
 
-//stickyPuzzlePiece
+
+
 
 function addOrRemoveFix() {
-    
-    if (window.scrollY >= fixPosition) {
-        fixItem.classList.add('puzzleFixed');
+
+    if (window.scrollY >= fixStopAbout) {
+        fixAbout.classList.add('puzzleFixed');
         isFixed = true;
-
-        // This adds the nav height, but it relates to container, and offests in container
-        // fixItem.style.top = navElement.offsetHeight + "px"; 
-
-        // ACTUNG! This adds to top in the container too! no good, gotta add to offset?
-
-        // fixItem.style.top.add(navElement.offsetHeight);
-        fixItem.style.top = navElement.offsetHeight + "px"; 
+        fixAbout.style.top = navElement.offsetHeight + "px"; 
         
     } else {
-        fixItem.classList.remove('puzzleFixed');
+        fixAbout.classList.remove('puzzleFixed');
         isFixed = false;
     }
 }
+
+function addOrRemoveFixRain() {
+
+    if (window.scrollY >= fixStopRain) {
+        fixRain.classList.add('puzzleFixed');
+        isFixed = true;
+        fixRain.style.top = navElement.offsetHeight + fixAbout.offsetHeight +  "px"; 
+        
+    } else {
+        fixRain.classList.remove('puzzleFixed');
+        isFixed = false;
+    }
+}
+// Generic Function not working
+
+// function addOrRemoveFix(placeToFix, itemToFix) {
+//     var fixPosition = placeToFix;
+//     var fixItem = itemToFix;
+
+//     if (window.scrollY >= fixPosition) {
+//         fixItem.classList.add('puzzleFixed');
+//         isFixed = true;
+//         fixItem.style.top = navElement.offsetHeight + "px"; 
+        
+//     } else {
+//         fixItem.classList.remove('puzzleFixed');
+//         isFixed = false;
+//     }
+// }
+
+// addOrRemoveFix("fixStopAbout", "fixAbout");
+// addOrRemoveFix("fixStopRain", "fixRain");
 
 
 // SCROLL LISTENER 
 
 window.onscroll = () => {
-//    topDistancePush(fixStop);
-
     addOrRemoveSticky();
     addOrRemoveFix();
+    addOrRemoveFixRain();
 }
 
 //resize update
@@ -160,6 +187,9 @@ window.onresize = function(){
 }
 
 });
+
+
+
 
 // GAVEYARD OF MANY HOURS BELOW //
 
