@@ -4,10 +4,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
 let stickyItem = document.getElementById('stickyNavBar');
 let stickyPosition = stickyItem.offsetTop;
 
-let fixItem = document.getElementById('stickyPuzzlePiece');
+let fixItem = document.getElementById('about');
 let fixOffset = fixItem.offsetTop;
 
-
+let fixItemTwo = document.getElementById('rain');
+let fixOffsetTwo = fixItemTwo.offsetTop;
 
 // must fix by class .puzzle-piece - see new function
 //must fix position based on nav height and Array ID
@@ -19,9 +20,11 @@ let navElement = document.getElementById("stickyNavBar");
 // console.log("NavBar Width: " + navElement.offsetWidth + "px");
 console.log("Navbar Height: " + navElement.offsetHeight + "px");
 
-let puzzleElement = document.getElementById("stickyPuzzlePiece");
+let puzzleElement = document.getElementById("about");
 // console.log("Puzzle Width: " + puzzleElement.offsetWidth + "px");
 // console.log("Puzzle Height: " + puzzleElement.offsetHeight + "px");
+let puzzleElementTwo = document.getElementById("rain");
+
 
 // Get NavBar Margin (to remove from offset trigger)
 const style = getComputedStyle(navElement);
@@ -34,14 +37,15 @@ let pHeight = puzzleElement.offsetHeight;
 // work from initial puzzle offset hieght, then remove nav
 // and remove puzze height x number of puzzle!!
 
-let fixStop = fixOffset - nMargin;
+let fixStop = fixOffset - nHieght;
+let fixStopTwo = fixOffsetTwo - nHieght + pHeight;
 
 console.log('nav margin: ' + nMargin + "px")
 console.log('nav plus puzzle height: ' + fixStop + "px")
 
 
 let fixPosition = fixStop;
-
+let fixPositionTwo = fixStopTwo;
 
 // let puzContainerUnfix = document.getElementsByClassName('puzzle-container');
 // let puzContainerUnfixWidth = puzContainerUnfix.offsetWidth;
@@ -94,6 +98,70 @@ function getArticleOffset() {
 }
 const articleData = getArticleOffset();
 console.log(articleData);
+
+
+
+
+// Sticky add function
+
+function addOrRemoveSticky() {
+    if (window.scrollY >= stickyPosition) {
+        stickyItem.classList.add('sticky');
+    } else {
+        stickyItem.classList.remove('sticky');
+    }    
+}
+
+//stickyPuzzlePiece
+
+function addOrRemoveFix() {
+    
+    if (window.scrollY >= fixPosition) {
+        fixItem.classList.add('puzzleFixed');
+        isFixed = true;
+
+        // This adds the nav height, but it relates to container, and offests in container
+        // fixItem.style.top = navElement.offsetHeight + "px"; 
+
+        // ACTUNG! This adds to top in the container too! no good, gotta add to offset?
+
+        // fixItem.style.top.add(navElement.offsetHeight);
+        fixItem.style.top = navElement.offsetHeight + "px"; 
+        
+    } else {
+        fixItem.classList.remove('puzzleFixed');
+        isFixed = false;
+    }
+}
+
+
+// SCROLL LISTENER 
+
+window.onscroll = () => {
+//    topDistancePush(fixStop);
+
+    addOrRemoveSticky();
+    addOrRemoveFix();
+}
+
+//resize update
+
+window.onresize = function(){ 
+    // navElement = document.getElementById("stickyNavBar");
+    // console.log("NavBar Width: " + navElement.offsetWidth + "px");
+    // console.log("Navbar Height: " + navElement.offsetHeight + "px");
+
+    // puzzleElement = document.getElementById("stickyPuzzlePiece");
+    // console.log("Puzzle Width: " + puzzleElement.offsetWidth + "px");
+    // console.log("Puzzle Height: " + puzzleElement.offsetHeight + "px");
+
+    // ACTUNG! This adds to top in the container too! no good, gotta add to offset?
+    //fixItem.style.top = navElement.offsetHeight + "px"; 
+}
+
+});
+
+// GAVEYARD OF MANY HOURS BELOW //
 
 // so, i can call an id or class, can i call both?
 // can i apply data from article offset to puzz offset of same class?
@@ -200,64 +268,3 @@ console.log(articleData);
 
 // // Change the height of an element with the id "myDiv" to 200px
 // changeHeight("myDiv", "200px"); 
-
-
-
-// Sticky add function
-
-function addOrRemoveSticky() {
-    if (window.scrollY >= stickyPosition) {
-        stickyItem.classList.add('sticky');
-    } else {
-        stickyItem.classList.remove('sticky');
-    }    
-}
-
-//stickyPuzzlePiece
-
-function addOrRemoveFix() {
-    
-    if (window.scrollY >= fixPosition) {
-        fixItem.classList.add('puzzleFixed');
-        isFixed = true;
-
-        // This adds the nav height, but it relates to container, and offests in container
-        // fixItem.style.top = navElement.offsetHeight + "px"; 
-
-        // ACTUNG! This adds to top in the container too! no good, gotta add to offset?
-
-        // fixItem.style.top.add(navElement.offsetHeight);
-        fixItem.style.top = navElement.offsetHeight + "px"; 
-        
-    } else {
-        fixItem.classList.remove('puzzleFixed');
-        isFixed = false;
-    }
-
-}
-
-// SCROLL LISTENER 
-
-window.onscroll = () => {
-//    topDistancePush(fixStop);
-
-    addOrRemoveSticky();
-    addOrRemoveFix();
-}
-
-//resize update
-
-window.onresize = function(){ 
-    // navElement = document.getElementById("stickyNavBar");
-    // console.log("NavBar Width: " + navElement.offsetWidth + "px");
-    // console.log("Navbar Height: " + navElement.offsetHeight + "px");
-
-    // puzzleElement = document.getElementById("stickyPuzzlePiece");
-    // console.log("Puzzle Width: " + puzzleElement.offsetWidth + "px");
-    // console.log("Puzzle Height: " + puzzleElement.offsetHeight + "px");
-
-    // ACTUNG! This adds to top in the container too! no good, gotta add to offset?
-    //fixItem.style.top = navElement.offsetHeight + "px"; 
-}
-
-});
