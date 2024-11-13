@@ -22,6 +22,8 @@ let fixOffsetForest = fixForest.offsetTop;
 let fixSeed = document.getElementById('prairie');
 let fixOffsetSeed = fixSeed.offsetTop;
 
+let ViewWindow = window.innerHeight;
+
 
 // must fix by class .puzzle-piece - see new function
 //must fix position based on nav height and Array ID
@@ -58,6 +60,10 @@ let fixStopPrarie = fixOffsetPrarie - nHieght + (pHeight * 2);
 let fixStopPollen = fixOffsetPollen - nHieght + (pHeight * 3);
 let fixStopForest = fixOffsetForest - nHieght + (pHeight * 4);
 let fixStopSeed = fixOffsetSeed - nHieght + (pHeight * 5);
+
+// If I need to shrink to fit on screen
+let bodyViewWindow = ViewWindow - nHieght;
+console.log("body view Hieght: " +bodyViewWindow + "px");
 
 console.log('nav margin: ' + nMargin + "px")
 console.log('nav plus puzzle height: ' + fixStopAbout + "px")
