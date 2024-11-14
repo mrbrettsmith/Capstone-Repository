@@ -65,8 +65,14 @@ let fixStopSeed = fixOffsetSeed - nHieght + (pHeight * 5);
 let bodyViewWindow = ViewWindow - nHieght;
 console.log("body view Hieght: " +bodyViewWindow + "px");
 
-console.log('nav margin: ' + nMargin + "px")
-console.log('nav plus puzzle height: ' + fixStopAbout + "px")
+console.log('nav margin: ' + nMargin + "px");
+console.log('nav plus puzzle height: ' + fixStopAbout + "px");
+console.log('About Fix Point: ' + fixStopAbout);
+console.log('Rain Fix Point: ' + fixStopRain);
+console.log('Prairie Fix Point: ' + fixStopPrarie);
+console.log('Pollen Fix Point: ' + fixStopPollen);
+console.log('Forest Fix Point: ' + fixStopForest);
+console.log('Seed Fix Point: ' + fixStopSeed);
 
 
 // let fixPosition = fixStop;
@@ -205,6 +211,7 @@ function addOrRemoveFixForest() {
 //         isFixed = false;
 //     }
 // }
+
 // Generic Function not working
 
 // function addOrRemoveFix(placeToFix, itemToFix) {
@@ -242,13 +249,16 @@ window.onscroll = () => {
 //resize update
 
 window.onresize = function(){ 
-    // navElement = document.getElementById("stickyNavBar");
-    // console.log("NavBar Width: " + navElement.offsetWidth + "px");
-    // console.log("Navbar Height: " + navElement.offsetHeight + "px");
 
-    // puzzleElement = document.getElementById("stickyPuzzlePiece");
-    // console.log("Puzzle Width: " + puzzleElement.offsetWidth + "px");
-    // console.log("Puzzle Height: " + puzzleElement.offsetHeight + "px");
+
+
+    navElement = document.getElementById("stickyNavBar");
+    console.log("NavBar Width: " + navElement.offsetWidth + "px");
+    console.log("Navbar Height: " + navElement.offsetHeight + "px");
+
+    puzzleElement = document.getElementById("about");
+    console.log("Puzzle Width: " + puzzleElement.offsetWidth + "px");
+    console.log("Puzzle Height: " + puzzleElement.offsetHeight + "px");
 
     // ACTUNG! This adds to top in the container too! no good, gotta add to offset?
     //fixItem.style.top = navElement.offsetHeight + "px"; 

@@ -57,7 +57,7 @@ a {
 .natural {
     color: var(--natural);
     fill: var(--natural);
-    stroke: var(--natural);
+
     
 }
 
@@ -141,7 +141,7 @@ nav {
 }
 
 /* UNIVERSAL STICKY */
-
+/* This happens when sticky isnt triggered */
 #stickyNavBar:not(.sticky) {
     position: relative;
 }
@@ -152,11 +152,19 @@ nav {
 }
 
 
+
+#fixed-puzzle-container:not(.puzzleFixed) {
+    width: 30%;
+}
+
 .puzzleFixed {
+    display: block;
     position: fixed;
     top: 0;
     width: 30%;
 }
+
+
 
 /* PUZZLE ClASS & ID
 #stickyPuzzlePiece:not(.puzzleFixed) {
@@ -295,25 +303,44 @@ something sticky or 'ghost' pzzle piece
 
 .puzzle-container { 
     width: 30%;
+    /* Can this fit Content? */
 }
 
 /* Make Active when Fixed - has wront width*/
 .fixed-puzzle-container { 
 
+    display: flex;
+    margin: 0;
+    background-color: #F47534;
+
 }
 
 /* Hide and unhide fix container with this */
 
-
+ /* link is causing the problem? */
 
 .puzzle-piece {
     /* width: 7em; */
-    max-width: 7em;
+    display: flex;
+    flex: content;
+    /* max-width: 7em;
     min-width: 4em; 
-    margin: 1em auto 1em auto;
+    margin: 0;
     z-index: 1;
+    max-height: fit-content; */
+   margin: 2em;
+    background-color: #DCCC3C;
 }
 
+.puzzLink {
+  flex: auto;
+  margin: 0%;
+}
+
+.ImageFix {
+display: block;
+
+}
 
 .article-container {
     margin-left: 3em;
@@ -340,6 +367,7 @@ something sticky or 'ghost' pzzle piece
     flex-direction: column;
     max-width: 40em;
     /* This margin sets distance between articles */
+    /* Also breaks the animation */
     margin-bottom: 20em;
 
     p {color: #000000;}
@@ -353,6 +381,7 @@ something sticky or 'ghost' pzzle piece
 
 .article-p {
     font-family: 'apparat';
+    margin: 0;
     
 }
 
