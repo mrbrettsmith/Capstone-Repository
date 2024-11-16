@@ -317,8 +317,8 @@ something sticky or 'ghost' pzzle piece
     /* width: 7em; */
     /* display: flex;
     flex: content; */
-    /* max-width: 7em;
-    min-width: 4em;  */
+    max-width: 7em;
+    min-width: 4em; 
     margin: 0;
     z-index: 1;
     max-height: fit-content;

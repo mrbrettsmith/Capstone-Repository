@@ -6,6 +6,7 @@ let stickyPosition = stickyItem.offsetTop;
 
 let fixAbout = document.getElementById('about');
 let fixOffsetAbout = fixAbout.offsetTop;
+var basePuzzSize = fixAbout.offsetWidth;
 
 let fixRain = document.getElementById('rain');
 let fixOffsetRain = fixRain.offsetTop;
@@ -30,7 +31,7 @@ let pHeight = puzzSvg.offsetHeight;
 
 let ViewWindow = window.innerHeight;
 
-addFixedColumnWidth();
+
 
 // must fix by class .puzzle-piece - see new function
 //must fix position based on nav height and Array ID
@@ -147,76 +148,126 @@ function addOrRemoveSticky() {
 
 // Match Fixed puzzle Column width 
 // puzzContianerWidth
+// kida sucks, lets set the puzzle width and margin directaly
 
-// const fixedPuzzleContainer = document.getElementsByClassName("fixed-puzzle-container");
-// let puzzContianerWidthFix = fixedPuzzleContainer.offsetWidth;
-// // Set the width and height
-// puzzContianerWidthFix.style.width = "200px";
+// function addFixedColumnWidth() {
+//     var elements = document.getElementsByClassName("fixed-puzzle-container");
+//     for (var i = 0; i < elements.length; i++) {
+//         elements[i].style.width=(puzzContianerWidth+"px");
+//     }
+// }
 
-function addFixedColumnWidth() {
+// All in one function?
+
+function addUnifiedPuzzStyle() {
+
     var elements = document.getElementsByClassName("fixed-puzzle-container");
+
+// Set Universal Puzzle Width for i
     for (var i = 0; i < elements.length; i++) {
-        elements[i].style.width=(puzzContianerWidth+"px");
+        elements[i].style.width=(basePuzzSize + "px");
     }
+
+// set margin/stopheight for i (should it be top, or margin?)
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].style.top=(navElement.offsetHeight + i * basePuzzSize + "px");
+    }
+
+// set stop trigger / offset height for i NOT WORKING - SEPERATE FUNCTION?
+    for (var i = 0; i < elements.length; i++) {
+       
+        if (window.scrollY >= elements[i].style.offsetHeight + i * basePuzzSize - nMargin + "px") {
+            elements[i].classList.add('puzzleFixed');
+        } else {
+            elements[i].classList.remove('puzzleFixed');
+        } 
 }
+
+
+    //     let fixPrarie = document.getElementById('prairie');
+    //     let fixOffsetPrarie = fixPrarie.offsetTop;
+
+    //     let fixStopPrarie = fixOffsetPrarie - nHieght + (pHeight * 2);
+
+    //     function addOrRemoveFixPrairie() {
+    //         if (window.scrollY >= fixStopPrarie) {
+    //             fixPrarie.classList.add('puzzleFixed');
+    //             isFixed = true;
+    //             // fixPrarie.style.top = navElement.offsetHeight + (fixAbout.offsetHeight * 2) +  "px"; 
+    //         } else {
+    //             fixPrarie.classList.remove('puzzleFixed');
+    //             isFixed = false;
+    //         }
+    //     }
+
+}
+
+// fixRain.style.top = navElement.offsetHeight + basePuzzSize + "px"; 
+// let heights = [];
+// let initialHeight = 100; 
+// let increment = 10;
+
+// for (let i = 0; i < 5; i++) {
+//   heights.push(initialHeight + i * increment);
+// }
 
 
 // Fix Puzzle Peices
 
-function addOrRemoveFixAbout() {
-    if (window.scrollY >= fixStopAbout) {
-        fixAbout.classList.add('puzzleFixed');
-        isFixed = true;
-        fixAbout.style.top = navElement.offsetHeight + "px"; 
-    } else {
-        fixAbout.classList.remove('puzzleFixed');
-        isFixed = false;
-    }
-}
+// function addOrRemoveFixAbout() {
+//     if (window.scrollY >= fixStopAbout) {
+//         fixAbout.classList.add('puzzleFixed');
+//         isFixed = true;
+//         // fixAbout.style.top = navElement.offsetHeight + "px"; 
+//     } else {
+//         fixAbout.classList.remove('puzzleFixed');
+//         isFixed = false;
+//     }
+// }
 
-function addOrRemoveFixRain() {
-    if (window.scrollY >= fixStopRain) {
-        fixRain.classList.add('puzzleFixed');
-        isFixed = true;
-        fixRain.style.top = navElement.offsetHeight + fixAbout.offsetHeight +  "px"; 
-    } else {
-        fixRain.classList.remove('puzzleFixed');
-        isFixed = false;
-    }
-}
+// function addOrRemoveFixRain() {
+//     if (window.scrollY >= fixStopRain) {
+//         fixRain.classList.add('puzzleFixed');
+//         isFixed = true;
+//         // fixRain.style.top = navElement.offsetHeight + basePuzzSize + "px"; 
+//     } else {
+//         fixRain.classList.remove('puzzleFixed');
+//         isFixed = false;
+//     }
+// }
 
-function addOrRemoveFixPrairie() {
-    if (window.scrollY >= fixStopPrarie) {
-        fixPrarie.classList.add('puzzleFixed');
-        isFixed = true;
-        fixPrarie.style.top = navElement.offsetHeight + (fixAbout.offsetHeight * 2) +  "px"; 
-    } else {
-        fixPrarie.classList.remove('puzzleFixed');
-        isFixed = false;
-    }
-}
+// function addOrRemoveFixPrairie() {
+//     if (window.scrollY >= fixStopPrarie) {
+//         fixPrarie.classList.add('puzzleFixed');
+//         isFixed = true;
+//         // fixPrarie.style.top = navElement.offsetHeight + (fixAbout.offsetHeight * 2) +  "px"; 
+//     } else {
+//         fixPrarie.classList.remove('puzzleFixed');
+//         isFixed = false;
+//     }
+// }
 
-function addOrRemoveFixPollen() {
-    if (window.scrollY >= fixStopPollen) {
-        fixPollen.classList.add('puzzleFixed');
-        isFixed = true;
-        fixPollen.style.top = navElement.offsetHeight + (fixAbout.offsetHeight * 3) +  "px"; 
-    } else {
-        fixPollen.classList.remove('puzzleFixed');
-        isFixed = false;
-    }
-}
+// function addOrRemoveFixPollen() {
+//     if (window.scrollY >= fixStopPollen) {
+//         fixPollen.classList.add('puzzleFixed');
+//         isFixed = true;
+//         fixPollen.style.top = navElement.offsetHeight + (fixAbout.offsetHeight * 3) +  "px"; 
+//     } else {
+//         fixPollen.classList.remove('puzzleFixed');
+//         isFixed = false;
+//     }
+// }
 
-function addOrRemoveFixForest() {
-    if (window.scrollY >= fixStopForest) {
-        fixForest.classList.add('puzzleFixed');
-        isFixed = true;
-        fixForest.style.top = navElement.offsetHeight + (fixAbout.offsetHeight * 4) +  "px"; 
-    } else {
-        fixForest.classList.remove('puzzleFixed');
-        isFixed = false;
-    }
-}
+// function addOrRemoveFixForest() {
+//     if (window.scrollY >= fixStopForest) {
+//         fixForest.classList.add('puzzleFixed');
+//         isFixed = true;
+//         fixForest.style.top = navElement.offsetHeight + (fixAbout.offsetHeight * 4) +  "px"; 
+//     } else {
+//         fixForest.classList.remove('puzzleFixed');
+//         isFixed = false;
+//     }
+// }
 
 // function addOrRemoveFixSeed() {
 //     if (window.scrollY >= fixStopSeed) {
@@ -253,9 +304,10 @@ function addOrRemoveFixForest() {
 // SCROLL LISTENER 
 
 window.onscroll = () => {
+    addUnifiedPuzzStyle();
     addOrRemoveSticky();
-    addOrRemoveFixAbout();
-    addOrRemoveFixRain();
+    // addOrRemoveFixAbout();
+    // addOrRemoveFixRain();
     // addOrRemoveFixPrairie();
     // addOrRemoveFixPollen();
     // addOrRemoveFixForest();
@@ -266,8 +318,7 @@ window.onscroll = () => {
 
 window.onresize = function(){ 
 
-
-    addFixedColumnWidth();
+   
     navElement = document.getElementById("stickyNavBar");
     console.log("NavBar Width: " + navElement.offsetWidth + "px");
     console.log("Navbar Height: " + navElement.offsetHeight + "px");
