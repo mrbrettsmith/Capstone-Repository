@@ -151,6 +151,11 @@ nav {
     top: 0;
 }
 
+.triggered {
+    background-color: magenta;
+    z-index: 100;
+}
+
 .puzzleFixed {
     display: block;
     position: fixed;

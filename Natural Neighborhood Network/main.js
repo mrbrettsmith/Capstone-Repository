@@ -69,6 +69,7 @@ console.log('Puzzle Column width: ' + puzzContianerWidth + "px");
 
 console.log('nav margin: ' + nMargin + "px");
 console.log('Puzzle svg Height ' + pHeight + "px");
+
 console.log('nav plus puzzle height: ' + fixStopAbout + "px");
 console.log('About Fix Point: ' + fixStopAbout);
 console.log('Rain Fix Point: ' + fixStopRain);
@@ -115,23 +116,23 @@ console.log('Seed Fix Point: ' + fixStopSeed);
 
 // topDistancePush(subjectPuzzle,synchHieght);
 
-function getArticleOffset() {
-    const elements = document.querySelectorAll('.article'); 
-    const dataArray = [];
-    elements.forEach(element => {
-      dataArray.push({
-        name: element.className,
-        id: element.id,
-        height: element.offsetHeight, 
-        // width: element.offsetWidth,
-        FromTop: element.offsetTop,
-        //containerHeight: element.getBoundingClientRect(),
-      });
-    });
-    return dataArray;
-}
-const articleData = getArticleOffset();
-console.log(articleData);
+// function getArticleOffset() {
+//     const elements = document.querySelectorAll('.article'); 
+//     const dataArray = [];
+//     elements.forEach(element => {
+//       dataArray.push({
+//         name: element.className,
+//         id: element.id,
+//         height: element.offsetHeight, 
+//         // width: element.offsetWidth,
+//         FromTop: element.offsetTop,
+//         //containerHeight: element.getBoundingClientRect(),
+//       });
+//     });
+//     return dataArray;
+// }
+// const articleData = getArticleOffset();
+// console.log(articleData);
 
 
 
@@ -162,45 +163,96 @@ function addOrRemoveSticky() {
 function addUnifiedPuzzStyle() {
 
     var elements = document.getElementsByClassName("fixed-puzzle-container");
+    // let fixOffset = elements[i] - nHieght + (basePuzzSize * i);
+    // var fixStop = fixOffset - nHieght + (basePuzzSize * i);
 
 // Set Universal Puzzle Width for i
     for (var i = 0; i < elements.length; i++) {
         elements[i].style.width=(basePuzzSize + "px");
     }
+}
 
+function addUnifiedPuzzTop() {
 // set margin/stopheight for i (should it be top, or margin?)
+    var elements = document.getElementsByClassName(".fixed-puzzle-container");
     for (var i = 0; i < elements.length; i++) {
         elements[i].style.top=(navElement.offsetHeight + i * basePuzzSize + "px");
     }
+}
 
-// set stop trigger / offset height for i NOT WORKING - SEPERATE FUNCTION?
-    for (var i = 0; i < elements.length; i++) {
-       
-        if (window.scrollY >= elements[i].style.offsetHeight + i * basePuzzSize - nMargin + "px") {
-            elements[i].classList.add('puzzleFixed');
+// new try
+function addFixTrigger() {
+    var elements = document.getElementsByClassName(".fixed-puzzle-container");
+    const fixOff = (elements.offsetTop + "px");
+    for (var i = 0; i < elements.length; i++){
+        if (window.scrollY >= fixOff) {
+            elements[i].classList.add('.triggered');
         } else {
-            elements[i].classList.remove('puzzleFixed');
-        } 
+            elements[i].classList.remove('.triggered');
+        }
+    }
 }
 
+function changeColorOnScroll() {
+    const elements = document.querySelectorAll(".fixed-puzzle-container");
+  
+    elements.forEach(element => {
+      const elementTop = element.getBoundingClientRect().top;
+  
+      if (elementTop < window.scrollY) {
+        element.classList.add('triggered'); // Change color when in view
+        element.classList.add('puzzleFixed');
+      } else {
+        element.classList.remove('triggered'); // Reset color if not in view
+        element.classList.remove('puzzleFixed');
+      }
+    });
+  }
+  
+  window.addEventListener("scroll", changeColorOnScroll);
 
-    //     let fixPrarie = document.getElementById('prairie');
-    //     let fixOffsetPrarie = fixPrarie.offsetTop;
 
-    //     let fixStopPrarie = fixOffsetPrarie - nHieght + (pHeight * 2);
 
-    //     function addOrRemoveFixPrairie() {
-    //         if (window.scrollY >= fixStopPrarie) {
-    //             fixPrarie.classList.add('puzzleFixed');
-    //             isFixed = true;
-    //             // fixPrarie.style.top = navElement.offsetHeight + (fixAbout.offsetHeight * 2) +  "px"; 
-    //         } else {
-    //             fixPrarie.classList.remove('puzzleFixed');
-    //             isFixed = false;
-    //         }
-    //     }
+// function addUnifiedPuzzTrigger() {
+// // // set stop trigger / offset height for i NOT WORKING - SEPERATE FUNCTION?
+//     var elements = document.getElementsByClassName(".fixed-puzzle-container");
+//     let triggerHeight = elements.offsetHeight;
 
-}
+//     for (var i = 0; i < elements.length; i++) {
+//         if (window.scrollY >= triggerHeight) {
+//             elements[i].classList.add('.puzzleFixed');
+//         } else {
+//             elements[i].classList.remove('.puzzleFixed');
+//         } 
+        
+//     }
+// }    
+
+//     if (window.scrollY >= fixStopAbout) {
+//         fixAbout.classList.add('puzzleFixed');
+
+// function getArticleOffset() {
+//     const elements = document.querySelectorAll('.fixed-puzzle-container'); 
+//     const dataArray = [];
+//     elements.forEach(element => {
+//       dataArray.push({
+//         id: element.id,
+//         height: element.offsetHeight, 
+//         FromTop: element.offsetTop,
+//       });
+//     });
+//     return dataArray;
+// }
+
+// var articleData = getArticleOffset();
+// console.log(articleData);
+
+// pull variables before internal forloop?
+// var elements = document.getElementsByClassName("fixed-puzzle-container");
+// let fixOffset = elements[i] - nHieght + (basePuzzSize * i);
+// var fixStop = fixOffset - nHieght + (basePuzzSize * i);
+
+
 
 // fixRain.style.top = navElement.offsetHeight + basePuzzSize + "px"; 
 // let heights = [];
@@ -306,19 +358,26 @@ function addUnifiedPuzzStyle() {
 window.onscroll = () => {
     addUnifiedPuzzStyle();
     addOrRemoveSticky();
+    addUnifiedPuzzTop();
+    addFixTrigger();
+    // addUnifiedPuzzTrigger();
+    
+
     // addOrRemoveFixAbout();
     // addOrRemoveFixRain();
     // addOrRemoveFixPrairie();
     // addOrRemoveFixPollen();
     // addOrRemoveFixForest();
     // addOrRemoveFixSeed();
+
+
 }
+
 
 //resize update
 
 window.onresize = function(){ 
 
-   
     navElement = document.getElementById("stickyNavBar");
     console.log("NavBar Width: " + navElement.offsetWidth + "px");
     console.log("Navbar Height: " + navElement.offsetHeight + "px");
