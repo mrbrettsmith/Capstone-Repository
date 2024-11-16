@@ -22,8 +22,15 @@ let fixOffsetForest = fixForest.offsetTop;
 let fixSeed = document.getElementById('prairie');
 let fixOffsetSeed = fixSeed.offsetTop;
 
+let puzzContianer = document.getElementById('puzzle-container-width');
+let puzzContianerWidth = puzzContianer.offsetWidth;
+
+let puzzSvg = document.getElementById('Svg-Height');
+let pHeight = puzzSvg.offsetHeight;
+
 let ViewWindow = window.innerHeight;
 
+addFixedColumnWidth();
 
 // must fix by class .puzzle-piece - see new function
 //must fix position based on nav height and Array ID
@@ -46,16 +53,9 @@ const style = getComputedStyle(navElement);
 let nMargin = parseInt(style.marginTop);
 // Create new hieght
 let nHieght = navElement.offsetHeight ;
-let pHeight = puzzleElement.offsetHeight;
-
-// THIS IS ALMOST WORKING! JUST NEED TO FIX PADDING
-// work from initial puzzle offset hieght, then remove nav
-// and remove puzze height x number of puzzle!!
-
-// Use fixStop?
 
 let fixStopAbout = fixOffsetAbout - nHieght;
-let fixStopRain = fixOffsetRain - nHieght + pHeight;
+let fixStopRain = fixOffsetRain - nHieght + (pHeight);
 let fixStopPrarie = fixOffsetPrarie - nHieght + (pHeight * 2);
 let fixStopPollen = fixOffsetPollen - nHieght + (pHeight * 3);
 let fixStopForest = fixOffsetForest - nHieght + (pHeight * 4);
@@ -63,9 +63,11 @@ let fixStopSeed = fixOffsetSeed - nHieght + (pHeight * 5);
 
 // If I need to shrink to fit on screen
 let bodyViewWindow = ViewWindow - nHieght;
-console.log("body view Hieght: " +bodyViewWindow + "px");
+console.log("body view Hieght: " + bodyViewWindow + "px");
+console.log('Puzzle Column width: ' + puzzContianerWidth + "px");
 
 console.log('nav margin: ' + nMargin + "px");
+console.log('Puzzle svg Height ' + pHeight + "px");
 console.log('nav plus puzzle height: ' + fixStopAbout + "px");
 console.log('About Fix Point: ' + fixStopAbout);
 console.log('Rain Fix Point: ' + fixStopRain);
@@ -141,6 +143,21 @@ function addOrRemoveSticky() {
     } else {
         stickyItem.classList.remove('sticky');
     }    
+}
+
+// Match Fixed puzzle Column width 
+// puzzContianerWidth
+
+// const fixedPuzzleContainer = document.getElementsByClassName("fixed-puzzle-container");
+// let puzzContianerWidthFix = fixedPuzzleContainer.offsetWidth;
+// // Set the width and height
+// puzzContianerWidthFix.style.width = "200px";
+
+function addFixedColumnWidth() {
+    var elements = document.getElementsByClassName("fixed-puzzle-container");
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].style.width=(puzzContianerWidth+"px");
+    }
 }
 
 
@@ -237,11 +254,10 @@ function addOrRemoveFixForest() {
 
 window.onscroll = () => {
     addOrRemoveSticky();
-    // addOrRemoveFix();
     addOrRemoveFixAbout();
     addOrRemoveFixRain();
-    addOrRemoveFixPrairie();
-    addOrRemoveFixPollen();
+    // addOrRemoveFixPrairie();
+    // addOrRemoveFixPollen();
     // addOrRemoveFixForest();
     // addOrRemoveFixSeed();
 }
@@ -251,7 +267,7 @@ window.onscroll = () => {
 window.onresize = function(){ 
 
 
-
+    addFixedColumnWidth();
     navElement = document.getElementById("stickyNavBar");
     console.log("NavBar Width: " + navElement.offsetWidth + "px");
     console.log("Navbar Height: " + navElement.offsetHeight + "px");

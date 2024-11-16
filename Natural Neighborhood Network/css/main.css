@@ -151,12 +151,6 @@ nav {
     top: 0;
 }
 
-
-
-#fixed-puzzle-container:not(.puzzleFixed) {
-    width: 30%;
-}
-
 .puzzleFixed {
     display: block;
     position: fixed;
@@ -298,7 +292,7 @@ something sticky or 'ghost' pzzle piece
 
 .gardenCard {
     display: flex;
-    gap: 1rem;
+
 }
 
 .puzzle-container { 
@@ -309,7 +303,7 @@ something sticky or 'ghost' pzzle piece
 /* Make Active when Fixed - has wront width*/
 .fixed-puzzle-container { 
 
-    display: flex;
+    /* display: flex; */
     margin: 0;
     background-color: #F47534;
 
@@ -321,21 +315,18 @@ something sticky or 'ghost' pzzle piece
 
 .puzzle-piece {
     /* width: 7em; */
-    display: flex;
-    flex: content;
+    /* display: flex;
+    flex: content; */
     /* max-width: 7em;
-    min-width: 4em; 
+    min-width: 4em;  */
     margin: 0;
     z-index: 1;
-    max-height: fit-content; */
-   margin: 2em;
+    max-height: fit-content;
+   
     background-color: #DCCC3C;
 }
 
-.puzzLink {
-  flex: auto;
-  margin: 0%;
-}
+
 
 .ImageFix {
 display: block;
