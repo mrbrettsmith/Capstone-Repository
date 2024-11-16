@@ -55,28 +55,30 @@ let nMargin = parseInt(style.marginTop);
 // Create new hieght
 let nHieght = navElement.offsetHeight ;
 
-let fixStopAbout = fixOffsetAbout - nHieght;
-let fixStopRain = fixOffsetRain - nHieght + (pHeight);
-let fixStopPrarie = fixOffsetPrarie - nHieght + (pHeight * 2);
-let fixStopPollen = fixOffsetPollen - nHieght + (pHeight * 3);
-let fixStopForest = fixOffsetForest - nHieght + (pHeight * 4);
-let fixStopSeed = fixOffsetSeed - nHieght + (pHeight * 5);
-
-// If I need to shrink to fit on screen
-let bodyViewWindow = ViewWindow - nHieght;
-console.log("body view Hieght: " + bodyViewWindow + "px");
-console.log('Puzzle Column width: ' + puzzContianerWidth + "px");
-
 console.log('nav margin: ' + nMargin + "px");
 console.log('Puzzle svg Height ' + pHeight + "px");
 
-console.log('nav plus puzzle height: ' + fixStopAbout + "px");
-console.log('About Fix Point: ' + fixStopAbout);
-console.log('Rain Fix Point: ' + fixStopRain);
-console.log('Prairie Fix Point: ' + fixStopPrarie);
-console.log('Pollen Fix Point: ' + fixStopPollen);
-console.log('Forest Fix Point: ' + fixStopForest);
-console.log('Seed Fix Point: ' + fixStopSeed);
+// let fixStopAbout = fixOffsetAbout - nHieght;
+// let fixStopRain = fixOffsetRain - nHieght + (pHeight);
+// let fixStopPrarie = fixOffsetPrarie - nHieght + (pHeight * 2);
+// let fixStopPollen = fixOffsetPollen - nHieght + (pHeight * 3);
+// let fixStopForest = fixOffsetForest - nHieght + (pHeight * 4);
+// let fixStopSeed = fixOffsetSeed - nHieght + (pHeight * 5);
+
+// If I need to shrink to fit on screen
+// let bodyViewWindow = ViewWindow - nHieght;
+// console.log("body view Hieght: " + bodyViewWindow + "px");
+// console.log('Puzzle Column width: ' + puzzContianerWidth + "px");
+
+
+
+// console.log('nav plus puzzle height: ' + fixStopAbout + "px");
+// console.log('About Fix Point: ' + fixStopAbout);
+// console.log('Rain Fix Point: ' + fixStopRain);
+// console.log('Prairie Fix Point: ' + fixStopPrarie);
+// console.log('Pollen Fix Point: ' + fixStopPollen);
+// console.log('Forest Fix Point: ' + fixStopForest);
+// console.log('Seed Fix Point: ' + fixStopSeed);
 
 
 // let fixPosition = fixStop;
@@ -180,38 +182,81 @@ function addUnifiedPuzzTop() {
     }
 }
 
-// new try
-function addFixTrigger() {
-    var elements = document.getElementsByClassName(".fixed-puzzle-container");
-    const fixOff = (elements.offsetTop + "px");
-    for (var i = 0; i < elements.length; i++){
-        if (window.scrollY >= fixOff) {
-            elements[i].classList.add('.triggered');
-        } else {
-            elements[i].classList.remove('.triggered');
-        }
-    }
-}
+
+// new start with querry
+
 
 function changeColorOnScroll() {
     const elements = document.querySelectorAll(".fixed-puzzle-container");
-  
+    let arr = Array.from(elements);
+    
+
+    const result = [];
+
     elements.forEach(element => {
-      const elementTop = element.getBoundingClientRect().top;
-  
-      if (elementTop < window.scrollY) {
-        element.classList.add('triggered'); // Change color when in view
-        element.classList.add('puzzleFixed');
-      } else {
-        element.classList.remove('triggered'); // Reset color if not in view
-        element.classList.remove('puzzleFixed');
-      }
+      result.push({
+        id: element.id,
+        offsetHeight: element.offsetHeight,
+        offsetTop: element.offsetTop
+      });
     });
+
+
+    // Increase each height by 5 cm
+    for (let i = 0; i < result.length; i++) {
+      result[i,result.offsetHeight] += 5;
+    }
+    
+    
+
+
+    console.log(result);
+    // console.log("Pulled Array List " + arr);
+
+    for (var i = 0; i < result.length; i++) {
+  
+        if (elements[i].style.top < window.scrollY) {
+            elements[i].classList.add('triggered'); // Change color when in view
+            elements[i].classList.add('puzzleFixed');
+        } else {
+            elements[i].classList.remove('triggered'); // Reset color if not in view
+            elements[i].classList.remove('puzzleFixed');
+        }
+
+
+
+    }
+
+    // elements.forEach(element => {
+    //   const elementTop = element.getBoundingClientRect().top;
+  
+    //   if (elementTop < window.scrollY) {
+    //     element.classList.add('triggered'); // Change color when in view
+    //     element.classList.add('puzzleFixed');
+    //   } else {
+    //     element.classList.remove('triggered'); // Reset color if not in view
+    //     element.classList.remove('puzzleFixed');
+    //   }
+    // });
   }
   
   window.addEventListener("scroll", changeColorOnScroll);
 
 
+
+
+// new try
+// function addFixTrigger() {
+//     var elements = document.getElementsByClassName(".fixed-puzzle-container");
+//     const fixOff = (elements.offsetTop + "px");
+//     for (var i = 0; i < elements.length; i++){
+//         if (window.scrollY >= fixOff) {
+//             elements[i].classList.add('.triggered');
+//         } else {
+//             elements[i].classList.remove('.triggered');
+//         }
+//     }
+// }
 
 // function addUnifiedPuzzTrigger() {
 // // // set stop trigger / offset height for i NOT WORKING - SEPERATE FUNCTION?
@@ -359,7 +404,7 @@ window.onscroll = () => {
     addUnifiedPuzzStyle();
     addOrRemoveSticky();
     addUnifiedPuzzTop();
-    addFixTrigger();
+    // addFixTrigger();
     // addUnifiedPuzzTrigger();
     
 
