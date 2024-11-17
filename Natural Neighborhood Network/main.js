@@ -69,25 +69,27 @@ checkPuzzle();
 function checkPuzzle() {
     console.log(window.innerHeight / 5 * 2);
     const triggerPoint = window.innerHeight / 5 * 2;
+    const fixPoint = window.innerHeight / 5 * 2;
 
 
 
 
-    puzzle.forEach(puzz => {
-        const puzzTop = puzz.getBoundingClientRect().top
+    // puzzle.forEach(puzz => {
+    //     const puzzTop = puzz.getBoundingClientRect().top
 
-        if (puzzTop < triggerPoint) {
-            puzz.classList.add('triggered');
-        } else {
-            puzz.classList.remove('triggered');
-        }
-    })
+    //     if (puzzTop < triggerPoint) {
+    //         puzz.classList.add('triggered');
+    //     } else {
+    //         puzz.classList.remove('triggered');
+    //     }
+    // })
 
     puzzleBox.forEach(box =>{
         const boxTop = box.getBoundingClientRect().top
 
         if (boxTop < triggerPoint){
             box.classList.add('puzzleFixed');
+
         } else {
             box.classList.remove('puzzleFixed');
         }
