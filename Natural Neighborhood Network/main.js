@@ -60,6 +60,7 @@ function addUnifiedPuzzTop() {
 // Does this work?: https://www.youtube.com/watch?v=peFOHcbEUig
 
 const puzzle = document.querySelectorAll('.puzzle-piece');
+const puzzleBox = document.querySelectorAll('.puzzle-container');
 
 window.addEventListener('scroll',checkPuzzle);
 
@@ -68,6 +69,9 @@ checkPuzzle();
 function checkPuzzle() {
     console.log(window.innerHeight / 5 * 2);
     const triggerPoint = window.innerHeight / 5 * 2;
+
+
+
 
     puzzle.forEach(puzz => {
         const puzzTop = puzz.getBoundingClientRect().top
@@ -78,6 +82,17 @@ function checkPuzzle() {
             puzz.classList.remove('triggered');
         }
     })
+
+    puzzleBox.forEach(box =>{
+        const boxTop = box.getBoundingClientRect().top
+
+        if (boxTop < triggerPoint){
+            box.classList.add('puzzleFixed');
+        } else {
+            box.classList.remove('puzzleFixed');
+        }
+    })
+
 }
 
 

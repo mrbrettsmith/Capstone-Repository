@@ -157,10 +157,16 @@ nav {
 }
 
 .puzzleFixed {
-    display: block;
-    position: fixed;
-    top: 0;
-    width: 30%;
+  
+
+    .puzzle-piece {
+        display: block;
+        position: fixed;
+        top: 0;
+        width: 30%;
+
+    }
+
 }
 
 
