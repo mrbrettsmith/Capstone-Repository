@@ -189,45 +189,56 @@ function addUnifiedPuzzTop() {
 function changeColorOnScroll() {
     const elements = document.querySelectorAll(".fixed-puzzle-container");
     let arr = Array.from(elements);
+
+    // const result = [];
+
+    // elements.forEach(element => {
+    //     result.push({
+    //         id: element.id,
+    //         offsetHeight: element.offsetHeight,
+    //         offsetTop: element.offsetTop,
+    //     });
+    // });
+
+
+
     
+    for (let i = 0; i < elements.length; i++) {
+        const element = elements[i];
+      
+        // Using getBoundingClientRect()
+        const rect = element.getBoundingClientRect();
+        const width = rect.width;
+        const height = rect.height;
+        const top = rect.top;
+        var off = element.offsetTop;
+        const trigger = nHieght + (i * height);
 
-    const result = [];
-
-    elements.forEach(element => {
-      result.push({
-        id: element.id,
-        offsetHeight: element.offsetHeight,
-        offsetTop: element.offsetTop
-      });
-    });
-
-
-    // Increase each height by 5 cm
-    for (let i = 0; i < result.length; i++) {
-      result[i,result.offsetHeight] += 5;
-    }
-    
-    
-
-
-    console.log(result);
-    // console.log("Pulled Array List " + arr);
-
-    for (var i = 0; i < result.length; i++) {
-  
-        if (elements[i].style.top < window.scrollY) {
-            elements[i].classList.add('triggered'); // Change color when in view
-            elements[i].classList.add('puzzleFixed');
+        if (element.top <= element.trigger) {
+            element.classList.add('triggered'); // Change color when in view
+            // element.classList.add('puzzleFixed');
         } else {
-            elements[i].classList.remove('triggered'); // Reset color if not in view
-            elements[i].classList.remove('puzzleFixed');
+            element.classList.remove('triggered'); // Reset color if not in view
+            // element.classList.remove('puzzleFixed');
         }
 
 
 
-    }
+      
+        console.log(`Element ${i + 1}: Width: ${width}, Height: ${height}, Offset Top: ${off}, trigger: ${trigger}, Top: ${top}`);
+      }
+    
 
-    // elements.forEach(element => {
+
+    // console.log(result);
+    // console.log("Pulled Array List " + arr + "px");
+
+
+    // for (var i = 0; i < elements.length; i++) {
+    //     arr[i].style.top=(navElement.offsetHeight + i * basePuzzSize + "px");
+    
+
+    //     elements.forEach(element => {
     //   const elementTop = element.getBoundingClientRect().top;
   
     //   if (elementTop < window.scrollY) {
@@ -238,6 +249,10 @@ function changeColorOnScroll() {
     //     element.classList.remove('puzzleFixed');
     //   }
     // });
+    
+    // }
+
+
   }
   
   window.addEventListener("scroll", changeColorOnScroll);
@@ -403,7 +418,7 @@ function changeColorOnScroll() {
 window.onscroll = () => {
     addUnifiedPuzzStyle();
     addOrRemoveSticky();
-    addUnifiedPuzzTop();
+    // addUnifiedPuzzTop();
     // addFixTrigger();
     // addUnifiedPuzzTrigger();
     
