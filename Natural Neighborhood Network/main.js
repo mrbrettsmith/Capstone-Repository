@@ -57,45 +57,74 @@ function addUnifiedPuzzTop() {
     }
 }
 
+// Does this work?: https://www.youtube.com/watch?v=peFOHcbEUig
 
+const puzzle = document.querySelectorAll('.puzzle-piece');
 
-function triggerFix() {
-    const puzzClass = document.getElementsByClassName('.fixed-puzzle-container');
-    const puzzArray = [];
+window.addEventListener('scroll',checkPuzzle);
 
-    for (let i = 0; i < puzzClass.length; i++) {
-        const puzzPiece = puzzClass [i];
-        
-        const rect = puzzPiece.getBoundingClientRect();
-            puzzArray.push({
-            width: rect.width,
-            height: rect.height,
-            offset: rect.offsetTop,
-            top: rect.top,
-            });
-      }
+checkPuzzle();
+
+function checkPuzzle() {
+    console.log(window.innerHeight / 5 * 2);
+    const triggerPoint = window.innerHeight / 5 * 2;
+
+    puzzle.forEach(puzz => {
+        const puzzTop = puzz.getBoundingClientRect().top
+
+        if (puzzTop < triggerPoint) {
+            puzz.classList.add('triggered');
+        } else {
+            puzz.classList.remove('triggered');
+        }
+    })
 }
-const puzzdata = triggerFix();
-console.log(puzzdata);
+
+
 
 // // Puzzle Class Array Generation
 
-function getElementsData() {
-    const elements = document.querySelectorAll('.puzzle-piece'); 
-    const dataArray = [];
+// function getPuzzleData() {
+//     const elements = document.querySelectorAll('.puzzle-piece'); 
+//     const dataArray = [];
 
-    elements.forEach(element => {
-      dataArray.push({
-        FromTop: element.offsetTop,
-        containerHeight: element.getBoundingClientRect().y,
-        // height: element.getBoundingClientRect().height, 
-      });
-    });
-    return dataArray;
-  }
 
-  const elementData = getElementsData();
-  console.log(elementData);
+//     elements.forEach(element => {
+//       dataArray.push({
+//         class: element.classList,
+//         FromTop: element.offsetTop,
+//         containerHeight: element.getBoundingClientRect().y,
+//         // height: element.getBoundingClientRect().height, 
+//       });
+//     });
+//     return dataArray;
+
+// }
+// // // End Puzzle Class Array - fyi!
+
+//   const puzzleData = getPuzzleData();
+//   console.log(puzzleData);
+
+// function cmon(array) {
+//     const triggerPoint = 500;
+
+// // why cant i read classlist?
+//     for (let i = 0; i < array.length; i++){
+//     const puzz = array[i];
+
+//         if (puzz.containerHeight <= triggerPoint) { puzz.classList.add("triggered")}
+//         else {puzz.classList.remove("triggered")}
+
+//     };
+// }
+
+// addEventListener('scroll', cmon(puzzleData));
+
+// MAKE THE ARRAY INSTANCES TRIGGER AT STATIC POINT
+
+
+// End addPuzzleTrigger -fyi!
+
 
 
 // new try

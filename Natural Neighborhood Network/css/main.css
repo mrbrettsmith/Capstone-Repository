@@ -310,7 +310,6 @@ something sticky or 'ghost' pzzle piece
 
     /* display: flex; */
     margin: 0;
-    background-color: #F47534;
 
 }
 
@@ -328,7 +327,6 @@ something sticky or 'ghost' pzzle piece
     z-index: 1;
     max-height: fit-content;
    
-    background-color: #DCCC3C;
 }
 
 
