@@ -61,66 +61,94 @@ function addUnifiedPuzzTop() {
 
 const puzzle = document.querySelectorAll('.puzzle-piece');
 const puzzleBox = document.querySelectorAll('.puzzle-container');
-
-window.addEventListener('scroll',checkPuzzle);
-
-checkPuzzle();
-
-function checkPuzzle() {
-    console.log(window.innerHeight / 5 * 2);
-    const triggerPoint = window.innerHeight / 5 * 2;
-    const fixPoint = window.innerHeight / 5 * 2;
+const pArray = Array.from(puzzle).map(option => option.value);
 
 
 
+// checkPuzzle();
 
-    // puzzle.forEach(puzz => {
-    //     const puzzTop = puzz.getBoundingClientRect().top
+// function checkPuzzle() {
+//     console.log(window.innerHeight / 5 * 2);
+//     const triggerPoint = nHieght;
+//     const fixPoint = window.innerHeight / 5 * 2;
 
-    //     if (puzzTop < triggerPoint) {
-    //         puzz.classList.add('triggered');
-    //     } else {
-    //         puzz.classList.remove('triggered');
-    //     }
-    // })
 
-    puzzleBox.forEach(box =>{
-        const boxTop = box.getBoundingClientRect().top
 
-        if (boxTop < triggerPoint){
-            box.classList.add('puzzleFixed');
 
-        } else {
-            box.classList.remove('puzzleFixed');
-        }
-    })
+//     // THIS WORKS
+//     // console.log(window.innerHeight / 5 * 2);
+//     // const triggerPoint = nHieght;
+//     // const fixPoint = window.innerHeight / 5 * 2;
 
-}
+//     // puzzleBox.forEach(box =>{
+//     //     const boxTop = box.getBoundingClientRect().top
+
+//     //     if (boxTop < triggerPoint){
+//     //         box.classList.add('puzzleFixed');
+
+//     //     } else {
+//     //         box.classList.remove('puzzleFixed');
+//     //     }
+//     // })
+
+// }
 
 
 
 // // Puzzle Class Array Generation
 
-// function getPuzzleData() {
-//     const elements = document.querySelectorAll('.puzzle-piece'); 
-//     const dataArray = [];
+
+function getPuzzleData() {
+    const elements = document.querySelectorAll('.puzzle-piece'); 
+    const dataArray = [];
 
 
-//     elements.forEach(element => {
-//       dataArray.push({
-//         class: element.classList,
-//         FromTop: element.offsetTop,
-//         containerHeight: element.getBoundingClientRect().y,
-//         // height: element.getBoundingClientRect().height, 
-//       });
-//     });
-//     return dataArray;
+    elements.forEach(element => {
+      dataArray.push({
+        class: element.classList,
+        FromTop: element.offsetTop,
+        containerHeight: element.getBoundingClientRect().y,
+        // height: element.getBoundingClientRect().height, 
+      });
+    });
+    return dataArray;
 
-// }
+}
 // // // End Puzzle Class Array - fyi!
 
-//   const puzzleData = getPuzzleData();
-//   console.log(puzzleData);
+
+  const puzzleData = getPuzzleData();
+  console.log(puzzleData);
+
+  addFix(puzzleData);
+
+    function addFix(arr){
+        let puzzleData = arr;
+        let triggerPoint = nHieght;
+
+    console.log('hello ' + triggerPoint);
+
+    const fixPoint = window.innerHeight / 5 * 2;
+
+        for (let i = 0; i < puzzleData.length; i++){
+            const puzzD = puzzleData[i];
+            const boxTop = puzzleData[i].getBoundingClientRect().top;
+
+            if (boxTop < triggerPoint){
+                puzzD.style.backgroundColor = "yellow";
+    
+            } else {
+                puzzD.style.backgroundColor = "none";
+            }
+        }
+    }
+
+ 
+    console.log(window.innerHeight / 5 * 2);
+  
+
+
+
 
 // function cmon(array) {
 //     const triggerPoint = 500;

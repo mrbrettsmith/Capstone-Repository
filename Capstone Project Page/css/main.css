@@ -166,7 +166,11 @@ nav {
 
 .sticky {
     position: sticky;
-    top: 0;
+    /* fixed not sticky if I want it to stay in <nav> */
+    top: 0px;
+    border-bottom: 6px solid var(--seed);
+    background-color: #ffffff;
+    
 }
 
 /* PUZZLE ClASS & ID*/
