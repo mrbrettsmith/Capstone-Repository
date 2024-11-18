@@ -1,25 +1,35 @@
 document.addEventListener("DOMContentLoaded", function(event) {   
  
 // MAKE NAV STICKY
+let stickyNav = document.getElementById("stickyNavItems");
+let stickyNavPosition = stickyNav.offsetTop;
 
-let stickyItem = document.getElementById("stickyNavItems");
-let stickyPosition = stickyItem.offsetTop;
+let stickyItem = document.getElementsByClassName('stickyElement');
+let stickyItemPosition = stickyItem.offsetTop;
 
-
-
-// Sticky add function
-
-function addOrRemoveSticky() {
-    if (window.scrollY >= stickyPosition) {
-        stickyItem.classList.add('sticky');
+function addOrRemoveStickyNav() {
+    if (window.scrollY >= stickyNavPosition) {
+        stickyNav.classList.add('stickyNav');
     } else {
-        stickyItem.classList.remove('sticky');
+        stickyNav.classList.remove('stickyNav');
+    }    
+}
+
+function addOrRemoveStickyItem() {
+    if (window.scrollY >= stickyItemPosition) {
+        stickyItem.classList.add('stickyItem');
+    } else {
+        stickyItem.classList.remove('stickyItem');
     }    
 }
 
 window.onscroll = () => {
-    addOrRemoveSticky();
+    addOrRemoveStickyNav();
+    addOrRemoveStickyItem();
 }
+
+
+
 
 
 
