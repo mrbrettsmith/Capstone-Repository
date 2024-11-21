@@ -12,6 +12,48 @@ document.addEventListener("DOMContentLoaded", function(event) {
 // Garden Card Location Data - offsethieght or bounding box?
 
 
+const mAbout = document.getElementById('about');
+const hAbout = document.getElementById('hiddenAbout');
+
+
+
+function switchOnIntersect(hidden,moving) {
+   
+    const puzFixed = hidden.getBoundingClientRect(); 
+    const puzzMove = moving.getBoundingClientRect(); 
+  
+    const puzFixedTop = puzFixed.y;
+    const puzMoveTop = puzzMove.y;
+
+    console.log('Hidden About Top ' + puzFixedTop, 'Moving Top' + puzMoveTop);
+
+    if (puzMoveTop <= puzFixedTop) {
+      hAbout.style.opacity = 1; // Fade out
+      // or 
+      // object.style.display = 'none'; // Hide completely
+    } else {
+      hAbout.style.opacity = 0; // Fade in
+      // or 
+      // object.style.display = 'block'; // Show
+    }
+
+
+};
+
+switchOnIntersect(hAbout,mAbout);
+
+window.addEventListener('scroll', () => {
+    switchOnIntersect(hAbout,mAbout);
+
+
+        
+});
+
+window.addEventListener('resize', () => {
+
+});
+
+// Old Location Data Draw
 
 // const aboutTextBox = document.getElementById('aboutText');
 // const aboutTextTop = aboutTextBox.getBoundingClientRect().top;
@@ -39,14 +81,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
 
-    window.addEventListener('scroll', () => {
 
-        
-    });
-
-    window.addEventListener('resize', () => {
-  
-    });
 
 
 
