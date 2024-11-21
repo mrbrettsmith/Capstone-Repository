@@ -211,6 +211,15 @@ Do I need the Collapse into column? or can I just use Burgertime? Probably Not, 
     /* 52 em to match prarie */ 
 }
 
+.footer {
+    color: black;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
 /* HIDDEN DROPDOWN */
 
 
@@ -289,40 +298,22 @@ something sticky or 'ghost' pzzle piece
     }
 }
 
-.body-container {
-    display: flex;
-}
-
-
-
-
-.unitedCard {
-    display: flex;
-    flex: 1 1 30%;
-}
 
 .hiddenRow {
 display: flex;
+flex: auto;
 }
 
-.dualpuzzle {
-    display: relative;
-    width: 30%;
-    height: auto;
+.ghostpuzzle {
+    display: absolute;
+   max-width: 6em;
+   min-width: 4em;
 
 }
 
-
-.gardenCard {
-    display: flex;
-    
-}
-
-.puzzle-container { 
-    width: 30%;
-    display: flex;
-    flex-direction: column;
- 
+.hiddenPuzzlePiece {
+background-color: aliceblue;
+flex: 1 1 35%;
 }
 
 /* Make Active when Fixed - has wront width*/
@@ -333,36 +324,43 @@ display: flex;
 
 }
 
-/* Hide and unhide fix container with this */
+.ImageFix {
+display: block;
+}
 
- /* link is causing the problem? */
+.body-container {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.gardenCard {
+    display: flex;
+    flex: auto;
+    justify-content: space-between;
+}
+
+.puzzle-container {
+    background-color: aliceblue;
+    flex: 1 1 35%;
+}
 
 .puzzle-piece {
-    /* width: 7em; */
-    /* display: flex;
-    flex: content; */
+    flex: 1 1 35%;
     position:relative;
     max-width: 7em;
     min-width: 4em; 
     margin: 0;
     z-index: 1;
     max-height: fit-content;
-   
-}
-
-
-
-.ImageFix {
-display: block;
-
 }
 
 .article-container {
     margin-left: 3em;
     display: inline-flex;
-    flex-direction: row;
+    
     text-align: left; 
-    flex: 1 1 70%;
+    
 }
 
 .article-head-container {
