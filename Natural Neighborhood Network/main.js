@@ -79,12 +79,35 @@ function getElementYPosition(elementId) {
         console.log('ID: ',elementToMove, 'Current Y position:', elementToMove.style.top);
         console.log('ID: ',targetElement, 'Current Y position:', targetTop);
     };
-    matchTop(rain,rainText)
-    window.addEventListener('scroll', () => {
-        matchTop(rain,rainText)
-      });
 
-      
+    matchTop(about,aboutText);
+    matchTop(rain,rainText);
+    matchTop(prairie,prairieText);
+    matchTop(prairie,prairieText);
+    matchTop(pollen,pollenText);
+    matchTop(forest,forestText);
+    matchTop(seed,seedText);
+
+    window.addEventListener('scroll', () => {
+        matchTop(about,aboutText);
+        matchTop(rain,rainText);
+        matchTop(prairie,prairieText);
+        matchTop(prairie,prairieText);
+        matchTop(pollen,pollenText);
+        matchTop(forest,forestText);
+        matchTop(seed,seedText);
+    });
+
+    window.addEventListener('scroll', () => {
+        matchTop(about,aboutText);
+        matchTop(rain,rainText);
+        matchTop(prairie,prairieText);
+        matchTop(prairie,prairieText);
+        matchTop(pollen,pollenText);
+        matchTop(forest,forestText);
+        matchTop(seed,seedText);
+    });
+
 //  // match to document:
     // function matchHeightToDocument(element1, element2) {
     //     const docHeight = document.documentElement.clientHeight;

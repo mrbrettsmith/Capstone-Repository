@@ -303,8 +303,7 @@ something sticky or 'ghost' pzzle piece
 
 .gardenCard {
     display: flex;
-    position:static;
-
+    
 }
 
 .puzzle-container { 
