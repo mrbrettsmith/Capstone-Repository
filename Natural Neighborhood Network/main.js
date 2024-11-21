@@ -76,8 +76,8 @@ function getElementYPosition(elementId) {
 
 
         elementToMove.style.top = `${newTopHieght}px`;
-        console.log('ID: ',elementToMove, 'Current Y position:', elementToMove.style.top);
-        console.log('ID: ',targetElement, 'Current Y position:', targetTop);
+        // console.log('ID: ',elementToMove, 'Current Y position:', elementToMove.style.top);
+        // console.log('ID: ',targetElement, 'Current Y position:', targetTop);
     };
 
     matchTop(about,aboutText);
@@ -89,6 +89,20 @@ function getElementYPosition(elementId) {
     matchTop(seed,seedText);
 
     window.addEventListener('scroll', () => {
+        addOrRemoveStickyAbout();
+
+        matchTop(about,aboutText);
+        matchTop(rain,rainText);
+        matchTop(prairie,prairieText);
+        matchTop(prairie,prairieText);
+        matchTop(pollen,pollenText);
+        matchTop(forest,forestText);
+        matchTop(seed,seedText);
+
+        
+    });
+
+    window.addEventListener('resize', () => {
         matchTop(about,aboutText);
         matchTop(rain,rainText);
         matchTop(prairie,prairieText);
@@ -97,45 +111,6 @@ function getElementYPosition(elementId) {
         matchTop(forest,forestText);
         matchTop(seed,seedText);
     });
-
-    window.addEventListener('scroll', () => {
-        matchTop(about,aboutText);
-        matchTop(rain,rainText);
-        matchTop(prairie,prairieText);
-        matchTop(prairie,prairieText);
-        matchTop(pollen,pollenText);
-        matchTop(forest,forestText);
-        matchTop(seed,seedText);
-    });
-
-//  // match to document:
-    // function matchHeightToDocument(element1, element2) {
-    //     const docHeight = document.documentElement.clientHeight;
-    //     element1.style.height = docHeight + "px";
-    //     element2.style.height = docHeight + "px";
-
-    //   }
-    
-    //   // Call the function to set the height initially
-    //   matchHeightToDocument(document.getElementById("rain"), document.getElementById("rainText"));
-    
-    //   // Add an event listener to adjust height on window resize
-    //   window.addEventListener('resize', () => {
-    //     matchHeightToDocument(document.getElementById("rain"), document.getElementById("rainText"));
-    //   });
-
-
-
-
-// matchTop(aboutPuzzBox,aboutTextBox);
-// matchTop(rainPuzzBox,rainTextBox);
-// matchTop(prairiePuzzBox,prairieTextBox);
-// matchTop(pollenPuzzBox,pollenTextBox);
-// matchTop(forestPuzzBox,forestTextBox);
-// matchTop(seedPuzzBox,seedTextBox);
-
-console.log("about text top:" + aboutTextTop);
-
 
 
 
@@ -150,6 +125,7 @@ let nOffset = navElement.offsetTop;
 let nHieght = navElement.offsetHeight;
 
 console.log("Navbar Body Height: " + nHieght + "px", "top Margin: " + nMargin, "offset height: " + nOffset);
+
 
 // MAKE NAV STICKY
 let stickyItem = document.getElementById('stickyNavBar');
@@ -166,7 +142,22 @@ function addOrRemoveSticky() {
     }    
 }
 
+// Generic Stiky function (I hope)
+let stickyItemAbout = document.getElementById('about');
+let stickyPositionAbout = stickyItem.offsetTop + 400;
 
+
+// Sticky add function
+
+function addOrRemoveStickyAbout() {
+    if (window.scrollY >= stickyPositionAbout) {
+        stickyItemAbout.style.top = 100 ;
+        stickyItemAbout.style.position = 'sticky';
+        
+    } else {
+        stickyItemAbout.style.position = 'absolute';
+    }    
+}
 
 
 
@@ -206,17 +197,6 @@ function addOrRemoveSticky() {
 
 window.onscroll = () => {
     addOrRemoveSticky();
-
-    // console.log("Rain Text Top: " + rainTextTop);
-    // console.log("Rain Puzzle Top: " + rainPuzzTop);
-    // console.log("difference: " + (rainPuzzTop - rainTextTop));
-    // matchTop(aboutPuzzBox,aboutTextBox);
-    // matchTop(rainPuzzBox,rainTextBox);
-    // matchTop(prairiePuzzBox,prairieTextBox);
-    // matchTop(pollenPuzzBox,pollenTextBox);
-    // matchTop(forestPuzzBox,forestTextBox);
-    // matchTop(seedPuzzBox,seedTextBox);
-
 }
 
 
@@ -226,11 +206,11 @@ window.onresize = function(){
 
     navElement = document.getElementById("stickyNavBar");
     // console.log("NavBar Width: " + navElement.offsetWidth + "px");
-    console.log("Navbar Height: " + navElement.offsetHeight + "px");
+    // console.log("Navbar Height: " + navElement.offsetHeight + "px");
 
     puzzleElement = document.getElementById("about");
-    // console.log("Puzzle Width: " + puzzleElement.offsetWidth + "px");
-    console.log("Puzzle Height: " + puzzleElement.offsetHeight + "px");
+    // // console.log("Puzzle Width: " + puzzleElement.offsetWidth + "px");
+    // console.log("Puzzle Height: " + puzzleElement.offsetHeight + "px");
 
 }
 

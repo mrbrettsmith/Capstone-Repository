@@ -151,22 +151,15 @@ nav {
     top: 0;
 }
 
-.triggered {
-    background-color: magenta;
-    z-index: 100;
-}
+
 
 .puzzleFixed {
   
-
-    .puzzle-piece {
-        display: block;
-        position: fixed;
-        top: 0;
-        width: 30%;
-        margin-top: 300px;
-
-    }
+    
+    position: fixed;
+    background-color: magenta;
+    z-index: 100;
+    top: 0;
 
 }
 
@@ -301,6 +294,25 @@ something sticky or 'ghost' pzzle piece
 }
 
 
+
+
+.unitedCard {
+    display: flex;
+    flex: 1 1 30%;
+}
+
+.hiddenRow {
+display: flex;
+}
+
+.dualpuzzle {
+    display: relative;
+    width: 30%;
+    height: auto;
+
+}
+
+
 .gardenCard {
     display: flex;
     
@@ -329,7 +341,7 @@ something sticky or 'ghost' pzzle piece
     /* width: 7em; */
     /* display: flex;
     flex: content; */
-    position:absolute;
+    position:relative;
     max-width: 7em;
     min-width: 4em; 
     margin: 0;
