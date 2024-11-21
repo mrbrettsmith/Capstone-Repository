@@ -298,18 +298,20 @@ something sticky or 'ghost' pzzle piece
 
 .body-container {
     display: flex;
-    flex-direction: column;
 }
 
 
 .gardenCard {
     display: flex;
+    position:static;
 
 }
 
 .puzzle-container { 
     width: 30%;
-    /* Can this fit Content? */
+    display: flex;
+    flex-direction: column;
+ 
 }
 
 /* Make Active when Fixed - has wront width*/
@@ -328,6 +330,7 @@ something sticky or 'ghost' pzzle piece
     /* width: 7em; */
     /* display: flex;
     flex: content; */
+    position:absolute;
     max-width: 7em;
     min-width: 4em; 
     margin: 0;

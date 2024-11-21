@@ -11,7 +11,113 @@ let puzzContianerWidth = puzzContianer.offsetWidth;
 let puzzSvg = document.getElementById('Svg-Height');
 let pHeight = puzzSvg.offsetHeight;
 
-let ViewWindow = window.innerHeight;
+
+// Garden Card Location Data - offsethieght or bounding box?
+
+
+
+const aboutTextBox = document.getElementById('aboutText');
+const aboutTextTop = aboutTextBox.getBoundingClientRect().top;
+
+const aboutPuzzBox = document.getElementById('about');
+const aboutPuzzTop = aboutPuzzBox.getBoundingClientRect().top;
+
+const rainTextBox = document.getElementById('rainText');
+const rainTextTop = rainTextBox.getBoundingClientRect().top;
+
+const rainPuzzBox = document.getElementById('rain');
+const rainPuzzTop = rainPuzzBox.getBoundingClientRect().top;
+
+const prairieTextBox = document.getElementById('prairieText');
+const prairiePuzzBox = document.getElementById('prairie');
+
+const pollenTextBox = document.getElementById('pollenText');
+const pollenPuzzBox = document.getElementById('pollen');
+
+const forestTextBox = document.getElementById('forestText');
+const forestPuzzBox = document.getElementById('forest');
+
+const seedTextBox = document.getElementById('seedText');
+const seedPuzzBox = document.getElementById('seed');
+
+
+
+
+// Scroll Height Tester
+function getElementYPosition(elementId) {
+    const element = document.getElementById(elementId);
+  
+    if (!element) {
+      return null;
+    }
+  
+    // Get the initial Y position
+    const initialY = element.getBoundingClientRect().top;
+  
+    // Update the Y position when scrolling
+    window.addEventListener('scroll', () => {
+      const currentY = element.getBoundingClientRect().top;
+      console.log('ID: ',element, 'Current Y position:', currentY);
+    });
+  
+    return initialY;
+  }
+  
+ 
+
+
+// why is this so weird. should just work
+// Matches to container heights I think.
+    function matchTop(elementToMove, targetElement) {
+        const targetTop = targetElement.getBoundingClientRect().top;
+
+        const pageTotal = document.documentElement.scrollTop;
+        newTopHieght = pageTotal + targetTop;
+
+
+        elementToMove.style.top = `${newTopHieght}px`;
+        console.log('ID: ',elementToMove, 'Current Y position:', elementToMove.style.top);
+        console.log('ID: ',targetElement, 'Current Y position:', targetTop);
+    };
+    matchTop(rain,rainText)
+    window.addEventListener('scroll', () => {
+        matchTop(rain,rainText)
+      });
+
+      
+//  // match to document:
+    // function matchHeightToDocument(element1, element2) {
+    //     const docHeight = document.documentElement.clientHeight;
+    //     element1.style.height = docHeight + "px";
+    //     element2.style.height = docHeight + "px";
+
+    //   }
+    
+    //   // Call the function to set the height initially
+    //   matchHeightToDocument(document.getElementById("rain"), document.getElementById("rainText"));
+    
+    //   // Add an event listener to adjust height on window resize
+    //   window.addEventListener('resize', () => {
+    //     matchHeightToDocument(document.getElementById("rain"), document.getElementById("rainText"));
+    //   });
+
+
+
+
+// matchTop(aboutPuzzBox,aboutTextBox);
+// matchTop(rainPuzzBox,rainTextBox);
+// matchTop(prairiePuzzBox,prairieTextBox);
+// matchTop(pollenPuzzBox,pollenTextBox);
+// matchTop(forestPuzzBox,forestTextBox);
+// matchTop(seedPuzzBox,seedTextBox);
+
+console.log("about text top:" + aboutTextTop);
+
+
+
+
+
+
 
 // NAV BAR DETAILS - Create dimension for Nav element (to remove from puzzle offset trigger)
 let navElement = document.getElementById("stickyNavBar");
@@ -37,138 +143,11 @@ function addOrRemoveSticky() {
     }    
 }
 
-function addUnifiedPuzzStyle() {
-
-    var elements = document.getElementsByClassName(".fixed-puzzle-container");
-    // let fixOffset = elements[i] - nHieght + (basePuzzSize * i);
-    // var fixStop = fixOffset - nHieght + (basePuzzSize * i);
-
-// Set Universal Puzzle Width for i
-    for (var i = 0; i < elements.length; i++) {
-        elements[i].style.width=(basePuzzSize + "px");
-    }
-}
-
-function addUnifiedPuzzTop() {
-// set margin/stopheight for i (should it be top, or margin?)
-    var elements = document.getElementsByClassName(".fixed-puzzle-container");
-    for (var i = 0; i < elements.length; i++) {
-        elements[i].style.top=(navElement.offsetHeight + i * basePuzzSize + "px");
-    }
-}
-
-// Does this work?: https://www.youtube.com/watch?v=peFOHcbEUig
-
-const puzzle = document.querySelectorAll('.puzzle-piece');
-const puzzleBox = document.querySelectorAll('.puzzle-container');
-const pArray = Array.from(puzzle).map(option => option.value);
-
-
-
-// checkPuzzle();
-
-// function checkPuzzle() {
-//     console.log(window.innerHeight / 5 * 2);
-//     const triggerPoint = nHieght;
-//     const fixPoint = window.innerHeight / 5 * 2;
 
 
 
 
-//     // THIS WORKS
-//     // console.log(window.innerHeight / 5 * 2);
-//     // const triggerPoint = nHieght;
-//     // const fixPoint = window.innerHeight / 5 * 2;
 
-//     // puzzleBox.forEach(box =>{
-//     //     const boxTop = box.getBoundingClientRect().top
-
-//     //     if (boxTop < triggerPoint){
-//     //         box.classList.add('puzzleFixed');
-
-//     //     } else {
-//     //         box.classList.remove('puzzleFixed');
-//     //     }
-//     // })
-
-// }
-
-
-
-// // Puzzle Class Array Generation
-
-
-function getPuzzleData() {
-    const elements = document.querySelectorAll('.puzzle-piece'); 
-    const dataArray = [];
-
-
-    elements.forEach(element => {
-      dataArray.push({
-        class: element.classList,
-        FromTop: element.offsetTop,
-        containerHeight: element.getBoundingClientRect().y,
-        // height: element.getBoundingClientRect().height, 
-      });
-    });
-    return dataArray;
-
-}
-// // // End Puzzle Class Array - fyi!
-
-
-  const puzzleData = getPuzzleData();
-  console.log(puzzleData);
-
-  addFix(puzzleData);
-
-    function addFix(arr){
-        let puzzleData = arr;
-        let triggerPoint = nHieght;
-
-    console.log('hello ' + triggerPoint);
-
-    const fixPoint = window.innerHeight / 5 * 2;
-
-        for (let i = 0; i < puzzleData.length; i++){
-            const puzzD = puzzleData[i];
-            const boxTop = puzzleData[i].getBoundingClientRect().top;
-
-            if (boxTop < triggerPoint){
-                puzzD.style.backgroundColor = "yellow";
-    
-            } else {
-                puzzD.style.backgroundColor = "none";
-            }
-        }
-    }
-
- 
-    console.log(window.innerHeight / 5 * 2);
-  
-
-
-
-
-// function cmon(array) {
-//     const triggerPoint = 500;
-
-// // why cant i read classlist?
-//     for (let i = 0; i < array.length; i++){
-//     const puzz = array[i];
-
-//         if (puzz.containerHeight <= triggerPoint) { puzz.classList.add("triggered")}
-//         else {puzz.classList.remove("triggered")}
-
-//     };
-// }
-
-// addEventListener('scroll', cmon(puzzleData));
-
-// MAKE THE ARRAY INSTANCES TRIGGER AT STATIC POINT
-
-
-// End addPuzzleTrigger -fyi!
 
 
 
@@ -204,6 +183,16 @@ function getPuzzleData() {
 
 window.onscroll = () => {
     addOrRemoveSticky();
+
+    // console.log("Rain Text Top: " + rainTextTop);
+    // console.log("Rain Puzzle Top: " + rainPuzzTop);
+    // console.log("difference: " + (rainPuzzTop - rainTextTop));
+    // matchTop(aboutPuzzBox,aboutTextBox);
+    // matchTop(rainPuzzBox,rainTextBox);
+    // matchTop(prairiePuzzBox,prairieTextBox);
+    // matchTop(pollenPuzzBox,pollenTextBox);
+    // matchTop(forestPuzzBox,forestTextBox);
+    // matchTop(seedPuzzBox,seedTextBox);
 
 }
 
