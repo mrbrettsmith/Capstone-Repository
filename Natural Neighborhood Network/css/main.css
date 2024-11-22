@@ -326,6 +326,9 @@ display: absolute;
 flex: 1 1 35%;
 }
 
+.whiteoutBackground {
+background-color: #ffffff;
+}
 
 /* Make Active when Fixed - has wront width*/
 .fixed-puzzle-container { 
@@ -352,7 +355,7 @@ display: block;
 }
 
 .puzzle-container {
-    background-color: aliceblue;
+  
     flex: 1 1 35%;
 }
 
@@ -364,6 +367,14 @@ display: block;
     margin: 0;
     z-index: 1;
     max-height: fit-content;
+}
+
+.halfStep {
+    margin-left: 2em;
+}
+
+.fullStep{
+    margin-left: 4em; 
 }
 
 .article-container {
