@@ -18,6 +18,18 @@ const hAbout = document.getElementById('hiddenAbout');
 const mRain = document.getElementById('rain');
 const hRain = document.getElementById('hiddenRain');
 
+const mPrairie = document.getElementById('prairie');
+const hPrairie = document.getElementById('hiddenPrairie');
+
+const mPollen = document.getElementById('pollen');
+const hPollen = document.getElementById('hiddenPollen');
+
+const mForest = document.getElementById('forest');
+const hForest = document.getElementById('hiddenForest');
+
+const mSeed = document.getElementById('seed');
+const hSeed = document.getElementById('hiddenSeed');
+
 
 function switchOnIntersect(hidden,moving) {
    
@@ -42,13 +54,23 @@ function switchOnIntersect(hidden,moving) {
 
 };
 
+
 switchOnIntersect(hAbout,mAbout);
 switchOnIntersect(hRain,mRain);
+
+switchOnIntersect(hPrairie,mPrairie);
+switchOnIntersect(hPollen,mPollen);
+
+switchOnIntersect(hForest,mForest);
+switchOnIntersect(hSeed,mSeed);
 
 window.addEventListener('scroll', () => {
     switchOnIntersect(hAbout,mAbout);
     switchOnIntersect(hRain,mRain);
-        
+    switchOnIntersect(hPrairie,mPrairie);
+    switchOnIntersect(hPollen,mPollen);
+    switchOnIntersect(hForest,mForest);
+    switchOnIntersect(hSeed,mSeed);   
 });
 
 window.addEventListener('resize', () => {
