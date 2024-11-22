@@ -15,6 +15,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
 const mAbout = document.getElementById('about');
 const hAbout = document.getElementById('hiddenAbout');
 
+const mRain = document.getElementById('rain');
+const hRain = document.getElementById('hiddenRain');
 
 
 function switchOnIntersect(hidden,moving) {
@@ -28,11 +30,11 @@ function switchOnIntersect(hidden,moving) {
     console.log('Hidden About Top ' + puzFixedTop, 'Moving Top' + puzMoveTop);
 
     if (puzMoveTop <= puzFixedTop) {
-      hAbout.style.opacity = 1; // Fade out
+         hidden.style.opacity = 1; // Fade out
       // or 
       // object.style.display = 'none'; // Hide completely
     } else {
-      hAbout.style.opacity = 0; // Fade in
+        hidden.style.opacity = 0; // Fade in
       // or 
       // object.style.display = 'block'; // Show
     }
@@ -41,11 +43,11 @@ function switchOnIntersect(hidden,moving) {
 };
 
 switchOnIntersect(hAbout,mAbout);
+switchOnIntersect(hRain,mRain);
 
 window.addEventListener('scroll', () => {
     switchOnIntersect(hAbout,mAbout);
-
-
+    switchOnIntersect(hRain,mRain);
         
 });
 

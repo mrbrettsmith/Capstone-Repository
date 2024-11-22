@@ -306,7 +306,7 @@ something sticky or 'ghost' pzzle piece
 .hiddenRow {
 display: flex;
 flex: 1 1 100%;
-background-color: silver;
+
 }
 
 .ghostpuzzle {
@@ -322,9 +322,10 @@ display: absolute;
 }
 
 .hiddenPuzzlePiece {
-background-color: rgb(192, 141, 242);
+
 flex: 1 1 35%;
 }
+
 
 /* Make Active when Fixed - has wront width*/
 .fixed-puzzle-container { 
