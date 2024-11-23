@@ -214,15 +214,6 @@ Do I need the Collapse into column? or can I just use Burgertime? Probably Not, 
     /* 52 em to match prarie */ 
 }
 
-.footer {
-    color: black;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-
 /* HIDDEN DROPDOWN */
 
 
@@ -398,7 +389,7 @@ display: block;
     max-width: 40em;
     /* This margin sets distance between articles */
     /* Also breaks the animation */
-    margin-bottom: 20em;
+    margin-bottom: 17em;
 
     p {color: #000000;}
 }
@@ -425,22 +416,34 @@ display: block;
     display: none;
 }
 
-.footer-container {
+
+.footer {
+    color: black;
+    text-decoration: none;
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
+    justify-content: space-between;
+    width: 70%;
+    margin-left: auto;
+}
 
-   p {
+.footer-container {
+    display:flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    p {
         font-family: 'apparat';
-        padding-left: 1em;
-        margin: 0;
+        line-height: 1rem;
+        margin: .2rem 1rem;
+        width: min-content;
     }
+
+    h3 {
+        margin: .2rem 1rem;
+    }
+
 }
 
-.footer-combo {
-display: flex;
-flex-direction: column;
-margin-left: 100%;
-}
 
 /* .puzzle-column {
     width: 30%;
