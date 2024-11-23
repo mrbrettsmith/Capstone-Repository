@@ -309,12 +309,6 @@ flex: 1 1 100%;
 
 }
 
-.ghostpuzzle {
-display: absolute;
-   max-width: 6em;
-   min-width: 4em;
-}
-
 .ghostArticle {
     margin-left: 3em;
     flex: 1 1 65%;
@@ -351,8 +345,14 @@ display: block;
 }
 
 .puzzle-container {
+    display: flex;
+    height: fit-content;
+    /* This flex messes things up?, not sure why. not necissary */
+    /* flex: 1 1 35%; */
+}
 
-    flex: 1 1 35%;
+.dualPuzzleContainer {
+    display: inline-flex;
 }
 
 .puzzle-piece {
@@ -361,7 +361,7 @@ display: block;
     max-width: 7em;
     min-width: 4em; 
     z-index: 1;
-    max-height: fit-content;
+    height: fit-content;
 }
 
 .halfStep {
