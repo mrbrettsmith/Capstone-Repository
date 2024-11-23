@@ -71,8 +71,9 @@ const viewportHeight = windowSize- nOffset;
 let puzzScaled = viewportHeight / 6.5;
 let fullStepWidth = puzzScaled;
 let halfStepWidth = puzzScaled / 2;
+let headImg = document.querySelectorAll('.title-img')
 
-const puzzClass = document.querySelectorAll('.puzzle-piece'); 
+const puzzClass = document.querySelectorAll('.puzzle-piece .title-img'); 
 
 puzzClass.forEach((element) => {
   element.style.height = puzzScaled + 'px';

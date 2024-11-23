@@ -536,11 +536,18 @@ and (min-width : 1200) {
         text-align: left; 
     }
 
-    /*  TO DO:Text will be in puzzle Image, but until then..*/
     .article-head-container {
     display: inline-flex;
     justify-content: space-around;
     flex: auto;
+    margin-bottom: 1em;
+    }
+
+    .article-head {
+        /* This is breaxing fitting margin: 0 0 100% 0; */
+    
+        max-width: min-content;
+        margin: 0 auto 0 .5em; 
     }
 
     .puzzle-container {
@@ -548,7 +555,7 @@ and (min-width : 1200) {
 
     .title-img {
         display: flex;
-        width: 5em;
+ 
     }
 }
 
