@@ -30,6 +30,13 @@ function switchOnIntersect(hidden,moving) {
         } else {
             hidden.style.opacity = 0; 
         }
+
+        if (puzMoveTop <= puzFixedTop) {
+            moving.style.opacity = 0; 
+        } else {
+            moving.style.opacity = 1; 
+        }
+        
 };
 
 
