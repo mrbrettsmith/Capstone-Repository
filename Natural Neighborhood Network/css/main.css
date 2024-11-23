@@ -340,15 +340,15 @@ display: block;
 
 .gardenCard {
     display: flex;
-    flex: auto;
-    justify-content: space-between;
+    /* flex: auto;
+    justify-content: space-between; */
 }
 
 .puzzle-container {
     display: flex;
     height: fit-content;
     /* This flex messes things up?, not sure why. not necissary */
-    /* flex: 1 1 35%; */
+    flex: 1 1 35%;
 }
 
 .dualPuzzleContainer {
@@ -356,12 +356,13 @@ display: block;
 }
 
 .puzzle-piece {
-    flex: 1 1 35%;
+    /* flex: 1 1 35%; */
+    flex-basis: auto;
     position:relative;
     max-width: 7em;
     min-width: 4em; 
     z-index: 1;
-    height: fit-content;
+    padding: .2em;
 }
 
 .halfStep {
@@ -376,7 +377,7 @@ display: block;
     margin-left: 3em;
     display: inline-flex;
     text-align: left; 
-    
+    flex: 1 1 65%;
 }
 
 .article-head-container {
