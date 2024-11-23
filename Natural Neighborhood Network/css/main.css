@@ -321,10 +321,6 @@ display: absolute;
     
 }
 
-.hiddenPuzzlePiece {
-
-flex: 1 1 35%;
-}
 
 .whiteoutBackground {
 background-color: #ffffff;
@@ -355,7 +351,7 @@ display: block;
 }
 
 .puzzle-container {
-  
+
     flex: 1 1 35%;
 }
 
@@ -364,17 +360,16 @@ display: block;
     position:relative;
     max-width: 7em;
     min-width: 4em; 
-    margin: 0;
     z-index: 1;
     max-height: fit-content;
 }
 
 .halfStep {
-    margin-left: 2em;
+
 }
 
-.fullStep{
-    margin-left: 4em; 
+.fullStep {
+
 }
 
 .article-container {

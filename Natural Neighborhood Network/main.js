@@ -62,6 +62,8 @@ let nOffset = navElement.offsetTop;
 let windowSize = window.innerHeight;
 const viewportHeight = windowSize- nOffset;
 let puzzScaled = viewportHeight / 6.5;
+let fullStepWidth = puzzScaled;
+let halfStepWidth = puzzScaled / 2;
 
 const puzzClass = document.querySelectorAll('.puzzle-piece'); 
 
@@ -70,8 +72,27 @@ puzzClass.forEach((element) => {
   element.style.width = puzzScaled + 'px';
 });
 
+// SET PUZZLE MARGIN FOR POSITIONING
 
+const fullStepClass = document.querySelectorAll('.fullStep'); 
 
+fullStepClass.forEach((contain) => {
+    contain.style.marginLeft = fullStepWidth + 'px';
+});
+
+const halfStepClass = document.querySelectorAll('.halfStep'); 
+
+halfStepClass.forEach((contain) => {
+    contain.style.marginLeft = halfStepWidth + 'px';
+});
+
+// // SET PUZZLE CONTAINER WIDTH
+// let puzzColumnWidthAdjuster = puzzScaled * 2;
+// const puzzContainerClass = document.querySelectorAll('.puzzle-container'); 
+
+// puzzContainerClass.forEach((contain) => {
+//     contain.style.width = puzzColumnWidthAdjuster + 'px';
+// });
 
 // MAKE NAV STICKY
 let stickyItem = document.getElementById('stickyNavBar');
