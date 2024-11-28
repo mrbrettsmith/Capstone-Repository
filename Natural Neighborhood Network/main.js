@@ -22,13 +22,17 @@ const hSeed = document.getElementById('hiddenSeed');
 function switchOnIntersect(hidden,moving) {
     const puzFixed = hidden.getBoundingClientRect(); 
     const puzzMove = moving.getBoundingClientRect(); 
+    // let currentHref = hidden.getAttribute('href');
+
     const puzFixedTop = puzFixed.y;
     const puzMoveTop = puzzMove.y;
 
         if (puzMoveTop <= puzFixedTop) {
             hidden.style.opacity = 1; 
+            hidden.style.pointerEvents = "";
         } else {
-            hidden.style.opacity = 0; 
+            hidden.style.opacity = 0;
+            hidden.style.pointerEvents = "none";
         }
 
         if (puzMoveTop <= puzFixedTop) {
