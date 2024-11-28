@@ -60,25 +60,68 @@ window.addEventListener('scroll', () => {
 window.addEventListener('resize', () => {
     navElement = document.getElementById("stickyNavBar");
     puzzleElement = document.getElementById("about");
-    windowSize = window.innerHeight;
+
 });
+
+const element = document.getElementById('yourElement');
+
+
 
 // SET PUZZLE SIZE TO VEIWPORT
 let navElement = document.getElementById("stickyNavBar");
 let nOffset = navElement.offsetTop;
 let windowSize = window.innerHeight;
-const viewportHeight = windowSize- nOffset;
-let puzzScaled = viewportHeight / 6.5;
-let fullStepWidth = puzzScaled;
-let halfStepWidth = puzzScaled / 2;
-let headImg = document.querySelectorAll('.title-img')
+let viewportHeight = windowSize- nOffset;
+let puzzHeightScaled = viewportHeight * .16;
+let wrapMain = document.getElementById('wrapId');
+let viewportWidth = wrapMain.offsetWidth;
+let puzzWidthScaled = viewportWidth * .15; 
+let fullStepWidth = puzzHeightScaled;
+let halfStepWidth = puzzHeightScaled / 2;
+let headImg = document.querySelectorAll('.title-img');
+let impact = document.getElementById('impact-quote');
 
-const puzzClass = document.querySelectorAll('.puzzle-piece .title-img'); 
+console.log(puzzHeightScaled, viewportWidth)
+console.log(puzzHeightScaled, viewportWidth)
+const puzzClass = document.querySelectorAll('.puzzle-piece'); 
 
+
+// can call width and height, how to set min?
+// adjusting elements, but peice isnt changing shape
+// do I need to set heiwgh& width outside of this in a function, then pull results?
+
+//old & kinda works, but doesnt scale. AM I UPDATING PUZZHEIGT SCALED ON RESIZE?
 puzzClass.forEach((element) => {
-  element.style.height = puzzScaled + 'px';
-  element.style.width = puzzScaled + 'px';
-});
+    element.style.height = puzzHeightScaled + 'px';
+    element.style.width = puzzHeightScaled + 'px';
+  });
+
+//new
+// puzzClass.forEach((element) => {
+//   element.style.height = puzzHeightScaled + 'px';
+//   element.style.width = puzzWidthScaled + 'px';
+// });
+
+
+// try a resize function
+
+// SAVEPOINT
+
+function puzzleParamaters() {
+
+}
+
+// MATCH ARTICLE AND HIDDEN ARTICLE
+//this isnt working very well
+
+// let ghostArticle = document.getElementById('twoPuzzlePiece');
+// let ghostArticleWidth = ghostArticle.offsetWidth;
+
+// const gardenArticleClass = document.querySelectorAll('.article-container');
+
+// gardenArticleClass.forEach((element) => {
+//   element.style.width = ghostArticleWidth + 'px';
+// });
 
 // SET PUZZLE MARGIN FOR POSITIONING
 
@@ -93,6 +136,51 @@ const halfStepClass = document.querySelectorAll('.halfStep');
 halfStepClass.forEach((contain) => {
     contain.style.marginLeft = halfStepWidth + 'px';
 });
+
+
+// SET SPACING ON NAV ITEM WIDTH
+
+
+const navItems = document.getElementById('nav-items');
+
+    function navItemsTrigger() {
+        const navItemswidth = navItems.offsetWidth;
+        const navParentWidth = navElement.offsetWidth;
+
+        if (navItemswidth >= navParentWidth) {
+            navItems.style.paddingTop = '0em'; // Adjust margin as needed
+            impact.style.marginTop = '40%';
+        } else {
+            navItems.style.paddingTop = '2em'; // Reset margin if not wrapped
+            impact.style.marginTop = '';
+        }
+
+        // console.log(navItemswidth,navParentWidth);
+
+    }
+    
+
+    navItemsTrigger();
+    window.addEventListener("resize", navItemsTrigger);
+
+// function adjustMarginOnWrap() {
+//     const divElement = document.getElementById("yourDivId");
+//     const divWidth = divElement.offsetWidth;
+//     const parentWidth = divElement.parentElement.offsetWidth;
+  
+//     if (divWidth >= parentWidth) {
+//       divElement.style.marginLeft = "20px"; // Adjust margin as needed
+//     } else {
+//       divElement.style.marginLeft = "0"; // Reset margin if not wrapped
+//     }
+//   }
+
+  
+  // Call the function initially and on window resize
+
+// HIDDEN PUZZLE NOT VISABLE
+
+
 
 // // SET PUZZLE CONTAINER WIDTH
 // let puzzColumnWidthAdjuster = puzzScaled * 2;

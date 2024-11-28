@@ -18,59 +18,73 @@
 
 </head>
 <body>
-    <div class="wrap">
+    <div class="wrap" id="wrapId">
 
-<!-- Navigation -->
+        <!-- Navigation -->
+
+        <!-- Impact Quote -->
+        <div class="impactContainer">
+            <div class="impact-quote" id="impact-quote">
+                <p>People are passionate about making real change to improve their local environment, but in isolation their actions can feel limited. Without connection, a project’s contribution to a healthy neighborhood seems invisible, ignored, and ineffectual.</p>
+            </div>
+        </div>
 
         <nav id="stickyNavBar">
             
             <div class="primary">
-                <a class="logo" href="#"><h1>NATURAL NEIGHBORHOOD NETWORK</h1></a>
+                <div class="logoContainer">
+                    <a class="logo" href="#"><h1>NATURAL NEIGHBORHOOD NETWORK</h1></a>
+                </div>    
                 <div class="hidden">
                     <div class="hidden-dropdown">
-                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                            viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
-                            <g>
-                            <path d="M12.7,74.56h74.6c6.86,0,12.7,5.62,12.7,12.72S94.16,100,87.3,100H12.7C5.84,100,0,94.38,0,87.28S5.84,74.56,12.7,74.56z"/>
-                            <path d="M12.7,0h74.6C94.16,0,100,5.62,100,12.72s-5.84,12.72-12.7,12.72H12.7C5.84,25.44,0,19.82,0,12.72S5.84,0,12.7,0z"/>
-                            <path d="M12.7,36.61h74.6c6.86,0,12.7,5.62,12.7,12.72s-5.84,12.72-12.7,12.72H12.7C5.84,62.05,0,56.44,0,49.33,S5.84,36.61,12.7,36.61z"/>
-                            </g>
-                        </svg>                    
-                                <div class="dropdown-burger">
-                                    <a href="#"><h3>ABOUT</h3></a>
-                                    <a href="#"><h3>GARDEN PROJECTS</h3></a>
-                                    <a href="#"><h3>RESOURCES</h3></a>
-                                    <a href="#"><h3>CONTACT</h3></a>
-                                    <a href="#"><h3>CAPSTONE STORY</h3></a>
-                                </div>
+                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                <g>
+                                    <path class="cls-1" d="M12.7,74.56h74.6c6.86,0,12.7,5.62,12.7,12.72s-5.84,12.72-12.7,12.72H12.7c-6.86,0-12.7-5.62-12.7-12.72s5.84-12.72,12.7-12.72Z"/>
+                                    <path class="cls-1" d="M12.7,0h74.6c6.86,0,12.7,5.62,12.7,12.72s-5.84,12.72-12.7,12.72H12.7C5.84,25.44,0,19.82,0,12.72S5.84,0,12.7,0Z"/>
+                                    <path class="cls-1" d="M12.7,36.61h74.6c6.86,0,12.7,5.62,12.7,12.72s-5.84,12.72-12.7,12.72H12.7c-6.86,0-12.7-5.61-12.7-12.72s5.84-12.72,12.7-12.72Z"/>
+                                </g>
+                            </svg>                    
+                                    <div class="dropdown-burger">
+                                        <a href="#aboutText"><h3>ABOUT</h3></a>
+                                        <a href="#"><h3>RESOURCES</h3></a>
+                                        <a href="#"><h3>CONTACT</h3></a>
+                                        <a href="#"><h3>CAPSTONE STORY</h3></a>
+                                        <a href="#"><h3>GARDEN PROJECTS</h3></a>
+                                    </div>
                     </div>
-                </div>    
+                </div>
             </div>
 
-            <div class="nav-items">
-                <a href="#" class="text-wrap"><h3>ABOUT</h3></a>
+            <div class="nav-items" id="nav-items">
+                <a href="#aboutText"><h3>ABOUT</h3></a>
                 <a href="#"><h3>RESOURCES</h3></a>
                 <a href="#"><h3>CONTACT</h3></a>
                 <div class="dropdown">
-                    <a href="#"><h3>GARDEN PROJECTS</h3></a>
+
+                        <a href="#"  class="arrowTextContainer"><h3>GARDEN PROJECTS</h3>
+                        
+                        
+                        <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 62.69" class="downArrow">
+                            <path class="cls-1" d="M96.29,3.71c-5.02-5.02-13.08-4.88-17.96,0l-28.33,28.33h0S21.67,3.71,21.67,3.71c-4.88-4.88-12.94-5.02-17.96,0-5.02,5.02-4.88,13.08,0,17.96l28.33,28.33,8.98,8.98c4.88,4.88,12.94,5.02,17.96,0l8.98-8.98h0s28.33-28.33,28.33-28.33c4.88-4.88,5.02-12.94,0-17.96Z"/>
+                        </svg>
+                        </a>
+
                         <div class="dropdown-projects">
-                            <a href="#" class="rain"><h3>RAIN GARDEN</h3></a>
-                            <a href="#" class="prairie"><h3>WILDFLOWER PRAIRIE</h3></a>
-                            <a href="#" class="pollen"><h3>POLLINATOR GARDEN</h3></a>
-                            <a href="#" class="forest"><h3>URBAN FOREST</h3></a>
-                            <a href="#" class="seed"><h3>FREE SEED LIBRARY</h3></a>
+                            <a href="#rainText" class="rain"><h3>RAIN GARDEN</h3></a>
+                            <a href="#prairieText" class="prairie"><h3>WILDFLOWER PRAIRIE</h3></a>
+                            <a href="#pollenText" class="pollen"><h3>POLLINATOR GARDEN</h3></a>
+                            <a href="#forestText" class="forest"><h3>URBAN FOREST</h3></a>
+                            <a href="#seedText" class="seed"><h3>FREE SEED LIBRARY</h3></a>
                         </div>
                 </div>
-                
-
             </div>
-            
 
             <div class="hiddenRow">
                 <div class="puzzle-container">
                     <div class="puzzle-piece fullStep" id="hiddenAbout">
                         <div class="whiteoutBackground">
-                            <a href="#" >
+                            <a href="#aboutText" >
                                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                 viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve" class="ImageFix">
                                 <path style="fill:#ED1C24;" d="M0,50l0,50h50c0-27.61,22.38-50,50-50V0L50,0L0,0L0,50L0,50z"/>
@@ -86,7 +100,7 @@
                 <div class="puzzle-container">
                     <div class="puzzle-piece halfStep"id="hiddenRain">
                         <div class="whiteoutBackground">
-                            <a href="#"> 
+                            <a href="#rainText"> 
                                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                 viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve" class="ImageFix">
                                 <path style="fill:#3572B9;" d="M100,50V0L50,0c0,27.61-22.38,50-50,50l0,50h50h50L100,50L100,50z"/>
@@ -102,7 +116,7 @@
                 <div class="puzzle-container">
                         <div class="puzzle-piece halfStep" id="hiddenPrairie">
                             <div class="whiteoutBackground">
-                                <a href="#">
+                                <a href="#prairieText">
                                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                     viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve" class="ImageFix">
                                     <path style="fill:#F47534;" d="M100,50V0H50H0v50c27.61,0,50,22.39,50,50h50L100,50L100,50z"/>
@@ -113,7 +127,7 @@
 
                         <div class="puzzle-piece" id="hiddenPollen">
                             <div class="whiteoutBackground">
-                                <a href="#">
+                                <a href="#pollenText">
                                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                     viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve" class="ImageFix">
                                     <path style="fill:#DCCC3C;" d="M100,50V0L50,0c0,27.61-22.38,50-50,50l0,50h50h50L100,50L100,50z"/>
@@ -122,14 +136,14 @@
                             </div>
                         </div>
                 </div> 
-                <div class="ghostArticle"></div>
+                <div class="ghostArticle" id="twoPuzzlePiece"></div>
             </div>
 
             <div class="hiddenRow">
                 <div class="puzzle-container">
                     <div class="puzzle-piece fullStep" id="hiddenForest">
                         <div class="whiteoutBackground">
-                            <a href="#">
+                            <a href="#forestText">
                                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                 viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve" class="ImageFix">
                                 <path style="fill:#6BA95C;" d="M0,50l0,50h50c0-27.61,22.38-50,50-50V0L50,0L0,0L0,50L0,50z"/>
@@ -159,16 +173,12 @@
         </nav>
 
 
-        <!-- Impact Quote -->
-        <div class="impact-quote">
-            <p>People are passionate about making real change to improve their local environment, but in isolation their actions can feel limited. Without connection, a project’s contribution to a healthy neighborhood seems invisible, ignored, and ineffectual.</p>
-        </div>
 
         <!-- Body -->            
         <div class="body-container">
 
             <!-- About -->
-            <div class="gardenCard" >
+            <div class="gardenCard" id="aboutText">
                 <div class="puzzle-container">
                     <div class="puzzle-piece fullStep" id="about">
                         <a href="#" class="puzzLink" id="Svg-Height">
@@ -179,7 +189,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="article-container" id="aboutText">
+                <div class="article-container">
                     <div class="article-head-container">
                         <div class="title-img puzzle-piece">                                
                             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -187,7 +197,7 @@
                             <path style="fill:#ED1C24;" d="M0,50l0,50h50c0-27.61,22.38-50,50-50V0L50,0L0,0L0,50L0,50z"/>
                             </svg>
                         </div>
-                        <h2 class="article-head ">About The Project</h2>
+                        <h2 class="article-head natural">About The Project</h2>
                     </div>
                     <div class="article-body"> 
 
@@ -199,7 +209,7 @@
 
             <!-- Rain -->
 
-            <div class="gardenCard">
+            <div class="gardenCard" id="rainText">
 
                 <div class="puzzle-container">
                     <div class="puzzle-piece halfStep"id="rain">
@@ -211,7 +221,7 @@
                         </a> 
                     </div>
                 </div>
-                <div class="article-container" id="rainText">
+                <div class="article-container">
                     <div class="article-head-container">
                         <div class="title-img puzzle-piece">                                
                             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -230,7 +240,7 @@
             </div> 
 
             <!-- Prairie -->
-            <div class="gardenCard">
+            <div class="gardenCard" id="prairieText">
 
                 <div class="puzzle-container">
                     <div class="puzzle-piece halfStep" id="prairie">
@@ -242,7 +252,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="article-container"  id="prairieText">
+                <div class="article-container" id="prairieText">
                     <div class="article-head-container">
                         <div class="title-img puzzle-piece">                                    
                             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -260,7 +270,7 @@
             </div> 
 
             <!-- Pollen -->
-            <div class="gardenCard">
+            <div class="gardenCard" id="pollenText">
                 <div class="puzzle-container">
                     <div class="dualPuzzleContainer">
                         <div class="puzzle-piece halfStep" id="hiddenPrairie">
@@ -285,7 +295,7 @@
                     </div>
                 </div>
                 
-                <div class="article-container"  id="pollenText">
+                <div class="article-container">
                     <div class="article-head-container">
                         <div class="title-img puzzle-piece">                                
                             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -303,7 +313,7 @@
             </div>
 
             <!-- Forest -->
-            <div class="gardenCard">
+            <div class="gardenCard" id="forestText">
                 <div class="puzzle-container">
                     <div class="puzzle-piece fullStep" id="forest">
                         <a href="#" class="sticky-img">
@@ -314,7 +324,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="article-container" id="forestText">
+                <div class="article-container">
                     <div class="article-head-container">
                         <div class="title-img puzzle-piece">                            
                             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -336,7 +346,7 @@
             <div class="gardenCard">
                 <div class="puzzle-container">
                     <div class="puzzle-piece halfStep" id="seed">
-                        <a href="#" class="sticky-img">
+                        <a href="#seedText" class="sticky-img">
                             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                             viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve" class="ImageFix">
                             <path style="fill:#A35FA6;" d="M100,50V0H50H0v50c27.61,0,50,22.39,50,50h50L100,50L100,50z"/>
@@ -344,7 +354,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="article-container" id="seedText">
+                <div class="article-container">
                     <div class="article-head-container">
                         <div class="title-img puzzle-piece">                            
                             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
