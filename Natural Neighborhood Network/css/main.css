@@ -363,6 +363,7 @@ display: block;
 .puzzle-container {
     display: flex;
     height: fit-content;
+    justify-content: flex-end;
     /* This flex messes things up?, not sure why. not necissary */
     flex: 1 1 35%;
 }
@@ -379,6 +380,10 @@ display: block;
     min-width: 4em; 
     z-index: 1;
     padding: .2em;
+}
+
+.addRightPadding {
+    padding-right: 1em;
 }
 
 .halfStep {

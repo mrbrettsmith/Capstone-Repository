@@ -132,13 +132,13 @@ function puzzleParamaters() {
 const fullStepClass = document.querySelectorAll('.fullStep'); 
 
 fullStepClass.forEach((contain) => {
-    contain.style.marginLeft = fullStepWidth + 'px';
+    contain.style.marginRight = fullStepWidth + 'px';
 });
 
 const halfStepClass = document.querySelectorAll('.halfStep'); 
 
 halfStepClass.forEach((contain) => {
-    contain.style.marginLeft = halfStepWidth + 'px';
+    contain.style.marginRight = halfStepWidth + 'px';
 });
 
 
