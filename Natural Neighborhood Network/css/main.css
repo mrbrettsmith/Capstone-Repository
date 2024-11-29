@@ -346,9 +346,8 @@ display: block;
 
 .gardenCard {
     display: flex;
-    padding: 5em 0 2em 0;
+    padding: 12.5em 0 2em 0;
     flex: auto;
- 
 }
 
 .puzzle-container {
@@ -435,6 +434,7 @@ display: block;
 .article-p {
     font-family: 'apparat';
     margin: 0;
+    padding-bottom: 1em;
     
 }
 
@@ -510,13 +510,15 @@ and (min-width : 1200) {
 }
 
 /* tablet landscape */
-@media screen and (min-width: 1024px) and (max-width: 1600px)  {
+@media screen and (min-width: 1044px) and (max-width: 1600px)  {
 
 }
 
 /* tablet portrait */
-@media screen and (min-width: 900px) and (max-width: 1023px)  {
-
+@media screen and (min-width: 900px) and (max-width: 1044px)  {
+    .gardenCard {
+        padding: 18em 0 2em 0;
+    }
 }
 
 /* smartphone landscape */
@@ -555,6 +557,15 @@ and (min-width : 1200) {
 /* smartphone portrait */
 @media screen and (max-width: 479px) {
 
+    h1 {
+        font-family: 'proxima-soft';
+        font-weight: 800;
+        font-size: 2.5rem;
+        line-height: 2.1rem;
+        width: min-content;
+        margin: .5rem;
+    }
+
     .nav-items {
         display: none;}
 
@@ -572,6 +583,10 @@ and (min-width : 1200) {
         }
     }
 
+    .gardenCard {
+        padding: 3em 0 2em 0;
+    }
+    
     .article-container {
         margin-left: auto;
         display: inline-flex;
@@ -588,7 +603,6 @@ and (min-width : 1200) {
 
     .article-head {
         /* This is breaxing fitting margin: 0 0 100% 0; */
-    
         max-width: min-content;
         margin: 0 auto 0 .5em; 
     }
@@ -602,7 +616,6 @@ and (min-width : 1200) {
 
     .title-img {
         display: flex;
- 
     }
 }
 
