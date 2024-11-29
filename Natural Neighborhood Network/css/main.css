@@ -302,10 +302,6 @@ something sticky or 'ghost' pzzle piece
     width: min(100vh, 65%);
     margin-top: 25%;
     margin-bottom: 30%; */
-
-
-
-
     /* position: absolute; */
     
     p {
@@ -327,7 +323,7 @@ flex: 1 1 100%;
 .ghostArticle {
     margin-left: 3em;
     flex: 1 1 65%;
-    
+    margin-right: auto;
 }
 
 
@@ -355,9 +351,9 @@ display: block;
 
 .gardenCard {
     display: flex;
-    padding: 15em 0 2em 0;
-    /* flex: auto;
-    justify-content: space-between; */
+    padding: 5em 0 2em 0;
+    flex: auto;
+ 
 }
 
 .puzzle-container {
@@ -365,11 +361,16 @@ display: block;
     height: fit-content;
     justify-content: flex-end;
     /* This flex messes things up?, not sure why. not necissary */
-    flex: 1 1 35%;
+    flex: auto;
 }
 
 .dualPuzzleContainer {
     display: inline-flex;
+}
+
+.dualHiddenContainer {
+    display: flex;
+    padding-right: .5em;
 }
 
 .puzzle-piece {
@@ -385,6 +386,9 @@ display: block;
 .addRightPadding {
     padding-right: 1em;
 }
+.addHalfRightPadding {
+    padding-right: auto;
+}
 
 .halfStep {
 
@@ -399,24 +403,27 @@ display: block;
     display: inline-flex;
     text-align: left; 
     flex: 1 1 65%;
+    justify-content: end;
 }
 
 .article-head-container {
-   min-width: 11em;
-   
+   /* min-width: 11em; */
+   flex: 1 1 20%;
 }
 
 .article-head {
     /* This is breaxing fitting margin: 0 0 100% 0; */
 
     max-width: min-content;
-    margin: 0 3em 0 auto; 
+    margin: 0 auto 0 auto; 
+    padding-right: 1rem;
 }
 
 .article-body {
+    flex: 1 1 80%;
     display: flex;
     flex-direction: column;
-    max-width: 40em;
+    /* max-width: 40em; */
     /* This margin sets distance between articles */
     /* Also breaks the animation */
     margin-bottom: 17em;
@@ -513,12 +520,12 @@ and (min-width : 1200) {
 }
 
 /* tablet portrait */
-@media screen and (min-width: 768px) and (max-width: 1023px)  {
+@media screen and (min-width: 900px) and (max-width: 1023px)  {
 
 }
 
 /* smartphone landscape */
-@media screen and (min-width: 480px) and (max-width: 767px)  {
+@media screen and (min-width: 480px) and (max-width: 900px)  {
 
     .nav-items {
         display: none;
@@ -538,10 +545,15 @@ and (min-width : 1200) {
 
     .article-head {
         margin: 0;
+        padding-bottom: 1rem;
     }
 
     .article-head-container {
     margin: auto;
+    }
+
+    .article-body {
+        margin-bottom: 5rem;
     }
 }
 
@@ -584,6 +596,10 @@ and (min-width : 1200) {
     
         max-width: min-content;
         margin: 0 auto 0 .5em; 
+    }
+
+    .article-body {
+        margin-bottom: 0em;
     }
 
     .puzzle-container {

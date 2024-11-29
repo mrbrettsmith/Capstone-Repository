@@ -139,6 +139,7 @@ const halfStepClass = document.querySelectorAll('.halfStep');
 
 halfStepClass.forEach((contain) => {
     contain.style.marginRight = halfStepWidth + 'px';
+    contain.style.marginLeft = halfStepWidth + 'px';
 });
 
 
