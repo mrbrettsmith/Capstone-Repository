@@ -233,25 +233,20 @@ Do I need the Collapse into column? or can I just use Burgertime? Probably Not, 
     position: relative;
     display: none;
     flex: auto;
-    height: 2.5em;
-    width: 2.5em;
+    height: 2em;
     margin: auto;
-    min-width: 2.5em; 
+
 }
 
 .hidden-dropdown {
     position: relative;
     flex: auto;
-    height: 2.5em;
     width: 2.5em;
     margin: auto 0px auto auto;
-    min-width: 2.5em;
-    
-    img {
-        float: right;
-        max-width: 100%;
-        max-height: 100%;
-        display: block;
+
+    svg {
+        height: 2em;
+        width: 2em;
     }
 }
 
