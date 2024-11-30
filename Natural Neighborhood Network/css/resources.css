@@ -348,6 +348,12 @@ display: block;
                 color: var(--forest);
             }
         }
+        .seed{
+            color: var(--black); 
+            &:hover {
+                color: var(--seed);
+            }
+        }
     }
 
     h5{
