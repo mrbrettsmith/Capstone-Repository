@@ -265,25 +265,22 @@ display: block;
 
 .article-head-container {
    /* min-width: 11em; */
-   flex: 1 1 20%;
+   flex: 1 1 30%;
 }
 
 .article-head {
     /* This is breaxing fitting margin: 0 0 100% 0; */
 
     max-width: min-content;
-    margin: 0 auto 0 auto; 
-    padding-right: 1rem;
+    margin: 0 auto 0 0; 
+    padding-right: 2rem;
 }
 
 .article-body {
     flex: 1 1 80%;
     display: flex;
     flex-direction: column;
-    /* max-width: 40em; */
-    /* This margin sets distance between articles */
-    /* Also breaks the animation */
-    margin-bottom: 17em;
+
 
     p {color: #000000;}
 }
@@ -297,7 +294,7 @@ display: block;
 .article-p {
     font-family: 'apparat';
     margin: 0;
-    padding-bottom: 1em;
+    padding: .5em 0 0 0;
     
 }
 
@@ -331,10 +328,17 @@ display: block;
     }
 }
 
+.resourceHeader {
+    width:auto;
+    margin: 1rem 0 0 0;
+}
+
 .linkWrap{
-    flex: auto;
-    display: inline;
-};
+
+    display: inline-flex;
+
+
+}
 
 .footer {
     color: black;
@@ -360,7 +364,6 @@ display: block;
     h3 {
         margin: .2rem 1rem;
     }
-
 }
 
 
