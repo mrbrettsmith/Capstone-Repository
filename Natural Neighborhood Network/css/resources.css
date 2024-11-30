@@ -18,11 +18,27 @@ body {
     margin: 4em;
 }
 
+ul {
+    list-style: none;
+}
+
 /* DROPDOWN */
 
 .dropdown {
     position: relative;
     display: inline-block;
+}
+
+.arrowTextContainer {
+display: flex;
+    h3 { margin-right: 0.3rem;
+        
+    }
+}
+
+.downArrow {
+width: 1em;
+flex: 0 0 auto;
 }
 
 .dropdown-projects {
@@ -49,6 +65,7 @@ a {
     
     &:hover {
         color: var(--natural);
+        fill: var(--natural);
     }
 }  
 
@@ -57,8 +74,6 @@ a {
 .natural {
     color: var(--natural);
     fill: var(--natural);
-    stroke: var(--natural);
-    
 }
 
 .rain {
@@ -116,32 +131,17 @@ h3 {
     margin: 1rem;
 }
 
-/* Text Wrapper 
-.text-wrap {
-    margin: .5rem;
-    padding: .5rem;
-}
-*/
 /* NAVIGATION */
 nav {
     display: flex;
     flex-flow:wrap;
     z-index: 10;
-    background-color: var(--white);
-    margin-top: 13em;
-    padding: 1em 0 1em 0;
-
-    /* Following not necisarry with nav 'flex-flow: wrap'
-    justify-content: space-between;
-    @media screen and (max-width: 800px) {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    */
+    margin-top: 15%;
+    padding: 0 0 1em 0;
 }
 
 /* UNIVERSAL STICKY */
-
+/* This happens when sticky isnt triggered */
 #stickyNavBar:not(.sticky) {
     position: relative;
 }
@@ -151,33 +151,17 @@ nav {
     top: 0;
 }
 
-/* PUZZLE ClASS & ID*/
-#stickyPuzzlePiece:not(.puzzleFixed) {
-    position: relative;
-}
-
-#allStickyPuzzle:not(.puzzleFixed) {
-    position: relative;
-}
-
-.puzzleFixed {
-    position: fixed;
-    top: 0;
-}
-
-
-
-/* Questions?
-does nav items need to be a container with flex flow wrap and primary with flex grow? YES! 
-Do I need the Collapse into column? or can I just use Burgertime? Probably Not, unless it is for phone!
-*/
 
 .primary {
     display: flex;
     gap: 1rem;
     width: 100%;
     flex: 1 1 35%;
+    background-color: var(--white);
+    padding: 2em 0 1em 0;
+
 }
+
 
 .logo {
     color: var(--natural);
@@ -185,6 +169,7 @@ Do I need the Collapse into column? or can I just use Burgertime? Probably Not, 
         color: var(--black);
     }
     flex: auto;
+    width: fit-content;
 }
 
 .nav-items {
@@ -193,39 +178,30 @@ Do I need the Collapse into column? or can I just use Burgertime? Probably Not, 
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex: 1 1 65%;
-    /* max-width: 40em; */
-    
-    /* 52 em to match prarie */ 
+    flex: 1 1 40%;
+    background-color: var(--white);
+    padding-top: 2em;
 }
-
 /* HIDDEN DROPDOWN */
-
-
 
 .hidden {
     position: relative;
     display: none;
     flex: auto;
-    height: 2.5em;
-    width: 2.5em;
+    height: 2em;
     margin: auto;
-    min-width: 2.5em; 
+
 }
 
 .hidden-dropdown {
     position: relative;
     flex: auto;
-    height: 2.5em;
     width: 2.5em;
     margin: auto 0px auto auto;
-    min-width: 2.5em;
-    
-    img {
-        float: right;
-        max-width: 100%;
-        max-height: 100%;
-        display: block;
+
+    svg {
+        height: 2em;
+        width: 2em;
     }
 }
 
@@ -241,34 +217,21 @@ Do I need the Collapse into column? or can I just use Burgertime? Probably Not, 
 .hidden-dropdown:hover .dropdown-burger {display: block;} 
 
 
-
-/* FLEXBOX
-do I need a nave specific wrap?
-
-Then I could weight primary and nav elements, or is my NAV definition doing that?
-
-.navigation {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10em;
-}
-*/
-
-
-/* CLASSES WIP
-.footer {}
-.PuzzlePiece {}
-.article-container {}
-something sticky or 'ghost' pzzle piece
- */
-
 /* Body */
 
+.impactContainer {
+    position: absolute;
+}
+
 .impact-quote {
-    width: 75%;
-    margin: 10% 2em 30% auto;
-   
+    /* width: 75% - 2em;*/
+    margin: 25% 4em 30% 20%; 
+    /* left: 35%;
+    width: min(100vh, 65%);
+    margin-top: 25%;
+    margin-bottom: 30%; */
+    /* position: absolute; */
+    
     p {
         font-family: 'proxima-soft';
         font-weight: 500;
@@ -277,49 +240,52 @@ something sticky or 'ghost' pzzle piece
     }
 }
 
+.ImageFix {
+display: block;
+}
+
 .body-container {
-    display: grid;
-    grid-template-columns: 30% 70%;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.puzzle-container {
-    
-    
+.gardenCard {
+    display: flex;
+    padding: 12.5em 0 2em 0;
+    flex: auto;
 }
 
-.puzzle-piece {
-    width: 7em;
-    margin: 1em;
-    z-index: 1;
-}
-
-
-
-.article {
-    margin-left: auto;
+.article-container {
+    margin-left: 3em;
     display: inline-flex;
-    flex-direction: row;
     text-align: left; 
+    flex: 1 1 65%;
+    justify-content: end;
 }
 
 .article-head-container {
-   min-width: 11em;
-    margin: 1em 3em;
+   /* min-width: 11em; */
+   flex: 1 1 20%;
 }
 
 .article-head {
     /* This is breaxing fitting margin: 0 0 100% 0; */
 
     max-width: min-content;
-    margin: 0 0 0 auto; 
+    margin: 0 auto 0 auto; 
+    padding-right: 1rem;
 }
 
 .article-body {
+    flex: 1 1 80%;
     display: flex;
     flex-direction: column;
-    max-width: 40em;
+    /* max-width: 40em; */
     /* This margin sets distance between articles */
-    margin-bottom: 20em;
+    /* Also breaks the animation */
+    margin-bottom: 17em;
+
+    p {color: #000000;}
 }
 
 .article-body img {
@@ -330,6 +296,9 @@ something sticky or 'ghost' pzzle piece
 
 .article-p {
     font-family: 'apparat';
+    margin: 0;
+    padding-bottom: 1em;
+    
 }
 
 .article-img {
@@ -338,42 +307,62 @@ something sticky or 'ghost' pzzle piece
    height: 600px;
 }
 
-.title-img {
-    display: none;
-}
-
-.footer-container {
+.resourceList {
     display: flex;
-    justify-content: flex-end;
+    flex-wrap: wrap;
+    padding-left: 1em;
 
-   p {
-        font-family: 'apparat';
-        padding-left: 1em;
-        margin: 0;
+    ul{
+        display: block;
+    }
+
+    li{
+        flex:auto;
+    }
+
+    h3{
+        font-weight: 600;
+        width:auto;
+        margin: .5rem;
+    }
+
+    a{
+        display: inline-block;
     }
 }
 
-.footer-combo {
-display: flex;
-flex-direction: column;
-margin-left: 100%;
+.linkWrap{
+    flex: auto;
+    display: inline;
+};
+
+.footer {
+    color: black;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 70%;
+    margin-left: auto;
 }
 
-/* STICKY PUZZLE PEICE */
-/* Probably need to make one for 
-each puzzle, or can I defien with a style? 
-Along with color and rotation? 
-and flex order?
+.footer-container {
+    display:flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    p {
+        font-family: 'apparat';
+        line-height: 1rem;
+        margin: .2rem 1rem;
+        width: min-content;
+    }
 
-that would be so cool
+    h3 {
+        margin: .2rem 1rem;
+    }
 
-
-.sticky-img {
-    position: sticky;
-    top: 50%;
-    width: 9em;
 }
-*/
+
 
 /* MEDIA */
 
@@ -385,38 +374,61 @@ and (min-width : 1200) {
 }
 
 /* tablet landscape */
-@media screen and (min-width: 1024px) and (max-width: 1600px)  {
+@media screen and (min-width: 1044px) and (max-width: 1600px)  {
 
 }
 
 /* tablet portrait */
-@media screen and (min-width: 768px) and (max-width: 1023px)  {
-
+@media screen and (min-width: 900px) and (max-width: 1044px)  {
+    .gardenCard {
+        padding: 18em 0 2em 0;
+    }
 }
 
 /* smartphone landscape */
-@media screen and (min-width: 480px) and (max-width: 767px)  {
+@media screen and (min-width: 480px) and (max-width: 900px)  {
 
     .nav-items {
-        display: none;}
+        display: none;
+    }
+
+    .impact-quote {
+        margin: 45% 4em 30% 20%; 
+    }
     
     .hidden {
         display: inline-block;
     }
 
-    .article {
+    .article-container {
         display: inline-block;
     }
 
     .article-head {
         margin: 0;
+        padding-bottom: 1rem;
+    }
+
+    .article-head-container {
+    margin: auto;
+    }
+
+    .article-body {
+        margin-bottom: 5rem;
     }
 }
 
-
-
 /* smartphone portrait */
 @media screen and (max-width: 479px) {
+
+    h1 {
+        font-family: 'proxima-soft';
+        font-weight: 800;
+        font-size: 2.5rem;
+        line-height: 2.1rem;
+        width: min-content;
+        margin: .5rem;
+    }
 
     .nav-items {
         display: none;}
@@ -426,6 +438,7 @@ and (min-width : 1200) {
     }
         
     .impact-quote {
+        display: none;
         p {
             font-family: 'proxima-soft';
             font-weight: 500;
@@ -434,18 +447,32 @@ and (min-width : 1200) {
         }
     }
 
-    .article {
+    .gardenCard {
+        padding: 3em 0 2em 0;
+    }
+    
+    .article-container {
         margin-left: auto;
         display: inline-flex;
         flex-direction: column;
         text-align: left; 
     }
 
-    /*  TO DO:Text will be in puzzle Image, but until then..*/
     .article-head-container {
     display: inline-flex;
     justify-content: space-around;
     flex: auto;
+    margin-bottom: 1em;
+    }
+
+    .article-head {
+        /* This is breaxing fitting margin: 0 0 100% 0; */
+        max-width: min-content;
+        margin: 0 auto 0 .5em; 
+    }
+
+    .article-body {
+        margin-bottom: 0em;
     }
 
     .puzzle-container {
@@ -453,8 +480,5 @@ and (min-width : 1200) {
 
     .title-img {
         display: flex;
-        width: 5em;
     }
-}
-
-
+};
