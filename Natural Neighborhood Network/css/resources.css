@@ -131,6 +131,14 @@ h3 {
     margin: 1rem;
 }
 
+/* H5 for Links*/
+h5 {
+    font-family: 'apparat';
+    font-weight: 400;
+    font-size: 1rem;
+    margin: .5rem;
+}
+
 /* NAVIGATION */
 nav {
     display: flex;
@@ -314,11 +322,35 @@ display: block;
     }
 
     li{
-        flex:auto;
+        flex:1 1 50%;
+        min-width: fit-content;
+        .rain{
+            color: var(--black); 
+            &:hover {
+                color: var(--rain);
+            }
+        }
+        .prairie{
+            color: var(--black); 
+            &:hover {
+                color: var(--prairie);
+            }
+        }
+        .pollen{
+            color: var(--black); 
+            &:hover {
+                color: var(--pollen);
+            }
+        }
+        .forest{
+            color: var(--black); 
+            &:hover {
+                color: var(--forest);
+            }
+        }
     }
 
-    h3{
-        font-weight: 600;
+    h5{
         width:auto;
         margin: .5rem;
     }
@@ -334,9 +366,10 @@ display: block;
 }
 
 .linkWrap{
-
-    display: inline-flex;
-
+flex: auto;
+    display: flex;
+    flex-wrap: wrap;
+justify-content: space-evenly;
 
 }
 
