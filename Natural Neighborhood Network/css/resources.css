@@ -277,8 +277,6 @@ display: block;
 }
 
 .article-head {
-    /* This is breaxing fitting margin: 0 0 100% 0; */
-
     max-width: min-content;
     margin: 0 auto 0 0; 
     padding-right: 2rem;
@@ -288,9 +286,33 @@ display: block;
     flex: 1 1 80%;
     display: flex;
     flex-direction: column;
-
-
     p {color: #000000;}
+}
+
+.mainTextBody {
+    flex: 1 1 60%;
+    display: flex;
+    flex-direction: column;
+    p {color: #000000;}
+}
+
+.mainTextHeadRight {
+    flex: 1 1 30%;
+    max-width: max-content;
+    margin: 0 auto 0 0; 
+    padding-right: 3rem;
+}
+
+.articleColapse {
+}
+
+.articleExpand {
+}
+
+.mainTextHeadLeft {
+    max-width: max-content;
+    margin: 0 auto 0 0; 
+    padding-left: 3rem;
 }
 
 .article-body img {
@@ -415,19 +437,38 @@ justify-content: space-evenly;
 /* desktop */
 @media only screen
 and (min-width : 1200) {
-
+    .rightSideAppear  {
+        display: none;
+        h2{
+            display: none;
+        }
+    }
 
 }
 
 /* tablet landscape */
 @media screen and (min-width: 1044px) and (max-width: 1600px)  {
-
+    .rightSideColapse  {
+        display: none;
+    }
+    .rightSideAppear  {
+        display: none;
+        h2{
+            display: none;
+        }
+    }
 }
 
 /* tablet portrait */
 @media screen and (min-width: 900px) and (max-width: 1044px)  {
     .gardenCard {
         padding: 18em 0 2em 0;
+    }
+    .rightSideAppear  {
+        display: none;
+        h2{
+            display: none;
+        }
     }
 }
 
@@ -455,8 +496,26 @@ and (min-width : 1200) {
         padding-bottom: 1rem;
     }
 
+    .rightSideDisppear{
+        h2{
+            display: none;
+        }
+    }
+
+    .rightSideAppear  {
+        h2{
+        padding-left: 0;
+        }
+    }
+
     .article-head-container {
-    margin: auto;
+        display: flex;
+        margin: auto;
+        margin-bottom: 1em;
+        h2{
+            flex:0 1 40%;
+        }
+        
     }
 
     .article-body {
@@ -504,11 +563,27 @@ and (min-width : 1200) {
         text-align: left; 
     }
 
+    .rightSideDisppear{
+        h2{
+            display: none;
+            }
+    }
+
+    .rightSideAppear {
+        h2{
+        padding-left: 0;
+        }
+    }
+
     .article-head-container {
-    display: inline-flex;
+
+    display: flex;
     justify-content: space-around;
     flex: auto;
     margin-bottom: 1em;
+    h2{
+        flex:0 1 40%;
+    }
     }
 
     .article-head {
