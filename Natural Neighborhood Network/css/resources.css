@@ -188,7 +188,7 @@ nav {
     justify-content: space-between;
     flex: 1 1 40%;
     background-color: var(--white);
-    padding-top: 2em;
+    /* padding-top: 2em; */
 }
 /* HIDDEN DROPDOWN */
 
@@ -259,7 +259,7 @@ display: block;
 
 .gardenCard {
     display: flex;
-    padding: 12.5em 0 2em 0;
+    padding: 5em 0 2em 0;
     flex: auto;
 }
 
@@ -462,7 +462,7 @@ and (min-width : 1200) {
 /* tablet portrait */
 @media screen and (min-width: 900px) and (max-width: 1044px)  {
     .gardenCard {
-        padding: 18em 0 2em 0;
+        padding: 5em 0 2em 0;
     }
     .rightSideAppear  {
         display: none;
@@ -582,7 +582,7 @@ and (min-width : 1200) {
     flex: auto;
     margin-bottom: 1em;
     h2{
-        flex:0 1 40%;
+        flex:0 1 60%;
     }
     }
 
