@@ -203,7 +203,7 @@ nav {
     position: relative;
     display: none;
     flex: auto;
-    height: 2em;
+    
     margin: auto;
 
 }
@@ -213,10 +213,10 @@ nav {
     flex: auto;
     width: 2.5em;
     margin: auto 0px auto auto;
-
+    height: 1.5em;
     svg {
-        height: 2em;
-        width: 2em;
+        height: 1.5em;
+        width: 1.5em;
     }
 }
 
@@ -264,10 +264,15 @@ display: block;
     flex-wrap: wrap;
 }
 
-.gardenCard {
+.resourceCard {
     display: flex;
-    padding: 5em 0 2em 0;
+    padding: 5em 0 0 0;
     flex: auto;
+
+    .article-body {
+        margin-bottom: 0;
+    }
+
 }
 
 .article-container {
@@ -420,6 +425,7 @@ justify-content: space-evenly;
     justify-content: space-between;
     width: 70%;
     margin-left: auto;
+    padding-top: 1em;
 }
 
 .footer-container {
@@ -468,8 +474,8 @@ and (min-width : 1200) {
 
 /* tablet portrait */
 @media screen and (min-width: 900px) and (max-width: 1044px)  {
-    .gardenCard {
-        padding: 5em 0 2em 0;
+    .resourceCard {
+        padding: 5em 0 0 0;
     }
     .rightSideAppear  {
         display: none;
@@ -491,7 +497,7 @@ and (min-width : 1200) {
     }
     
     .hidden {
-        display: inline-block;
+        display: none;
     }
 
     .article-container {
@@ -539,7 +545,7 @@ and (min-width : 1200) {
 @media screen and (max-width: 479px) {
 
     .wrap {
-        margin: 3em;
+        margin: 3rem;
     }
 
     .nav-items {
@@ -563,8 +569,8 @@ and (min-width : 1200) {
         }
     }
 
-    .gardenCard {
-        padding: 3em 0 2em 0;
+    .resourceCard {
+        padding: 5em 0 0 0;
     }
     
     .article-container {
