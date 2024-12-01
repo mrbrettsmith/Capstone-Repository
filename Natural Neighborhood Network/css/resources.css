@@ -7,6 +7,10 @@
     --forest: #6BA95C;
     --black: #000000;
     --white: #ffffff;
+    --logoW: clamp(1.75rem, 8vw, 3rem);
+    --logoH: 83%;
+    --itemW: clamp(1rem, 3vw, 1.25rem);
+    --itemH: 90%;
 }
 
 /* UNIVERSAL */
@@ -107,8 +111,8 @@ a {
 h1 {
     font-family: 'proxima-soft';
     font-weight: 800;
-    font-size: 3rem;
-    line-height: 2.5rem;
+    font-size: var(--logoW);
+    line-height: var(--logoH);
     width: min-content;
     margin: .5rem;
 }
@@ -125,8 +129,8 @@ h2 {
 h3 {
     font-family: 'proxima-soft';
     font-weight: 600;
-    font-size: 1.25rem;
-    line-height: 1.1rem;
+    font-size: var(--itemW);
+    line-height: var(--itemH);
     width: min-content;
     margin: 1rem;
 }
@@ -170,14 +174,17 @@ nav {
 
 }
 
+.logoContainer {
+    display: flex;
+}
 
 .logo {
     color: var(--natural);
     &:hover {
         color: var(--black);
     }
-    flex: auto;
-    width: fit-content;
+    /* flex: auto; */
+    /* width: fit-content; */
 }
 
 .nav-items {
@@ -475,9 +482,9 @@ and (min-width : 1200) {
 /* smartphone landscape */
 @media screen and (min-width: 480px) and (max-width: 900px)  {
 
-    .nav-items {
+    /* .nav-items {
         display: none;
-    }
+    } */
 
     .impact-quote {
         margin: 45% 4em 30% 20%; 
@@ -521,22 +528,26 @@ and (min-width : 1200) {
     .article-body {
         margin-bottom: 5rem;
     }
+
+    h3 {
+        margin: .5rem;
+    }
+
 }
 
 /* smartphone portrait */
 @media screen and (max-width: 479px) {
 
-    h1 {
-        font-family: 'proxima-soft';
-        font-weight: 800;
-        font-size: 2.5rem;
-        line-height: 2.1rem;
-        width: min-content;
-        margin: .5rem;
+    .wrap {
+        margin: 3em;
     }
 
     .nav-items {
         display: none;}
+
+    .hidden {
+        display: inline-block;
+    }
 
     .body-container {
         display: block;
