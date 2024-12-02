@@ -276,9 +276,9 @@ flex: 1 1 100%;
 
 }
 
-/* .ImageFix {
+.ImageFix {
 display: block;
-} */
+}
 
 .body-container {
     display: flex;
