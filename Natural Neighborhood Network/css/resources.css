@@ -171,7 +171,6 @@ nav {
     flex: 1 1 35%;
     background-color: var(--white);
     padding: 2em 0 1em 0;
-
 }
 
 .logoContainer {
@@ -195,7 +194,6 @@ nav {
     justify-content: space-between;
     flex: 1 1 40%;
     background-color: var(--white);
-    /* padding-top: 2em; */
 }
 /* HIDDEN DROPDOWN */
 
@@ -272,7 +270,6 @@ display: block;
     .article-body {
         margin-bottom: 0;
     }
-
 }
 
 .article-container {
@@ -337,13 +334,12 @@ display: block;
     font-family: 'apparat';
     margin: 0;
     padding: .5em 0 0 0;
-    
 }
 
 .article-img {
     background-color: green;
-   max-width: 600px;
-   height: 600px;
+    max-width: 600px;
+    height: 600px;
 }
 
 .resourceList {
@@ -413,7 +409,7 @@ display: block;
 flex: auto;
     display: flex;
     flex-wrap: wrap;
-justify-content: space-evenly;
+    justify-content: space-evenly;
 
 }
 
@@ -438,7 +434,6 @@ justify-content: space-evenly;
         margin: .2rem 1rem;
         width: min-content;
     }
-
     h3 {
         margin: .2rem 1rem;
     }
@@ -456,7 +451,6 @@ and (min-width : 1200) {
             display: none;
         }
     }
-
 }
 
 /* tablet landscape */
@@ -514,13 +508,14 @@ and (min-width : 1200) {
             display: none;
         }
     }
-
     .rightSideAppear  {
         h2{
         padding-left: 0;
         }
     }
 
+
+    /* Maybe transfer */
     .article-head-container {
         display: flex;
         margin: auto;
@@ -559,6 +554,7 @@ and (min-width : 1200) {
         display: block;
     }
         
+    /* Not needed here */
     .impact-quote {
         display: none;
         p {
@@ -593,7 +589,6 @@ and (min-width : 1200) {
     }
 
     .article-head-container {
-
     display: flex;
     justify-content: space-around;
     flex: auto;

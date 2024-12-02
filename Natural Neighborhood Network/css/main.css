@@ -7,6 +7,10 @@
     --forest: #6BA95C;
     --black: #000000;
     --white: #ffffff;
+    --logoW: clamp(1.75rem, 8vw, 3rem);
+    --logoH: 83%;
+    --itemW: clamp(1rem, 3vw, 1.25rem);
+    --itemH: 90%;
 }
 
 /* UNIVERSAL */
@@ -103,8 +107,8 @@ a {
 h1 {
     font-family: 'proxima-soft';
     font-weight: 800;
-    font-size: 3rem;
-    line-height: 2.5rem;
+    font-size: var(--logoW);
+    line-height: var(--logoH);
     width: min-content;
     margin: .5rem;
 }
@@ -121,8 +125,8 @@ h2 {
 h3 {
     font-family: 'proxima-soft';
     font-weight: 600;
-    font-size: 1.25rem;
-    line-height: 1.1rem;
+    font-size: var(--itemW);
+    line-height: var(--itemH);
     width: min-content;
     margin: 1rem;
 }
@@ -155,39 +159,6 @@ nav {
     top: 0;
 }
 
-
-
-.puzzleFixed {
-  
-    
-    position: fixed;
-    background-color: magenta;
-    z-index: 100;
-    top: 0;
-
-}
-
-
-
-/* PUZZLE ClASS & ID
-#stickyPuzzlePiece:not(.puzzleFixed) {
-    position: relative;
-}
-
-#allStickyPuzzle:not(.puzzleFixed) {
-    position: relative;
-} */
-/* #stickyPuzzlePiece:not(.fixed-puzzle-container) {
-    display: none;
-} */
-
-
-
-/* Questions?
-does nav items need to be a container with flex flow wrap and primary with flex grow? YES! 
-Do I need the Collapse into column? or can I just use Burgertime? Probably Not, unless it is for phone!
-*/
-
 .primary {
     display: flex;
     gap: 1rem;
@@ -195,11 +166,10 @@ Do I need the Collapse into column? or can I just use Burgertime? Probably Not, 
     flex: 1 1 35%;
     background-color: var(--white);
     padding: 2em 0 1em 0;
-
 }
 
 .logoContainer {
-
+    display: flex;
 }
 
 .logo {
@@ -207,8 +177,8 @@ Do I need the Collapse into column? or can I just use Burgertime? Probably Not, 
     &:hover {
         color: var(--black);
     }
-    flex: auto;
-    width: fit-content;
+    /* flex: auto;
+    width: fit-content; */
 }
 
 .nav-items {
@@ -219,21 +189,15 @@ Do I need the Collapse into column? or can I just use Burgertime? Probably Not, 
     justify-content: space-between;
     flex: 1 1 40%;
     background-color: var(--white);
-    padding-top: 2em;
-    /* max-width: 40em; */
-    
-    /* 52 em to match prarie */ 
 }
 
 /* HIDDEN DROPDOWN */
-
-
 
 .hidden {
     position: relative;
     display: none;
     flex: auto;
-    height: 2em;
+    /* height: 2em; */
     margin: auto;
 
 }
@@ -243,10 +207,10 @@ Do I need the Collapse into column? or can I just use Burgertime? Probably Not, 
     flex: auto;
     width: 2.5em;
     margin: auto 0px auto auto;
-
+    height: 1.5em;
     svg {
-        height: 2em;
-        width: 2em;
+        height: 1.5em;
+        width: 1.5em;
     }
 }
 
@@ -261,28 +225,6 @@ Do I need the Collapse into column? or can I just use Burgertime? Probably Not, 
 
 .hidden-dropdown:hover .dropdown-burger {display: block;} 
 
-
-
-/* FLEXBOX
-do I need a nave specific wrap?
-
-Then I could weight primary and nav elements, or is my NAV definition doing that?
-
-.navigation {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10em;
-}
-*/
-
-
-/* CLASSES WIP
-.footer {}
-.PuzzlePiece {}
-.article-container {}
-something sticky or 'ghost' pzzle piece
- */
 
 /* Body */
 
@@ -334,9 +276,9 @@ flex: 1 1 100%;
 
 }
 
-.ImageFix {
+/* .ImageFix {
 display: block;
-}
+} */
 
 .body-container {
     display: flex;
@@ -368,7 +310,6 @@ display: block;
 }
 
 .puzzle-piece {
-
     flex-basis: auto;
     position:relative;
     /* max-width: 7em; */
@@ -406,8 +347,6 @@ display: block;
 }
 
 .article-head {
-    /* This is breaxing fitting margin: 0 0 100% 0; */
-
     max-width: min-content;
     margin: 0 auto 0 auto; 
     padding-right: 1rem;
@@ -417,11 +356,7 @@ display: block;
     flex: 1 1 80%;
     display: flex;
     flex-direction: column;
-    /* max-width: 40em; */
-    /* This margin sets distance between articles */
-    /* Also breaks the animation */
     margin-bottom: 17em;
-
     p {color: #000000;}
 }
 
@@ -435,13 +370,12 @@ display: block;
     font-family: 'apparat';
     margin: 0;
     padding-bottom: 1em;
-    
 }
 
 .article-img {
     background-color: green;
-   max-width: 600px;
-   height: 600px;
+    max-width: 600px;
+    height: 600px;
 }
 
 .title-img {
@@ -469,36 +403,11 @@ display: block;
         margin: .2rem 1rem;
         width: min-content;
     }
-
     h3 {
         margin: .2rem 1rem;
     }
-
 }
 
-
-/* .puzzle-column {
-    width: 30%;
-}
-.article-column {
-    width: 70%;
-} */
-
-/* STICKY PUZZLE PEICE */
-/* Probably need to make one for 
-each puzzle, or can I defien with a style? 
-Along with color and rotation? 
-and flex order?
-
-that would be so cool
-
-
-.sticky-img {
-    position: sticky;
-    top: 50%;
-    width: 9em;
-}
-*/
 
 /* MEDIA */
 
@@ -524,16 +433,16 @@ and (min-width : 1200) {
 /* smartphone landscape */
 @media screen and (min-width: 480px) and (max-width: 900px)  {
 
-    .nav-items {
+    /* .nav-items {
         display: none;
-    }
+    } */
 
     .impact-quote {
         margin: 45% 4em 30% 20%; 
     }
     
     .hidden {
-        display: inline-block;
+        display: none;
     }
 
     .article-container {
@@ -557,17 +466,16 @@ and (min-width : 1200) {
 /* smartphone portrait */
 @media screen and (max-width: 479px) {
 
-    h1 {
-        font-family: 'proxima-soft';
-        font-weight: 800;
-        font-size: 2.5rem;
-        line-height: 2.1rem;
-        width: min-content;
-        margin: .5rem;
+    .wrap {
+        margin: 3rem;
     }
 
     .nav-items {
         display: none;}
+
+    .hidden {
+        display: inline-block;
+    }
 
     .body-container {
         display: block;
@@ -595,10 +503,10 @@ and (min-width : 1200) {
     }
 
     .article-head-container {
-    display: inline-flex;
-    justify-content: space-around;
-    flex: auto;
-    margin-bottom: 1em;
+        display: inline-flex;
+        justify-content: space-around;
+        flex: auto;
+        margin-bottom: 1em;
     }
 
     .article-head {

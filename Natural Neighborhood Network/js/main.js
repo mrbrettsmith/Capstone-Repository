@@ -195,6 +195,20 @@ const navItems = document.getElementById('nav-items');
 //     contain.style.width = puzzColumnWidthAdjuster + 'px';
 // });
 
+function navItemPad() {
+    const navItems = document.getElementById('nav-items'); 
+    const windowWidth = window.innerWidth;
+
+    if (navItems.offsetWidth < windowWidth * 0.8) {
+       navItems.style.paddingTop = "1em";
+     } else {
+       navItems.style.paddingTop = "0"; 
+     }
+}
+
+window.addEventListener("resize", navItemPad);
+navItemPad();
+
 // MAKE NAV STICKY
 let stickyItem = document.getElementById('stickyNavBar');
 let stickyPosition = stickyItem.offsetTop;
