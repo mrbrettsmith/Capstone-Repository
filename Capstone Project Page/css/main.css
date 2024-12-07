@@ -253,15 +253,20 @@ nav {
 
 .article {
     margin-left: auto;
-    display: inline-flex;
+    display: flex;
     flex-direction: row;
     text-align: left; 
-    display: flex;
     gap: 3em;
     padding: 3em 0;
 }
 
+.articleContent {
+    display: flex;
+    flex-direction: column;
+}
+
 .articleTextBlock {
+    flex: auto;
     display: block;
     font-family: 'apparat';
     font-weight: 400;
@@ -269,6 +274,30 @@ nav {
     padding: 0;
     margin: .5rem;
 }
+
+.articleImageContainer {
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+    height: 100%;
+    width: 100%;
+    margin: .5rem;
+}
+
+.articleImageContainer img {
+    height: 100%;
+    width: 100%;
+}
+
+.articleImageContainer p {
+    font-family: 'apparat';
+    font-weight: 200;
+    font-size: 1rem;
+    padding: 0;
+    text-align:right;
+
+}
+
 
 .articleTitle {
     flex: 1 1 90%;
@@ -283,19 +312,52 @@ nav {
     align-items: center;
 }
 
-.split img {
+.splitHeroImg {
     height: 100%;
     width: 100%;
     flex: auto;
 }
 
-.split p {
+.splitHalfImg {
+    height: 100%;
     width: 100%;
-    flex: auto; 
+    flex: 1 1 50%;
+}
+
+.splitTextBlock {
+    display: flex;
+    font-family: 'apparat';
+    font-weight: 400;
+    font-size: 1.25rem;
+    padding: 0;
+    margin: .5rem;
+}
+
+.splitTextContainer {
+    flex: 1 1 50%;
+    gap: 3em;
+    padding: 3em 0;
+    align-items: center;
+}
+
+.splitPullQuote{
+    
+    flex: 1 1 50%; 
     font-family: 'proxima-soft';
     font-weight: 500;
     font-size: 1.8rem;
     line-height: 1.8rem;
+}
+/* Offset */
+
+.splitSmallContainer {
+    flex: 1 1 40%; 
+    display: block;
+}
+
+.splitLargeContainer {
+    display: block;
+    flex: 1 1 60%; 
 }
 
 /* Three Column */
