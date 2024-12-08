@@ -271,20 +271,25 @@ nav {
     font-family: 'apparat';
     font-weight: 400;
     font-size: 1.25rem;
+    line-height: 1.35rem;
     padding: 0;
     margin: .5rem;
+}
+
+.articleTextBlock p {
+    margin:0 0 .0 0;
 }
 
 .articleImageContainer {
     display: flex;
     flex-direction: column;
     flex: auto;
-    height: 100%;
-    width: 100%;
+
     margin: .5rem;
 }
 
 .articleImageContainer img {
+    flex: auto;
     height: 100%;
     width: 100%;
 }
@@ -295,13 +300,14 @@ nav {
     font-size: 1rem;
     padding: 0;
     text-align:right;
-
+    margin: .5rem 1rem 0 0;
+    font-style: italic;
 }
-
 
 .articleTitle {
     flex: 1 1 90%;
     padding-bottom: 1rem;
+    margin: .5rem 0 0 0;
 }
 
 /* Two Column */
